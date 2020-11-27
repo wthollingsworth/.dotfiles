@@ -1,3 +1,5 @@
 [user]
 	name = William T. Hollingsworth
 	email = william.t.hollingsworth@protonmail.com
+[core]
+	editor = nvim
