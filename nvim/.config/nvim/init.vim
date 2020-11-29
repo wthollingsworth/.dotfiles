@@ -4,24 +4,36 @@ function! PackagerInit() abort
     call packager#init()
 
     call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
-    call packager#add('reedes/vim-pencil')
-    call packager#add('rhysd/vim-gfm-syntax')
-    call packager#add('ap/vim-css-color')
-    call packager#add('tpope/vim-surround')
     call packager#add('tpope/vim-commentary')
-    call packager#add('ntpeters/vim-better-whitespace')
+    call packager#add('tpope/vim-surround')
     call packager#add('itchyny/lightline.vim')
-    call packager#add('vim-syntastic/syntastic')
-    call packager#add('universal-ctags/ctags')
     call packager#add('jiangmiao/auto-pairs')
-    call packager#add('junegunn/goyo.vim')
-    call packager#add('junegunn/limelight.vim')
+    call packager#add('neoclide/coc.nvim', { 'branch': 'release' })
+    call packager#add('ntpeters/vim-better-whitespace')
     call packager#add('preservim/nerdtree')
     call packager#add('preservim/tagbar')
-    call packager#add('arcticicestudio/nord-vim')
+    call packager#add('universal-ctags/ctags')
     call packager#add('honza/vim-snippets')
-    call packager#add('neoclide/coc.nvim', { 'branch': 'release' })
+    call packager#add('vim-syntastic/syntastic')
+
+    " colorscheme
+    call packager#add('arcticicestudio/nord-vim')
+
+    " markdown/writing
+    call packager#add('reedes/vim-pencil')
+    call packager#add('rhysd/vim-gfm-syntax')
+    call packager#add('junegunn/goyo.vim')
+    call packager#add('junegunn/limelight.vim')
+
+
+    " css
+    call packager#add('ap/vim-css-color')
+
+    " r rust
     call packager#add('rust-lang/rust.vim')
+
+    " fish
+    call packager#add('dag/vim-fish')
 
     call packager#clean()
 endfunction
