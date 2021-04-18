@@ -3,7 +3,7 @@ function! PackInit() abort
     packadd minpac
     call minpac#init()
 
-    call minpac#add('kristijanhusak/vim-minpac', { 'type': 'opt' })
+    call minpac#add('k-takata/minpac', { 'type': 'opt' })
     call minpac#add('tpope/vim-commentary')
     call minpac#add('tpope/vim-surround')
     call minpac#add('itchyny/lightline.vim')
