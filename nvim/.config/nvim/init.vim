@@ -1,49 +1,48 @@
-" Load the packager only when needed
-function! PackagerInit() abort
-    packadd vim-packager
-    call packager#init()
+" Load the minpac only when needed
+function! PackInit() abort
+    packadd minpac
+    call minpac#init()
 
-    call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
-    call packager#add('tpope/vim-commentary')
-    call packager#add('tpope/vim-surround')
-    call packager#add('itchyny/lightline.vim')
-    call packager#add('jiangmiao/auto-pairs')
-    call packager#add('neoclide/coc.nvim', { 'branch': 'release' })
-    call packager#add('ntpeters/vim-better-whitespace')
-    call packager#add('preservim/nerdtree')
-    call packager#add('preservim/tagbar')
-    call packager#add('universal-ctags/ctags')
-    call packager#add('honza/vim-snippets')
-    call packager#add('junegunn/fzf', { 'do': fzf#install() })
-    call packager#add('junegunn/fzf.vim')
-    call packager#add('vim-syntastic/syntastic')
+    call minpac#add('kristijanhusak/vim-minpac', { 'type': 'opt' })
+    call minpac#add('tpope/vim-commentary')
+    call minpac#add('tpope/vim-surround')
+    call minpac#add('itchyny/lightline.vim')
+    call minpac#add('jiangmiao/auto-pairs')
+    call minpac#add('neoclide/coc.nvim', { 'branch': 'release' })
+    call minpac#add('ntpeters/vim-better-whitespace')
+    call minpac#add('preservim/nerdtree')
+    call minpac#add('preservim/tagbar')
+    call minpac#add('universal-ctags/ctags')
+    call minpac#add('honza/vim-snippets')
+    call minpac#add('junegunn/fzf', { 'do': fzf#install() })
+    call minpac#add('junegunn/fzf.vim')
+    call minpac#add('vim-syntastic/syntastic')
 
     " colorscheme
-    call packager#add('arcticicestudio/nord-vim')
+    call minpac#add('arcticicestudio/nord-vim')
 
     " markdown/writing
-    call packager#add('reedes/vim-pencil')
-    call packager#add('rhysd/vim-gfm-syntax')
-    call packager#add('junegunn/goyo.vim')
-    call packager#add('junegunn/limelight.vim')
+    call minpac#add('reedes/vim-pencil')
+    call minpac#add('rhysd/vim-gfm-syntax')
+    call minpac#add('junegunn/goyo.vim')
+    call minpac#add('junegunn/limelight.vim')
 
 
     " css
-    call packager#add('ap/vim-css-color')
+    call minpac#add('ap/vim-css-color')
 
-    " r rust
-    call packager#add('rust-lang/rust.vim')
+    " rust
+    call minpac#add('rust-lang/rust.vim')
 
     " fish
-    call packager#add('dag/vim-fish')
+    call minpac#add('dag/vim-fish')
 
-    call packager#clean()
+    call minpac#clean()
 endfunction
 
-command! PackagerInstall call PackagerInit() | call packager#install()
-command! -bang PackagerUpdate call PackagerInit() | call packager#update({ 'force_hooks': '<bang>' })
-command! PackagerClean call PackagerInit() | call packager#clean()
-command! PackagerStatus call PackagerInit() | call packager#status()
+command! -bang PackUpdate call PackInit() | call minpac#update()
+command! PackClean call PackInit() | call minpac#clean()
+command! PackStatus call PackInit() | call minpac#status()
 
 filetype plugin indent on
 set encoding=utf-8
