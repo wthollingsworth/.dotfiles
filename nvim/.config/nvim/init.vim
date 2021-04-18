@@ -14,6 +14,8 @@ function! PackagerInit() abort
     call packager#add('preservim/tagbar')
     call packager#add('universal-ctags/ctags')
     call packager#add('honza/vim-snippets')
+    call packager#add('junegunn/fzf', { 'do': fzf#install() })
+    call packager#add('junegunn/fzf.vim')
     call packager#add('vim-syntastic/syntastic')
 
     " colorscheme

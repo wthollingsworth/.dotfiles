@@ -121,8 +121,20 @@ export XDG_CONFIG_HOME=${HOME}/.config
 export XDG_CACHE_HOME=${HOME}/.cache
 export XDG_DATA_HOME=${HOME}/.local/share
 
+# user binaries
+export PATH="${HOME}/.local/bin":"${PATH}"
+
 # add rust tools to path
 export PATH="${HOME}/.cargo/bin":"${PATH}"
+
+# reMarkable Connection Utility
+export PATH="${HOME}/.local/bin/RCU":"${PATH}"
+
+# fzf
+export PATH="${XDG_CONFIG_HOME}/nvim/pack/packager/start/fzf/bin":"${PATH}"
+export FZF_DEFAULT_COMMAND='rg --files'
+
+export BAT_CONFIG_PATH="${XDG_CONFIG_HOME}/bat/bat.conf"
 
 # do you have a moment to talk about our lord and savior (neo)vi(m)?
 alias vi="/usr/bin/nvim"
