@@ -384,7 +384,7 @@ mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: false
 
-  url:
+  # url:
     # URL launcher
     #
     # This program is executed when clicking on a text which is recognized as a URL.
@@ -397,7 +397,7 @@ mouse:
     #   - (Linux/BSD) xdg-open
     #   - (Windows) explorer
     #launcher:
-      program: elinks
+    #  program: elinks
     #  args: []
 
     # URL modifiers
