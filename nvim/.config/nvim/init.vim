@@ -17,6 +17,8 @@ function! PackInit() abort
     call minpac#add('junegunn/fzf', { 'do': fzf#install() })
     call minpac#add('junegunn/fzf.vim')
     call minpac#add('vim-syntastic/syntastic')
+    call minpac#add('mattn/emmet-vim')
+    call minpac#add('pangloss/vim-javascript')
 
     " colorscheme
     call minpac#add('arcticicestudio/nord-vim')
