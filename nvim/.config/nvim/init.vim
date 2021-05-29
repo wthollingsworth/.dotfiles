@@ -20,8 +20,9 @@ function! PackInit() abort
     call minpac#add('mattn/emmet-vim')
     call minpac#add('pangloss/vim-javascript')
 
-    " colorscheme
+    " colorschemes
     call minpac#add('arcticicestudio/nord-vim')
+    call minpac#add('morhetz/gruvbox')
 
     " markdown/writing
     call minpac#add('reedes/vim-pencil')
