@@ -7,7 +7,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd('packadd packer.nvim')
 end
 
-vim.cmd('autocmd BufWritePost plugins/init.lua PackerCompile')
+vim.cmd [[autocmd BufWritePost plugins/init.lua source plugins/init.lua | PackerCompile ]]
 
 return require('packer').startup({function(use)
 	use 'wbthomason/packer.nvim'
@@ -44,6 +44,11 @@ return require('packer').startup({function(use)
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
 	}
+
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        config = 'require("plugins.options.indent-blankline")'
+    }
 
     use {
         'kyazdani42/nvim-web-devicons',

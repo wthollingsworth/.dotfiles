@@ -18,6 +18,7 @@ opt.ignorecase = true     -- case insensitive search
 opt.smartcase = true      -- except when capitals are explicitly used
 
 opt.number = true         -- show line numbers
+vim.cmd [[ autocmd TermOpen * setlocal nonumber norelativenumber ]]
 
 opt.splitbelow = true     -- :vsplit's will appear below the current window
 opt.splitright = true     -- :split's will appear to the right of the current window
