@@ -63,6 +63,11 @@ return require('packer').startup({function(use)
     }
 
     use {
+        'matbme/JABS.nvim',
+        config = 'vim.api.nvim_set_keymap("n", "<Leader>jo", ":JABSOpen<CR>", { noremap = true })'
+    }
+
+    use {
         'hoob3rt/lualine.nvim',
         requires = 'kyazdani42/nvim-web-devicons',
         config = 'require("plugins.options.lualine")'
