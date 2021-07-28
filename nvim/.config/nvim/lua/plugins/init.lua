@@ -27,6 +27,7 @@ return require('packer').startup({function(use)
     }
 
     use 'tpope/vim-commentary'
+    use 'tpope/vim-surround'
 
     use 'justinmk/vim-sneak'
 
