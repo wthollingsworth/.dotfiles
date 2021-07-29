@@ -46,6 +46,8 @@ return require('packer').startup({function(use)
 		run = ':TSUpdate'
 	}
 
+    use 'folke/lua-dev.nvim'
+
     use {
         'lukas-reineke/indent-blankline.nvim',
         config = 'require("plugins.options.indent-blankline")'
@@ -93,6 +95,8 @@ return require('packer').startup({function(use)
 		'shaunsingh/nord.nvim',
 		config = 'require("plugins.options.nord")'
 	}
+
+    use '~/Projects/pomodoro.nvim'
 end,
 config = {
     display = {
