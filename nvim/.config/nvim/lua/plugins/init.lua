@@ -29,7 +29,10 @@ return require('packer').startup({function(use)
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
 
-    use 'justinmk/vim-sneak'
+    use {
+        'justinmk/vim-sneak',
+        config = 'require("plugins.options.vim-sneak")'
+    }
 
     use {
         'jghauser/mkdir.nvim',
@@ -96,7 +99,10 @@ return require('packer').startup({function(use)
 		config = 'require("plugins.options.nord")'
 	}
 
-    use '~/Projects/pomodoro.nvim'
+    use {
+        '~/Projects/pomodoro.nvim',
+         requires = 'MunifTanjim/nui.nvim'
+    }
 end,
 config = {
     display = {

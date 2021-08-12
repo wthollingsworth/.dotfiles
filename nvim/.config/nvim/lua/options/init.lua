@@ -24,3 +24,6 @@ opt.splitbelow = true     -- :vsplit's will appear below the current window
 opt.splitright = true     -- :split's will appear to the right of the current window
 
 opt.timeoutlen = 500     -- time to wait for a mapped sequence to complete
+
+-- For gnvim
+opt.guifont = 'CaskaydiaCove Nerd Font Mono'
