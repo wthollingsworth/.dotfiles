@@ -25,5 +25,7 @@ opt.splitright = true     -- :split's will appear to the right of the current wi
 
 opt.timeoutlen = 500     -- time to wait for a mapped sequence to complete
 
+opt.mouse = 'a'
+
 -- For gnvim
 opt.guifont = 'CaskaydiaCove Nerd Font Mono'

@@ -67,10 +67,16 @@ return require('packer').startup({function(use)
         config = 'require("plugins.options.telescope")'
     }
 
+    -- use {
+    --     'alvarosevilla95/luatab.nvim',
+    --     requires = 'kyazdani42/nvim-web-devicons',
+    --     config = 'require("plugins.options.luatab")'
+    -- }
+    
     use {
-        'alvarosevilla95/luatab.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = 'require("plugins.options.luatab")'
+        'romgrk/barbar.nvim',
+        requres = 'kayzdani42/nvim-web-devicons',
+        config = 'require("plugins.options.barbar")'
     }
 
     use {
