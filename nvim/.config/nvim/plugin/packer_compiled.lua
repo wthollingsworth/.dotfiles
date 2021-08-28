@@ -197,10 +197,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: barbar.nvim
-time([[Config for barbar.nvim]], true)
-try_loadstring("\27LJ\2\nW\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0016\0\0\0'\2\2\0B\0\2\1K\0\1\0\25plugins.options.tree\27plugins.options.barbar\frequire\0", "config", "barbar.nvim")
-time([[Config for barbar.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require("plugins.options.telescope")
+time([[Config for telescope.nvim]], false)
+-- Config for: nvim-lspinstall
+time([[Config for nvim-lspinstall]], true)
+require("plugins.options.nvim-lspinstall")
+time([[Config for nvim-lspinstall]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require("plugins.options.indent-blankline")
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: lspkind-nvim
+time([[Config for lspkind-nvim]], true)
+require("plugins.options.lspkind-nvim")
+time([[Config for lspkind-nvim]], false)
 -- Config for: nvim-web-devicons
 time([[Config for nvim-web-devicons]], true)
 require("nvim-web-devicons").get_icons()
@@ -209,6 +221,26 @@ time([[Config for nvim-web-devicons]], false)
 time([[Config for vim-sneak]], true)
 require("plugins.options.vim-sneak")
 time([[Config for vim-sneak]], false)
+-- Config for: nord.nvim
+time([[Config for nord.nvim]], true)
+require("plugins.options.nord")
+time([[Config for nord.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("plugins.options.lualine")
+time([[Config for lualine.nvim]], false)
+-- Config for: barbar.nvim
+time([[Config for barbar.nvim]], true)
+try_loadstring("\27LJ\2\nW\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0016\0\0\0'\2\2\0B\0\2\1K\0\1\0\25plugins.options.tree\27plugins.options.barbar\frequire\0", "config", "barbar.nvim")
+time([[Config for barbar.nvim]], false)
+-- Config for: mkdir.nvim
+time([[Config for mkdir.nvim]], true)
+require("plugins.options.mkdir")
+time([[Config for mkdir.nvim]], false)
+-- Config for: nvim-compe
+time([[Config for nvim-compe]], true)
+require("plugins.options.nvim-compe")
+time([[Config for nvim-compe]], false)
 -- Config for: dashboard-nvim
 time([[Config for dashboard-nvim]], true)
 require("plugins.options.dashboard")
@@ -217,38 +249,6 @@ time([[Config for dashboard-nvim]], false)
 time([[Config for which-key.nvim]], true)
 require("plugins.options.whichkey")
 time([[Config for which-key.nvim]], false)
--- Config for: nvim-compe
-time([[Config for nvim-compe]], true)
-require("plugins.options.nvim-compe")
-time([[Config for nvim-compe]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require("plugins.options.indent-blankline")
-time([[Config for indent-blankline.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require("plugins.options.telescope")
-time([[Config for telescope.nvim]], false)
--- Config for: lspkind-nvim
-time([[Config for lspkind-nvim]], true)
-require("plugins.options.lspkind-nvim")
-time([[Config for lspkind-nvim]], false)
--- Config for: nvim-lspinstall
-time([[Config for nvim-lspinstall]], true)
-require("plugins.options.nvim-lspinstall")
-time([[Config for nvim-lspinstall]], false)
--- Config for: nord.nvim
-time([[Config for nord.nvim]], true)
-require("plugins.options.nord")
-time([[Config for nord.nvim]], false)
--- Config for: mkdir.nvim
-time([[Config for mkdir.nvim]], true)
-require("plugins.options.mkdir")
-time([[Config for mkdir.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require("plugins.options.lualine")
-time([[Config for lualine.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

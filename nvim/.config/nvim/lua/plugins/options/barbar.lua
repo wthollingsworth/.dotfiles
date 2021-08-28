@@ -18,8 +18,8 @@ vim.g.bufferline = {
   clickable = true,
 
   -- Excludes buffers from the tabline
-  -- exclude_ft = ['javascript'],
-  -- exclude_name = ['package.json'],
+  --exclude_ft = ['javascript'],
+  --exclude_name = ['package.json'],
 
   -- Enable/disable icons
   -- if set to 'numbers', will show buffer index in the tabline
@@ -103,3 +103,5 @@ map('n', '<Space>bl', ':BufferOrderByLanguage<CR>', opts)
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used
+
+vim.cmd [[autocmd TermOpen * setlocal nobuflisted]]
