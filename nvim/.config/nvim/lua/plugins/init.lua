@@ -68,15 +68,17 @@ return require('packer').startup({function(use)
     }
 
     use {
-        'romgrk/barbar.nvim',
-        requres = 'kayzdani42/nvim-web-devicons',
-        config = 'require("plugins.options.barbar")'
+        'kyazdani42/nvim-tree.lua',
+        requires = 'kyazdani42/nvim-web-devicons',
     }
 
     use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = 'require("plugins.options.tree")'
+        'romgrk/barbar.nvim',
+        requres = 'kayzdani42/nvim-web-devicons',
+        config = function()
+            require('plugins.options.barbar')
+            require('plugins.options.tree')
+        end
     }
 
     use {
