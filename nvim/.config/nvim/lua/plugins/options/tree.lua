@@ -3,7 +3,9 @@ vim.g.nvim_tree_width = 30
 tree.toggle = function()
   require'nvim-tree'.toggle()
   if require'nvim-tree.view'.win_open() then
-    require'bufferline.state'.set_offset(vim.g.nvim_tree_width + 1, 'File Tree')
+    local title = 'File Explorer'
+    local offset = string.rep(' ', (vim.g.nvim_tree_width - #title) / 2)
+    require'bufferline.state'.set_offset(vim.g.nvim_tree_width+1, offset .. title)
     vim.cmd('wincmd w')
   else
     require'bufferline.state'.set_offset(0)
