@@ -20,7 +20,7 @@ timer:start(5, 0, vim.schedule_wrap(function()
     tree.toggle()
     vim.api.nvim_set_keymap(
         'n',
-        '<Leader>',
+        '<Leader>t',
         ':lua require"plugins.options.tree".toggle()<CR>',
         { noremap = true, silent = true }
     )
