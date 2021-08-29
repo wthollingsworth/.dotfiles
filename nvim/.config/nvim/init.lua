@@ -13,3 +13,5 @@ function _G.dump(...)
     print(unpack(objects))
     return ...
 end
+
+vim.cmd [[autocmd VimEnter * silent! :cd %:p:h]]
