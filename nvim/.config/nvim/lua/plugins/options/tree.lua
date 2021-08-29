@@ -26,4 +26,11 @@ timer:start(5, 0, vim.schedule_wrap(function()
     )
 end))
 
+vim.cmd [[highlight NvimTreeNormal guibg=#3B4252]]
+vim.cmd [[highlight NvimTreeVertSplit guifg=#3B4252 guibg=#3B4252]]
+vim.cmd [[highlight NvimTreeStatusLine guibg=#3B4252]]
+vim.g.nvim_tree_root_folder_modifier = ':.:t'
+vim.g.nvim_tree_add_trailing = 1
+vim.g.nvim_tree_hijack_cursor = 1
+
 return tree

@@ -27,5 +27,5 @@ opt.timeoutlen = 500     -- time to wait for a mapped sequence to complete
 
 opt.mouse = 'a'
 
--- For gnvim
+-- For Neovide
 opt.guifont = 'CaskaydiaCove Nerd Font Mono'

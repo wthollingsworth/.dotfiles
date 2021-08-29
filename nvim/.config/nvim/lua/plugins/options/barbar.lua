@@ -105,3 +105,4 @@ map('n', '<Space>bl', ':BufferOrderByLanguage<CR>', opts)
 -- :BarbarDisable - very bad command, should never be used
 
 vim.cmd [[autocmd TermOpen * setlocal nobuflisted]]
+vim.cmd [[highlight TablineFill guibg=#3B4252]]
