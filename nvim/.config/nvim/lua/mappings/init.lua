@@ -34,3 +34,10 @@ map('n', '<C-l>', '<C-w>l')
 
 -- Be consistent with C and D, which reach the end of the line
 map('n', 'Y', 'y$')
+
+-- System clipboard integration
+vim.api.nvim_set_keymap('n', '<C-c>', '"+y', { silent = true })
+vim.api.nvim_set_keymap('v', '<C-c>', '"+y', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-v>', '"+p', { silent = true })
+map('i', '<C-v>', '<C-r>+')
+map('c', '<C-v>', '<C-r>+')

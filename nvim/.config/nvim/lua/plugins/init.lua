@@ -43,6 +43,7 @@ return require('packer').startup({function(use)
     use 'ap/vim-css-color'
     use 'pangloss/vim-javascript'
     use 'nikvdp/ejs-syntax'
+    use 'MaxMEllon/vim-jsx-pretty'
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
