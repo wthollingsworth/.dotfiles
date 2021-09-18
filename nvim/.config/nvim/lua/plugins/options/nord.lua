@@ -5,3 +5,4 @@ vim.g.nord_cursorline_transparent = false
 vim.g.nord_enable_sidebar_background = false
 
 require('nord').set()
+vim.cmd [[highlight TabLineFill guibg=#3B4252]]
