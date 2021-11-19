@@ -2,7 +2,15 @@ local function map(mode, lhs, rhs)
 	local options = { noremap = true, silent = true }
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
+
+--Remap space as leader key
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+--Remap for dealing with word wrap
+vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
+vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
 
 map('i', 'jk', '<esc>')
 map('t', 'jk', '<C-\\><C-n>')
@@ -12,14 +20,6 @@ map('n', '<A-h>', ':vertical resize -5<cr>')
 map('n', '<A-j>', ':resize +5<cr>')
 map('n', '<A-k>', ':resize -5<cr>')
 map('n', '<A-l>', ':vertical resize +5<cr>')
-
--- Treat long, wrapped lines as multiple lines when scrolling
--- map('', 'k', 'gk')
--- map('', 'j', 'gj')
-
--- But still allow scrolling as if one line
--- map('', 'gk', 'k')
--- map('', 'gj', 'j')
 
 -- Move between windows with hjkl
 -- Note the \\ so that Lua gets a literal \ to send to Neovim
@@ -31,9 +31,6 @@ map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-l>', '<C-w>l')
-
--- Be consistent with C and D, which reach the end of the line
-map('n', 'Y', 'y$')
 
 -- System clipboard integration
 vim.api.nvim_set_keymap('n', '<C-c>', '"+y', { silent = true })

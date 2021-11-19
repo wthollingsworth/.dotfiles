@@ -1,7 +1,7 @@
 require('lualine').setup {
-    sections = {
-        lualine_c = { 'filename', require'pomodoro'.statusline }
-    },
+    -- sections = {
+    --     lualine_c = { 'filename', require'pomodoro'.statusline }
+    -- },
     options = {
         theme = 'nord',
         section_separators = {'', ''},
