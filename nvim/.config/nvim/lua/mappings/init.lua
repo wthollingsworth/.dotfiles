@@ -5,7 +5,7 @@ local keymap = require('astronauta.keymap')
 
 -- Pressing escape is a workout for your pinky and this is faster.
 keymap.inoremap { 'jk', '<esc>' }
-keymap.tnoremap { 'jk', '<C-\\><C-n' }
+keymap.tnoremap { 'jk', '<C-\\><C-n>' }
 
 -- Remap for dealing with word wrap
 keymap.nnoremap {
