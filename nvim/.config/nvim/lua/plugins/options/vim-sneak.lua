@@ -1,6 +1,0 @@
-vim.api.nvim_set_keymap('n', 'z', '<Plug>Sneak_s', {})
-vim.api.nvim_set_keymap('n', 'Z', '<Plug>Sneak_S', {})
-vim.api.nvim_set_keymap('x', 'z', '<Plug>Sneak_s', {})
-vim.api.nvim_set_keymap('x', 'Z', '<Plug>Sneak_S', {})
-vim.api.nvim_set_keymap('o', 'z', '<Plug>Sneak_s', {})
-vim.api.nvim_set_keymap('o', 'Z', '<Plug>Sneak_S', {})

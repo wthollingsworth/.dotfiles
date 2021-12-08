@@ -1,37 +1,120 @@
-vim.o.wrap = true
-vim.o.termguicolors = true
+-- Enable filetype detection, and the usage of filetype plugins and
+-- indent plugins from ftplugin/ and indent/ in the runtimepath
+vim.cmd [[ filetype plugin indent on ]]
 
-vim.o.expandtab = true      -- use spaces instead of tabs
-vim.o.tabstop = 4           -- number of spaces in a tab
-vim.o.softtabstop = 4       -- same as tabstop, except for editing operations
-vim.o.shiftwidth = 4        -- number of columsn for shifting (i.e., Shift+>)
+-- vim.opt provides option objects that allow setting vim options in
+-- more idiomatic lua.  There is also vim.o, which is closer to using
+-- :set while editing.
+local opt = vim.opt
 
-vim.o.cindent = true        -- use C/C++ indentation conventions
+-- Disable hit-enter prompts for ins-completion-menu messages.
+opt.shortmess:append { c = true, }
 
-vim.o.modeline = true       -- read vim.oions from modelines
+-- Hide buffers instead of unloading them when they aren't displayed.
+-- This means that Neovim won't ask you to save when leaving an
+-- unwritten buffer, but it can be useful if you are using a tabline
+-- plugin that shows you if you have unwritten changes.
+--opt.hidden = true
 
-vim.o.incsearch = true      -- incremental search
-vim.o.hlsearch = true       -- highlight search results
-vim.o.ignorecase = true     -- case insensitive search
-vim.o.smartcase = true      -- except when capitals are explicitly used
+-- Tells Neovim which keys that move the cursor left and right can wrap
+-- to the previous/next line when the cursor is on the first/last
+-- character in the line.
+--
+-- We use square brackets to append to the table since some of the symbols
+-- can't work as bare keys.
+opt.whichwrap:append {
+	['<'] = true, -- <Left>, Normal/Visual
+	['>'] = true, -- <Right>, Normal/Visual
+	['['] = true, -- <Left>, Insert/Replace
+	[']'] = true, -- <Right>, Insert/Replace
+	['b'] = true, -- <Backspace>
+	['s'] = true, -- <Space>
+}
 
-vim.wo.number = true         -- show line numbers
-vim.cmd [[ autocmd TermOpen * setlocal nonumber norelativenumber ]]
+-- Sets the height of the popup menu used for things like command
+-- completion (:h ins-completion-menu).
+opt.pumheight =  10
 
-vim.o.splitbelow = true     -- :vsplit's will appear below the current window
-vim.o.splitright = true     -- :split's will appear to the right of the current window
+-- The file encoding to use when writing to disk.  This is actually the
+-- default, but...
+opt.fileencoding = 'utf-8'
 
-vim.o.timeoutlen = 500     -- time to wait for a mapped sequence to complete
+-- Sets the height of the command line.
+opt.cmdheight = 2
 
-vim.o.mouse = 'a'
+-- Open splits in a more intuitive direction.
+opt.splitbelow = true -- :sp[lit] opens below instead of above
+opt.splitright = true -- :vsp[lit] opens right instead of left
 
--- Decrease update time
-vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
+-- Use :highlight attributes meant for gvim in terminal.  Terminals
+-- must support 24-bit RGB color.
+opt.termguicolors = true
 
-vim.o.breakindent = true
+-- Number of milliseconds of inactivity before writing to a swap file.
+opt.updatetime = 250
 
-vim.o.undofile = true
+-- Save undo history across nvim invocations.
+opt.undofile = true
 
--- For Neovide
-vim.o.guifont = 'CaskaydiaCove Nerd Font Mono'
+-- Time in milliseconds to wait for a mapped sequence to complete.
+opt.timeoutlen = 100
+
+-- Integrate with the system clipboard.  That is, allow things like
+-- <C-V> -> p and y -> <C-V>.  This will include the selection clipboard
+-- on Linux (i.e., the clipboard used when selecting text but not
+-- explicitly copying it.).
+opt.clipboard:append {
+	unnamed = true,
+	unnamedplus = true,
+}
+
+-- Highlight search matches.
+opt.hlsearch = true
+
+-- Ignore case when searching
+opt.ignorecase = true
+
+-- Don't ignore case when searching if a capital is included in the
+-- search.
+opt.smartcase = true
+
+-- Minimum number of lines above or below the cursor when scrolling.
+opt.scrolloff = 3
+
+-- Minimum number of columns left or right of the cursor when scrolling.
+opt.sidescrolloff = 5
+
+-- Enable the mouse (even though it feels blasphemous).
+opt.mouse:append { a = true, }
+
+-- Wrap lines that are too long for the window.
+opt.wrap = true
+
+-- Display line numbers.
+opt.number = true
+
+-- Highlight the current line.
+--opt.cursorline = true
+
+-- Draw version control signs in the number column.
+opt.signcolumn = 'number'
+
+-- Size of tabs.
+opt.tabstop = 2 -- Number of spaces in a tab
+opt.softtabstop = 2 -- Number of spaces in a tab for editing operations
+opt.shiftwidth = 2 -- Number of columns for things like Shift+>
+
+-- Insert spaces when tab is pressed.
+opt.expandtab = true
+
+-- Autoindent lines.
+opt.autoindent = true
+
+-- Honor options in modelines.
+opt.modeline = true
+
+-- TODO: Read :h fillchars (mabye find it through Telescope!) and see
+-- if anything else might be useful.
+-- This gets rid of the tidles at the end of a buffer, but maybe you
+-- can get this by filetype so it's only in NvimTree.
+opt.fillchars:append { eob = " " }

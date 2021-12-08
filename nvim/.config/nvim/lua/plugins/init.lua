@@ -2,119 +2,92 @@
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+	vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
 vim.cmd [[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
-  augroup end
+	augroup Packer
+	autocmd!
+	autocmd BufWritePost init.lua PackerCompile
+	augroup end
 ]]
 
 local use = require('packer').use
 return require('packer').startup({function()
-    use 'wbthomason/packer.nvim' -- Package manager
-    
-    use 'tpope/vim-fugitive' -- Git commands in nvim
-    use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
-    use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
-    use 'tpope/vim-surround'
+	-- Packer can manage itself
+	use 'wbthomason/packer.nvim'
 
-    -- UI to select things (files, grep results, open buffers...)
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {'nvim-lua/plenary.nvim'},
-        config = 'require("plugins.options.telescope")'
-    }
+  -- Keymapping (to be merged into neovim core)
+  use  'tjdevries/astronauta.nvim'
 
-    -- Add indentation guides even on blank lines
-    use {
-        'lukas-reineke/indent-blankline.nvim',
-        config = 'require("plugins.options.indent-blankline")'
-    }
+  -- On screen keymapping help
+  use  { 
+    'folke/which-key.nvim',
+    config = [[ require('plugins.options.which-key') ]],
+  }
 
-    -- Highlight, edit, and navigate code using a fast incremental parsing library
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        config = 'require("plugins.options.treesitter")'
-    }
-
-    -- Additional text objects for treesitter
-    use 'nvim-treesitter/nvim-treesitter-textobjects'
-
-    use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-    use {
-        'onsails/lspkind-nvim',
-        config = 'require("plugins.options.lspkind-nvim")'
-    }
-
-    -- Autocompletion plugin
-    use {
-        'hrsh7th/nvim-cmp',
-        config = 'require("plugins.options.nvim-cmp")'
-    }
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'saadparwaiz1/cmp_luasnip'
-    use 'L3MON4D3/LuaSnip' -- Snippets plugin
-
-    use {
-        'justinmk/vim-sneak',
-        config = 'require("plugins.options.vim-sneak")'
-    }
-
-    use {
-        'jghauser/mkdir.nvim',
-        config = 'require("plugins.options.mkdir")'
-    }
-
-    use 'ap/vim-css-color'
-    use 'tpope/vim-endwise'
-
-    use {
-        'kyazdani42/nvim-web-devicons',
-        config = 'require("nvim-web-devicons").get_icons()'
-    }
-
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
-    }
-
-    use {
-        'romgrk/barbar.nvim',
-        requres = 'kayzdani42/nvim-web-devicons',
-        config = function()
-            require('plugins.options.barbar')
-            require('plugins.options.tree')
-        end
-    }
-
-    use {
-        'hoob3rt/lualine.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = 'require("plugins.options.lualine")'
-    }
-
-    use {
-        'folke/which-key.nvim',
-        config = 'require("plugins.options.whichkey")'
-    }
-
-    use {
-        'glepnir/dashboard-nvim',
-        config = 'require("plugins.options.dashboard")'
-    }
-
+	-- Highlight, edit, and navigate code using a fast incremental
+  -- parsing library
 	use {
-		'shaunsingh/nord.nvim',
-		config = 'require("plugins.options.nord")'
+		'nvim-treesitter/nvim-treesitter',
+		-- Update the language parsers when updating Treesitter
+		run = ":TSUpdate",
+		config = [[ require('plugins.options.treesitter') ]],
 	}
+
+  -- Treesitter plugins
+  use 'windwp/nvim-ts-autotag' -- autoclose and rename HTML tags
+  use 'p00f/nvim-ts-rainbow' -- rainbow parentheses
+
+  -- Statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = [[ require('plugins.options.lualine') ]],
+  }
+  
+  -- Tabline
+  use {
+    'kdheepak/tabline.nvim',
+    requires = { 
+      { 'hoob3rt/lualine.nvim', opt = true },
+      { 'kyazdani42/nvim-web-devicons', opt = true }
+    },
+    config = [[ require('plugins.options.tabline') ]],
+  }
+
+  -- File Explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = { 'kyazdani42/nvim-web-devicons' }, -- for file icons
+    config = [[ require('plugins.options.nvim-tree') ]],
+  }
+
+  -- UI to select things (files, grep results, open buffers...)
+  -- Lots of dependencies here (recommended and optional), run
+  -- :checkhealth telescope to see what you might need.
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', },
+    },
+    config = [[ require('plugins.options.telescope') ]],
+  }
+
+	-- Colorscheme
+	use 'shaunsingh/nord.nvim'
+
+  -- Editing
+  use {
+    'windwp/nvim-autopairs',
+    config = [[ require('plugins.options.nvim-autopairs') ]],
+  }
 end,
 config = {
-    display = {
-        open_fn = function()
-            return require('packer.util').float({ border = 'single' })
-        end
-    }
+	display = {
+		open_fn = function()
+			return require('packer.util').float({ border = 'single' })
+		end
+	}
 }})
