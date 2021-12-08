@@ -1,2 +1,4 @@
 nvim/.config/nvim/pack
 zsh/.config/zsh/.oh-my-zsh
+zsh/.config/zsh/.zshrc.local
+zsh/.config/zsh/.zcompdump*

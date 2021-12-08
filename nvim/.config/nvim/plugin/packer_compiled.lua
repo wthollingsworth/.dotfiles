@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/drwhattheheck/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/drwhattheheck/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/drwhattheheck/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/drwhattheheck/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/drwhattheheck/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/whollingsworth/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/whollingsworth/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/whollingsworth/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/whollingsworth/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/whollingsworth/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -71,84 +71,84 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["astronauta.nvim"] = {
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/astronauta.nvim",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/astronauta.nvim",
     url = "https://github.com/tjdevries/astronauta.nvim"
   },
   ["lualine.nvim"] = {
     config = { " require('plugins.options.lualine') " },
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nord.nvim"] = {
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/nord.nvim",
     url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nvim-autopairs"] = {
     config = { " require('plugins.options.nvim-autopairs') " },
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-tree.lua"] = {
     config = { " require('plugins.options.nvim-tree') " },
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     config = { " require('plugins.options.treesitter') " },
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-ts-autotag"] = {
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-ts-rainbow"] = {
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
     url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["tabline.nvim"] = {
     config = { " require('plugins.options.tabline') " },
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/tabline.nvim",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/tabline.nvim",
     url = "https://github.com/kdheepak/tabline.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
   ["telescope.nvim"] = {
     config = { " require('plugins.options.telescope') " },
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["which-key.nvim"] = {
     config = { " require('plugins.options.which-key') " },
     loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    path = "/Users/whollingsworth/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
   }
 }
@@ -158,14 +158,18 @@ time([[Defining packer_plugins]], false)
 time([[Config for telescope.nvim]], true)
  require('plugins.options.telescope') 
 time([[Config for telescope.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+ require('plugins.options.treesitter') 
+time([[Config for nvim-treesitter]], false)
 -- Config for: tabline.nvim
 time([[Config for tabline.nvim]], true)
  require('plugins.options.tabline') 
 time([[Config for tabline.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
- require('plugins.options.which-key') 
-time([[Config for which-key.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+ require('plugins.options.nvim-autopairs') 
+time([[Config for nvim-autopairs]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
  require('plugins.options.lualine') 
@@ -174,14 +178,10 @@ time([[Config for lualine.nvim]], false)
 time([[Config for nvim-tree.lua]], true)
  require('plugins.options.nvim-tree') 
 time([[Config for nvim-tree.lua]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
- require('plugins.options.nvim-autopairs') 
-time([[Config for nvim-autopairs]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
- require('plugins.options.treesitter') 
-time([[Config for nvim-treesitter]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+ require('plugins.options.which-key') 
+time([[Config for which-key.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

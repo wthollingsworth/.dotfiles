@@ -5,7 +5,6 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 
 # If you come from bash you might have to change your $PATH.
 export PATH="${HOME}/.local/bin/${HOME}/bin:/usr/local/bin:${PATH}"
-compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
 
 # Path to your oh-my-zsh installation.
 export ZSH="${XDG_CONFIG_HOME}/zsh/.oh-my-zsh"
@@ -87,6 +86,7 @@ plugins=(
 )
 
 source "${ZSH}/oh-my-zsh.sh"
+compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
 
 # User configuration
 
@@ -120,6 +120,11 @@ alias vi="/usr/bin/nvim"
 alias vim="/usr/bin/nvim"
 alias vimdiff="/usr/bin/nvim -d"
 bindkey -v
+
+if [[ -e "${XDG_CONFIG_HOME}/zsh/.zshrc.local" ]]
+then
+  source "${XDG_CONFIG_HOME}/zsh/.zshrc.local"
+fi
 
 eval "$(starship init zsh)"
 neofetch
