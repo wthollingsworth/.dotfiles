@@ -17,14 +17,14 @@ return require('packer').startup({function()
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
-  -- Keymapping (to be merged into neovim core)
-  use  'tjdevries/astronauta.nvim'
-
   -- On screen keymapping help
   use  { 
     'folke/which-key.nvim',
     config = [[ require('plugins.options.which-key') ]],
   }
+
+  -- Keymapping (to be merged into neovim core)
+  use  'tjdevries/astronauta.nvim'
 
 	-- Highlight, edit, and navigate code using a fast incremental
   -- parsing library

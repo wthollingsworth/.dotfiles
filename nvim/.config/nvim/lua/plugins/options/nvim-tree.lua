@@ -15,6 +15,9 @@ require'nvim-tree'.setup {
 local keymap = require('astronauta.keymap')
 keymap.nnoremap { '<C-n>', ':NvimTreeToggle<CR>' }
 
+local wk = require('which-key')
+wk.register({ ['<C-n>'] = { nil, 'Toggle NvimTree pane' } })
+
 --vim.cmd [[highlight NvimTreeNormal guibg=#3B4252]]
 --vim.cmd [[highlight NvimTreeVertSplit guifg=#3B4252 guibg=#3B4252]]
 --vim.cmd [[highlight NvimTreeStatusLine guibg=#3B4252]]

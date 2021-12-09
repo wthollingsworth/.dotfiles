@@ -4,6 +4,8 @@ require('telescope').load_extension('fzf')
 -- the arguments to :Telescope.  Or just run :Telescope to search for
 -- them in Telescope.
 local keymap = require('astronauta.keymap')
+local mappings = { f = { name = 'telescope' } }
+local opts = { prefix = '<leader>' }
 
 -- Fuzzy file search
 keymap.nnoremap {
@@ -12,6 +14,7 @@ keymap.nnoremap {
     require('telescope.builtin').find_files()
   end
 }
+mappings.f.f = { nil, 'Find File' }
 
 -- Invoke Ripgrep from Neovim
 keymap.nnoremap {
@@ -20,6 +23,7 @@ keymap.nnoremap {
     require('telescope.builtin').live_grep()
   end
 }
+mappings.f.g = { nil, 'Grep Files' }
 
 -- Like BufExplorer
 keymap.nnoremap {
@@ -28,6 +32,7 @@ keymap.nnoremap {
     require('telescope.builtin').buffers()
   end
 }
+mappings.f.b = { nil, 'Find Buffer' }
 
 -- Search Neovim help pages.
 keymap.nnoremap {
@@ -36,3 +41,8 @@ keymap.nnoremap {
     require('telescope.builtin').help_tags()
   end
 }
+mappings.f.h = { nil, 'Find Neovim Help' }
+
+-- Tell which-key about the mappings.
+local wk = require('which-key')
+wk.register(mappings, opts)
