@@ -21,3 +21,19 @@ wk.register({ ['<C-n>'] = { nil, 'Toggle NvimTree pane' } })
 --vim.cmd [[highlight NvimTreeNormal guibg=#3B4252]]
 --vim.cmd [[highlight NvimTreeVertSplit guifg=#3B4252 guibg=#3B4252]]
 --vim.cmd [[highlight NvimTreeStatusLine guibg=#3B4252]]
+
+-- This gets rid of the tildes that Neovim shows at the end of a
+-- buffer.
+--
+-- Ideally, we'd be able to use fillchars for this and set it in
+-- ftplugin/NvimTree.lua, since the plugin sets the filetype for
+-- its buffers to NvimTree, but that's only working for me after
+-- explicitly setting the filetype with :set ft=NvimTree.
+--
+--     local opt_local = vim.opt_local
+--     opt_local.fillchars:append { eob = " " }
+-- 
+-- So instead we'll just change the color of the tildes, which has
+-- the same result visually.
+vim.cmd [[ highlight NvimTreeEndOfBuffer guifg=bg ]]
+

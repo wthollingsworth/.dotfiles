@@ -112,9 +112,3 @@ opt.autoindent = true
 
 -- Honor options in modelines.
 opt.modeline = true
-
--- TODO: Read :h fillchars (mabye find it through Telescope!) and see
--- if anything else might be useful.
--- This gets rid of the tidles at the end of a buffer, but maybe you
--- can get this by filetype so it's only in NvimTree.
-opt.fillchars:append { eob = " " }
