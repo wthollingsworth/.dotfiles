@@ -104,6 +104,12 @@ _G.packer_plugins = {
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gitsigns.nvim"] = {
+    config = { " require('plugins.options.gitsigns') " },
+    loaded = true,
+    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -131,6 +137,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    config = { " require('plugins.options.nvim-colorizer') " },
+    loaded = true,
+    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lsp-installer"] = {
     config = { " require('plugins.options.nvim-lsp-installer') " },
@@ -214,42 +226,50 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
- require('plugins.options.treesitter') 
-time([[Config for nvim-treesitter]], false)
--- Config for: tabline.nvim
-time([[Config for tabline.nvim]], true)
- require('plugins.options.tabline') 
-time([[Config for tabline.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
- require('plugins.options.which-key') 
-time([[Config for which-key.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
- require('plugins.options.lualine') 
-time([[Config for lualine.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
- require('plugins.options.nvim-cmp') 
-time([[Config for nvim-cmp]], false)
--- Config for: vim-vsnip
-time([[Config for vim-vsnip]], true)
- require('plugins.options.vim-vsnip') 
-time([[Config for vim-vsnip]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
- require('plugins.options.nvim-tree') 
-time([[Config for nvim-tree.lua]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
- require('plugins.options.nvim-autopairs') 
-time([[Config for nvim-autopairs]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
  require('plugins.options.telescope') 
 time([[Config for telescope.nvim]], false)
+-- Config for: tabline.nvim
+time([[Config for tabline.nvim]], true)
+ require('plugins.options.tabline') 
+time([[Config for tabline.nvim]], false)
+-- Config for: vim-vsnip
+time([[Config for vim-vsnip]], true)
+ require('plugins.options.vim-vsnip') 
+time([[Config for vim-vsnip]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+ require('plugins.options.nvim-cmp') 
+time([[Config for nvim-cmp]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+ require('plugins.options.gitsigns') 
+time([[Config for gitsigns.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+ require('plugins.options.lualine') 
+time([[Config for lualine.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+ require('plugins.options.treesitter') 
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+ require('plugins.options.nvim-colorizer') 
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+ require('plugins.options.which-key') 
+time([[Config for which-key.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+ require('plugins.options.nvim-autopairs') 
+time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+ require('plugins.options.nvim-tree') 
+time([[Config for nvim-tree.lua]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd cmp-nvim-lsp ]]

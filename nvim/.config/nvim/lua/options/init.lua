@@ -97,7 +97,7 @@ opt.number = true
 --opt.cursorline = true
 
 -- Draw version control signs in the number column.
-opt.signcolumn = 'number'
+opt.signcolumn = 'yes'
 
 -- Size of tabs.
 opt.tabstop = 2 -- Number of spaces in a tab

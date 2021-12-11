@@ -114,6 +114,21 @@ return require('packer').startup({function()
 
 	-- Colorscheme
 	use 'shaunsingh/nord.nvim'
+
+  -- HTML/CSS color visualization
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = [[ require('plugins.options.nvim-colorizer') ]],
+  }
+
+  -- Display information from git in signcolumn and virtual text
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = [[ require('plugins.options.gitsigns') ]],
+  }
 end,
 config = {
 	display = {
