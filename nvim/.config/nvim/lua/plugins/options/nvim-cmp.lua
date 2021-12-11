@@ -60,7 +60,7 @@ cmp.setup({
       end
     end, { "i", "s" }),
   },
-  
+
   -- set completion sources
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
