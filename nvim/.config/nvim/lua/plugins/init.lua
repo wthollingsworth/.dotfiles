@@ -17,6 +17,22 @@ return require('packer').startup({function()
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
+  -- For working with Neovim Lua
+  use 'folke/lua-dev.nvim'
+
+  -- LSP
+  use 'neovim/nvim-lspconfig'
+
+  -- Installs language servers
+  use {
+    'williamboman/nvim-lsp-installer',
+    config = [[ require('plugins.options.nvim-lsp-installer') ]],
+    after = 'cmp-nvim-lsp',
+  }
+
+  -- Adds pictocgrams to lsp completion menus
+  use 'onsails/lspkind-nvim'
+
   -- On screen keymapping help
   use  { 
     'folke/which-key.nvim',
@@ -74,6 +90,18 @@ return require('packer').startup({function()
     },
     config = [[ require('plugins.options.telescope') ]],
   }
+
+  -- Completion
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use {
+    'hrsh7th/nvim-cmp',
+    config = [[ require('plugins.options.nvim-cmp') ]]
+  }
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
 
 	-- Colorscheme
 	use 'shaunsingh/nord.nvim'
