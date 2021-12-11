@@ -95,19 +95,25 @@ return require('packer').startup({function()
   use 'hrsh7th/cmp-cmdline'
   use {
     'hrsh7th/nvim-cmp',
-    config = [[ require('plugins.options.nvim-cmp') ]]
+    config = [[ require('plugins.options.nvim-cmp') ]],
   }
   use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+  use {
+    'hrsh7th/vim-vsnip',
+    config = [[ require('plugins.options.vim-vsnip') ]],
+  }
 
-	-- Colorscheme
-	use 'shaunsingh/nord.nvim'
+  -- Snippet sources
+  use 'rafamadriz/friendly-snippets'
 
-  -- Editing
+  -- Automatic brace and keyword matching
   use {
     'windwp/nvim-autopairs',
     config = [[ require('plugins.options.nvim-autopairs') ]],
   }
+
+	-- Colorscheme
+	use 'shaunsingh/nord.nvim'
 end,
 config = {
 	display = {
