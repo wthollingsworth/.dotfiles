@@ -17,9 +17,6 @@ return require('packer').startup({function()
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
-  -- For working with Neovim Lua
-  use 'folke/lua-dev.nvim'
-
   -- LSP
   use 'neovim/nvim-lspconfig'
 

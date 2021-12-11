@@ -5,6 +5,10 @@
 -- - noinsert: do not insert any text until the user makes a selection
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 
+local cmp = require('cmp')
+local lspkind = require('lspkind')
+
+-- for tab completion
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -14,15 +18,15 @@ local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-local cmp = require('cmp')
-local lspkind = require('lspkind')
-
 cmp.setup({
+  -- tell cmp what snippet plugin we're using
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
     end,
   },
+
+  -- set mappins for the completion menu
   mapping = {
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -31,9 +35,11 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
+
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
+
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -54,12 +60,16 @@ cmp.setup({
       end
     end, { "i", "s" }),
   },
+  
+  -- set completion sources
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
   }, {
     { name = 'buffer' },
   }),
+
+  -- formatting for the completion popup
   formatting = {
     format = lspkind.cmp_format({
       with_text = true,
