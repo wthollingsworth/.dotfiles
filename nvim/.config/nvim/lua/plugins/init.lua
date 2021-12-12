@@ -31,7 +31,7 @@ return require('packer').startup({function()
   use 'onsails/lspkind-nvim'
 
   -- On screen keymapping help
-  use  { 
+  use  {
     'folke/which-key.nvim',
     config = [[ require('plugins.options.which-key') ]],
   }
@@ -58,7 +58,7 @@ return require('packer').startup({function()
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = [[ require('plugins.options.lualine') ]],
   }
-  
+
   -- Tabline
   use {
     'kdheepak/tabline.nvim',
@@ -86,6 +86,24 @@ return require('packer').startup({function()
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', },
     },
     config = [[ require('plugins.options.telescope') ]],
+  }
+
+  -- Wrapper for :mksession
+  use {
+    'Shatur/neovim-session-manager',
+    requires = {
+      'nvim-telescope/telescope.nvim', requires = {
+        'nvim-lua/plenary.nvim'
+      },
+    },
+    config = [[ require('plugins.options.neovim-session-manager') ]],
+  }
+
+  -- Greeter/Dashboard for opening neovim without a file
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = [[ require('plugins.options.alpha') ]],
   }
 
   -- Completion

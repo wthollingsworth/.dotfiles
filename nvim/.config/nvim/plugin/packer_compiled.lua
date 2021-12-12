@@ -69,6 +69,12 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["alpha-nvim"] = {
+    config = { " require('plugins.options.alpha') " },
+    loaded = true,
+    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
+  },
   ["astronauta.nvim"] = {
     loaded = true,
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/astronauta.nvim",
@@ -120,6 +126,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["neovim-session-manager"] = {
+    config = { " require('plugins.options.neovim-session-manager') " },
+    loaded = true,
+    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/neovim-session-manager",
+    url = "https://github.com/Shatur/neovim-session-manager"
   },
   ["nord.nvim"] = {
     loaded = true,
@@ -234,10 +246,18 @@ time([[Config for telescope.nvim]], false)
 time([[Config for tabline.nvim]], true)
  require('plugins.options.tabline') 
 time([[Config for tabline.nvim]], false)
--- Config for: vim-vsnip
-time([[Config for vim-vsnip]], true)
- require('plugins.options.vim-vsnip') 
-time([[Config for vim-vsnip]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+ require('plugins.options.which-key') 
+time([[Config for which-key.nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+ require('plugins.options.nvim-colorizer') 
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+ require('plugins.options.alpha') 
+time([[Config for alpha-nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
  require('plugins.options.nvim-cmp') 
@@ -250,18 +270,18 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for lualine.nvim]], true)
  require('plugins.options.lualine') 
 time([[Config for lualine.nvim]], false)
+-- Config for: neovim-session-manager
+time([[Config for neovim-session-manager]], true)
+ require('plugins.options.neovim-session-manager') 
+time([[Config for neovim-session-manager]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
  require('plugins.options.treesitter') 
 time([[Config for nvim-treesitter]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
- require('plugins.options.nvim-colorizer') 
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
- require('plugins.options.which-key') 
-time([[Config for which-key.nvim]], false)
+-- Config for: vim-vsnip
+time([[Config for vim-vsnip]], true)
+ require('plugins.options.vim-vsnip') 
+time([[Config for vim-vsnip]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
  require('plugins.options.nvim-autopairs') 
