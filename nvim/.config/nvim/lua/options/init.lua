@@ -34,6 +34,7 @@ opt.whichwrap:append {
 -- Sets the height of the popup menu used for things like command
 -- completion (:h ins-completion-menu).
 opt.pumheight =  10
+opt.pumwidth = 20
 
 -- The file encoding to use when writing to disk.  This is actually the
 -- default, but...
