@@ -116,6 +116,8 @@ compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
 #
 export BAT_CONFIG_PATH="${XDG_CONFIG_HOME}/bat/bat.conf"
 
+export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
+
 alias vi="/usr/bin/nvim"
 alias vim="/usr/bin/nvim"
 alias vimdiff="/usr/bin/nvim -d"
