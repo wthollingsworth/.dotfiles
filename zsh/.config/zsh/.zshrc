@@ -123,6 +123,8 @@ alias vim="/usr/bin/nvim"
 alias vimdiff="/usr/bin/nvim -d"
 bindkey -v
 
+export MANPAGER='nvim +Man!'
+
 if [[ -e "${XDG_CONFIG_HOME}/zsh/.zshrc.local" ]]
 then
   source "${XDG_CONFIG_HOME}/zsh/.zshrc.local"
