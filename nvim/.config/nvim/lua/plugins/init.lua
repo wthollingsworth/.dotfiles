@@ -147,6 +147,15 @@ return require('packer').startup({function()
     },
     config = [[ require('plugins.options.gitsigns') ]],
   }
+
+  -- Send commands from vim to a tmux pane
+  use 'jgdavey/tslime.vim'
+
+  -- Ruby/Rails/Rspec plugins
+  use {
+    'thoughtbot/vim-rspec',
+    config = [[ require('plugins.options.vim-rspec') ]],
+  }
 end,
 config = {
 	display = {
