@@ -148,6 +148,12 @@ return require('packer').startup({function()
     config = [[ require('plugins.options.gitsigns') ]],
   }
 
+  -- Indentation guides
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = [[ require('plugins.options.indent-blankline') ]],
+  }
+
   -- Send commands from vim to a tmux pane
   use 'jgdavey/tslime.vim'
 
