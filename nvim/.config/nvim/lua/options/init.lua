@@ -65,8 +65,8 @@ opt.timeoutlen = 100
 -- on Linux (i.e., the clipboard used when selecting text but not
 -- explicitly copying it.).
 opt.clipboard:append {
-	unnamed = true,
-	unnamedplus = true,
+  'unnamed',
+  'unnamedplus',
 }
 
 -- Highlight search matches.
