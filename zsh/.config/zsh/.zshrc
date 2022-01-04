@@ -116,6 +116,20 @@ compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
 #
 export BAT_CONFIG_PATH="${XDG_CONFIG_HOME}/bat/bat.conf"
 
+# try to break habits and use newer tools
+function cat {
+  echo "use bat instead"
+}
+function find {
+  echo "use fd instead"
+}
+function grep {
+  echo "use rg instead"
+}
+function ls {
+  echo "use exa instead"
+}
+
 export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
 
 alias vi=nvim
