@@ -27,17 +27,21 @@ return require('packer').startup({function()
     after = 'cmp-nvim-lsp',
   }
 
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    after = 'nvim-lspconfig',
+    config = [[ require('plugins.options.null-ls') ]],
+  }
+
   -- Adds pictocgrams to lsp completion menus
   use 'onsails/lspkind-nvim'
 
   -- On screen keymapping help
   use  {
-    'folke/which-key.nvim',
+    --'folke/which-key.nvim',
+    'max397574/which-key.nvim',
     config = [[ require('plugins.options.which-key') ]],
   }
-
-  -- Keymapping (to be merged into neovim core)
-  use  'tjdevries/astronauta.nvim'
 
 	-- Highlight, edit, and navigate code using a fast incremental
   -- parsing library
@@ -62,7 +66,7 @@ return require('packer').startup({function()
   -- Tabline
   use {
     'kdheepak/tabline.nvim',
-    requires = { 
+    requires = {
       { 'hoob3rt/lualine.nvim', opt = true },
       { 'kyazdani42/nvim-web-devicons', opt = true }
     },
@@ -86,6 +90,12 @@ return require('packer').startup({function()
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', },
     },
     config = [[ require('plugins.options.telescope') ]],
+  }
+
+  -- Tells vim.ui.select to use Telescope
+  use {
+    'nvim-telescope/telescope-ui-select.nvim',
+    requires = { 'nvim-telescope/telescope.nvim' },
   }
 
   -- Wrapper for :mksession

@@ -2,40 +2,48 @@
 -- without leaving neovim
 vim.g.rspec_command =  [[ call Send_to_Tmux("rspec {spec}\n") ]]
 
--- set the keymaps for rspec using astronauta but register them
+-- set the keymaps for rspec using builtin mapper but register them
 -- with which-key so they show up there
-local keymap = require('astronauta.keymap')
+local keymap = vim.keymap
 local mappings = { r = { name = 'vim-rspec' } }
 local opts = { prefex = '<leader>' }
 
 -- Run the current spec file with Rspec.
-keymap.map {
+keymap.set(
+  '',
   '<leader>rc',
-  ':call RunCurrentSpecFile()<CR>'
-}
+  ':call RunCurrentSpecFile()<CR>',
+  { remap = true }
+)
 mappings.r.c = { nil, 'Run Current Spec File' }
 
 -- Run just the nearest spec.
-keymap.map {
+keymap.set(
+  '',
   '<leader>rn',
-  ':call RunNearestSpec()<CR>'
-}
+  ':call RunNearestSpec()<CR>',
+  { remap = true }
+)
 mappings.r.c = { nil, 'Run Nearest Spec' }
 
 -- Rerun the last spec.
-keymap.map {
+keymap.set(
+  '',
   '<leader>rl',
-  ':call RunLastSpec()<CR>'
-}
+  ':call RunLastSpec()<CR>',
+  { remap = true }
+)
 mappings.r.l = { nil, 'Run Last Spec' }
 
 -- Run all specs.
-keymap.map {
+keymap.set(
+  '',
   '<leader>ra',
-  ':call RunAllSpecs()<CR>'
-}
+  ':call RunAllSpecs()<CR>',
+  { remap = true }
+)
 mappings.r.a = { nil, 'Run Current Spec File' }
 
 -- Tell which-key about the mappings.
 local wk = require('which-key')
-wk.register(mappings, opts)
+--wk.register(mappings, opts)

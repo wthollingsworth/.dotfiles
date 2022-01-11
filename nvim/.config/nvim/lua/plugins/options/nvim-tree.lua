@@ -12,11 +12,11 @@ require'nvim-tree'.setup {
   },
 }
 
-local keymap = require('astronauta.keymap')
-keymap.nnoremap { '<C-n>', ':NvimTreeToggle<CR>' }
+local keymap = vim.keymap
+keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>')
 
 local wk = require('which-key')
-wk.register({ ['<C-n>'] = { nil, 'Toggle NvimTree pane' } })
+--wk.register({ ['<C-n>'] = { nil, 'Toggle NvimTree pane' } })
 
 --vim.cmd [[highlight NvimTreeNormal guibg=#3B4252]]
 --vim.cmd [[highlight NvimTreeVertSplit guifg=#3B4252 guibg=#3B4252]]
@@ -32,8 +32,7 @@ wk.register({ ['<C-n>'] = { nil, 'Toggle NvimTree pane' } })
 --
 --     local opt_local = vim.opt_local
 --     opt_local.fillchars:append { eob = " " }
--- 
+--
 -- So instead we'll just change the color of the tildes, which has
 -- the same result visually.
 vim.cmd [[ highlight NvimTreeEndOfBuffer guifg=bg ]]
-

@@ -10,5 +10,3 @@ require'session_manager'.setup {
   -- arguments.
   autosave_only_in_session = true,
 }
-
-require'telescope'.load_extension('sessions')
