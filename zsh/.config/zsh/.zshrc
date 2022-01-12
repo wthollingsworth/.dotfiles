@@ -135,7 +135,11 @@ export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
 alias vi=nvim
 alias vim=nvim
 alias vimdiff="nvim -d"
-bindkey -v
+
+# zsh vi keybindings conflict with the tmux-yank tmux plugin
+# which is more useful to me right now than editing commands
+#bindkey -v
+bindkey -e
 
 export MANPAGER='nvim +Man!'
 
