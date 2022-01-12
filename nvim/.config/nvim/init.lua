@@ -1,6 +1,6 @@
-require('plugins')
 require('options')
 require('mappings')
+require('plugins')
 
 -- use symbols int he sign column to show information from lsp
 -- diagnostics
@@ -10,4 +10,5 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+vim.g.nord_italic = false
 vim.cmd [[ colorscheme nord ]]
