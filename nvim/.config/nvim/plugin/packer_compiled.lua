@@ -195,6 +195,11 @@ _G.packer_plugins = {
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
+  },
   ["nvim-ts-rainbow"] = {
     loaded = true,
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
@@ -242,6 +247,11 @@ _G.packer_plugins = {
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/tslime.vim",
     url = "https://github.com/jgdavey/tslime.vim"
   },
+  ["vim-commentary"] = {
+    loaded = true,
+    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    url = "https://github.com/tpope/vim-commentary"
+  },
   ["vim-rspec"] = {
     config = { " require('plugins.options.vim-rspec') " },
     loaded = true,
@@ -271,10 +281,10 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for tabline.nvim]], true)
  require('plugins.options.tabline') 
 time([[Config for tabline.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
- require('plugins.options.nvim-tree') 
-time([[Config for nvim-tree.lua]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+ require('plugins.options.which-key') 
+time([[Config for which-key.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
  require('plugins.options.nvim-cmp') 
@@ -283,22 +293,22 @@ time([[Config for nvim-cmp]], false)
 time([[Config for indent-blankline.nvim]], true)
  require('plugins.options.indent-blankline') 
 time([[Config for indent-blankline.nvim]], false)
--- Config for: vim-rspec
-time([[Config for vim-rspec]], true)
- require('plugins.options.vim-rspec') 
-time([[Config for vim-rspec]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+ require('plugins.options.nvim-tree') 
+time([[Config for nvim-tree.lua]], false)
 -- Config for: alpha-nvim
 time([[Config for alpha-nvim]], true)
  require('plugins.options.alpha') 
 time([[Config for alpha-nvim]], false)
+-- Config for: vim-rspec
+time([[Config for vim-rspec]], true)
+ require('plugins.options.vim-rspec') 
+time([[Config for vim-rspec]], false)
 -- Config for: nvim-colorizer.lua
 time([[Config for nvim-colorizer.lua]], true)
  require('plugins.options.nvim-colorizer') 
 time([[Config for nvim-colorizer.lua]], false)
--- Config for: vim-vsnip
-time([[Config for vim-vsnip]], true)
- require('plugins.options.vim-vsnip') 
-time([[Config for vim-vsnip]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
  require('plugins.options.gitsigns') 
@@ -307,22 +317,22 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for neovim-session-manager]], true)
  require('plugins.options.neovim-session-manager') 
 time([[Config for neovim-session-manager]], false)
+-- Config for: vim-vsnip
+time([[Config for vim-vsnip]], true)
+ require('plugins.options.vim-vsnip') 
+time([[Config for vim-vsnip]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
  require('plugins.options.telescope') 
 time([[Config for telescope.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
- require('plugins.options.lualine') 
-time([[Config for lualine.nvim]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
  require('plugins.options.nvim-autopairs') 
 time([[Config for nvim-autopairs]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
- require('plugins.options.which-key') 
-time([[Config for which-key.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+ require('plugins.options.lualine') 
+time([[Config for lualine.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd cmp-nvim-lsp ]]

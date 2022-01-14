@@ -37,5 +37,11 @@ require('nvim-treesitter.configs').setup {
   -- use rainbow parentheses
   rainbow = {
     enable = true,
-  }
+  },
+
+  -- edits the comment string based on cursor position for
+  -- filetypes like vue
+  context_commentstring = {
+    enable = true,
+  },
 }
