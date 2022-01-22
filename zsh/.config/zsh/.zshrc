@@ -11,8 +11,11 @@ export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS
 --preview='ls -p {2..}'"
 export _ZO_DATA_DIR=${XDG_DATA_HOME}
 
-# If you come from bash you might have to change your $PATH.
-export PATH="${HOME}/.local/bin/:${HOME}/bin:/usr/local/bin:${HOME}/.cargo/bin:${PATH}"
+export PATH="${HOME}/.local/bin/:${PATH}"
+export PATH="${HOME}/.local/bin/lua-language-server/bin:${PATH}"
+export PATH="${HOME}/bin:${PATH}"
+export PATH="/usr/local/bin:${PATH}"
+export PATH="${HOME}/.cargo/bin:${PATH}"
 
 # Path to your oh-my-zsh installation.
 export ZSH="${XDG_CONFIG_HOME}/zsh/.oh-my-zsh"
@@ -161,3 +164,5 @@ fi
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 neofetch
+
+alias luamake=/Users/whollingsworth/scratch/lua-language-server/3rd/luamake/luamake

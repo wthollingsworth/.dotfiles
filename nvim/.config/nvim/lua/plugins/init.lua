@@ -19,12 +19,9 @@ return require("packer").startup({
 		use("wbthomason/packer.nvim")
 
 		-- LSP
-		use("neovim/nvim-lspconfig")
-
-		-- Installs language servers
 		use({
-			"williamboman/nvim-lsp-installer",
-			config = [[ require('plugins.options.nvim-lsp-installer') ]],
+			"neovim/nvim-lspconfig",
+			config = [[ require('plugins.options.lspconfig') ]],
 			after = "cmp-nvim-lsp",
 		})
 
