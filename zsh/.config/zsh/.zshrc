@@ -3,6 +3,14 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
+export FZF_DEFAULT_OPTS="
+--color=bg+:#3B4252,bg:#2E3440,spinner:#81A1C1,hl:#616E88,fg:#D8DEE9,header:#616E88,info:#81A1C1,pointer:#81A1C1,marker:#81A1C1,fg+:#D8DEE9,prompt:#81A1C1,hl+:#81A1C1
+--border"
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS
+--no-info
+--preview='ls -p {2..}'"
+export _ZO_DATA_DIR=${XDG_DATA_HOME}
+
 # If you come from bash you might have to change your $PATH.
 export PATH="${HOME}/.local/bin/:${HOME}/bin:/usr/local/bin:${HOME}/.cargo/bin:${PATH}"
 
@@ -129,19 +137,21 @@ function grep {
 function ls {
   echo "use exa instead"
 }
+function cd {
+  echo "use z instead"
+}
 
 export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
 
 alias vi=nvim
 alias vim=nvim
 alias vimdiff="nvim -d"
+export MANPAGER='nvim +Man!'
 
 # zsh vi keybindings conflict with the tmux-yank tmux plugin
 # which is more useful to me right now than editing commands
 #bindkey -v
 bindkey -e
-
-export MANPAGER='nvim +Man!'
 
 if [[ -e "${XDG_CONFIG_HOME}/zsh/.zshrc.local" ]]
 then
@@ -149,4 +159,5 @@ then
 fi
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 neofetch
