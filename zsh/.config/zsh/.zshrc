@@ -3,14 +3,6 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
-export FZF_DEFAULT_OPTS="
---color=bg+:#3B4252,bg:#2E3440,spinner:#81A1C1,hl:#616E88,fg:#D8DEE9,header:#616E88,info:#81A1C1,pointer:#81A1C1,marker:#81A1C1,fg+:#D8DEE9,prompt:#81A1C1,hl+:#81A1C1
---border"
-export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS
---no-info
---preview='ls -p {2..}'"
-export _ZO_DATA_DIR=${XDG_DATA_HOME}
-
 export PATH="${HOME}/.local/bin/:${PATH}"
 export PATH="${HOME}/.local/bin/lua-language-server/bin:${PATH}"
 export PATH="${HOME}/bin:${PATH}"
@@ -145,6 +137,16 @@ function cd {
 }
 
 export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
+
+export SOLARGRAPH_CACHE="${XDG_CACHE_HOME}/solargraph"
+
+export FZF_DEFAULT_OPTS="
+--color=bg+:#3B4252,bg:#2E3440,spinner:#81A1C1,hl:#616E88,fg:#D8DEE9,header:#616E88,info:#81A1C1,pointer:#81A1C1,marker:#81A1C1,fg+:#D8DEE9,prompt:#81A1C1,hl+:#81A1C1
+--border"
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS
+--no-info
+--preview='ls -p {2..}'"
+export _ZO_DATA_DIR="${XDG_CACHE_HOME}/zoxide"
 
 alias vi=nvim
 alias vim=nvim
