@@ -34,6 +34,12 @@ return require("packer").startup({
 		-- Adds pictocgrams to lsp completion menus
 		use("onsails/lspkind-nvim")
 
+		-- UI for lsp progress
+		use({
+			"j-hui/fidget.nvim",
+			config = [[ require('plugins.options.fidget') ]],
+		})
+
 		-- On screen keymapping help
 		use({
 			--'folke/which-key.nvim',
