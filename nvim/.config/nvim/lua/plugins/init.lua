@@ -176,6 +176,12 @@ return require("packer").startup({
 			requires = { "nvim-treesitter/nvim-treesitter" },
 		})
 
+		-- Floating terminal
+		use({
+			"akinsho/toggleterm.nvim",
+			config = [[ require('plugins.options.toggleterm') ]],
+		})
+
 		-- Send commands from vim to a tmux pane
 		use("jgdavey/tslime.vim")
 
