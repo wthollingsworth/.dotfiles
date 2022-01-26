@@ -37,7 +37,7 @@ return require("packer").startup({
 		-- UI for lsp progress
 		use({
 			"j-hui/fidget.nvim",
-			config = [[ require('plugins.options.fidget') ]],
+			-- config = [[ require('plugins.options.fidget') ]],
 		})
 
 		-- On screen keymapping help
@@ -186,6 +186,17 @@ return require("packer").startup({
 		use({
 			"akinsho/toggleterm.nvim",
 			config = [[ require('plugins.options.toggleterm') ]],
+		})
+
+		-- Focus mode
+		use({
+			"folke/twilight.nvim",
+			config = [[ require('plugins.options.twilight') ]],
+		})
+
+		use({
+			"folke/zen-mode.nvim",
+			config = [[ require('plugins.options.zen-mode') ]],
 		})
 
 		-- Send commands from vim to a tmux pane
