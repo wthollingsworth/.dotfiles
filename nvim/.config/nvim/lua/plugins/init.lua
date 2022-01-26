@@ -117,6 +117,7 @@ return require("packer").startup({
 				},
 			},
 			config = [[ require('plugins.options.neovim-session-manager') ]],
+			cmd = { "SessionManager" },
 		})
 
 		-- Greeter/Dashboard for opening neovim without a file
@@ -157,6 +158,7 @@ return require("packer").startup({
 		use({
 			"norcalli/nvim-colorizer.lua",
 			config = [[ require('plugins.options.nvim-colorizer') ]],
+			ft = { "html", "css" },
 		})
 
 		-- Display information from git in signcolumn and virtual text
@@ -191,11 +193,13 @@ return require("packer").startup({
 		use({
 			"folke/twilight.nvim",
 			config = [[ require('plugins.options.twilight') ]],
+			cmd = { "Twilight", "TwilightEnable", "TwilightDisable" },
 		})
 
 		use({
 			"folke/zen-mode.nvim",
 			config = [[ require('plugins.options.zen-mode') ]],
+			cmd = { "ZenMode" },
 		})
 
 		-- Send commands from vim to a tmux pane
@@ -205,6 +209,7 @@ return require("packer").startup({
 		use({
 			"thoughtbot/vim-rspec",
 			config = [[ require('plugins.options.vim-rspec') ]],
+			ft = { "ruby" },
 		})
 	end,
 	config = {
