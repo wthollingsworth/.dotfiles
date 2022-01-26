@@ -42,8 +42,7 @@ return require("packer").startup({
 
 		-- On screen keymapping help
 		use({
-			--'folke/which-key.nvim',
-			"max397574/which-key.nvim",
+			"folke/which-key.nvim",
 			config = [[ require('plugins.options.which-key') ]],
 		})
 
