@@ -9,11 +9,17 @@ local formatting = null_ls.builtins.formatting
 null_ls.setup({
 	sources = {
 		code_actions.gitsigns,
-		code_actions.proselint, -- pip install proselint
-		completion.spell,
+		code_actions.proselint.with({
+			filetypes = { "markdown" },
+		}), -- pip install proselint
+		completion.spell.with({
+			filetypes = { "markdown" },
+		}),
 		completion.vsnip,
 		diagnostics.codespell, -- pip install codespell
-		diagnostics.proselint, -- pip install proselint
+		diagnostics.proselint.with({
+			filetypes = { "markdown" },
+		}), -- pip install proselint
 		diagnostics.rubocop, -- gem install rubocop
 		formatting.codespell, -- pip install codespell
 		formatting.rubocop, -- gem install rubocop
