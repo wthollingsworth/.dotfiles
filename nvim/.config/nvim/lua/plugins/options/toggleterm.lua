@@ -8,3 +8,11 @@ require("toggleterm").setup({
 		border = "single",
 	},
 })
+
+local wk = require("which-key")
+wk.register({
+	["gt"] = {
+		":ToggleTerm<CR>",
+		"Toggle terminal window",
+	},
+})

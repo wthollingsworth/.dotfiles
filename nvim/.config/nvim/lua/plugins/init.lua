@@ -18,6 +18,12 @@ return require("packer").startup({
 		-- Packer can manage itself
 		use("wbthomason/packer.nvim")
 
+		-- Keymapping registration and on screen help
+		use({
+			"folke/which-key.nvim",
+			config = [[ require('plugins.options.which-key') ]],
+		})
+
 		-- LSP
 		use({
 			"neovim/nvim-lspconfig",
@@ -38,12 +44,6 @@ return require("packer").startup({
 		use({
 			"j-hui/fidget.nvim",
 			-- config = [[ require('plugins.options.fidget') ]],
-		})
-
-		-- On screen keymapping help
-		use({
-			"folke/which-key.nvim",
-			config = [[ require('plugins.options.which-key') ]],
 		})
 
 		-- Highlight, edit, and navigate code using a fast incremental
