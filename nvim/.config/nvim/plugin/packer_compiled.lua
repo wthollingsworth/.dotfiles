@@ -189,12 +189,6 @@ _G.packer_plugins = {
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-tree.lua"] = {
-    config = { " require('plugins.options.nvim-tree') " },
-    loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua"
-  },
   ["nvim-treesitter"] = {
     config = { " require('plugins.options.treesitter') " },
     loaded = true,
@@ -308,42 +302,38 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: null-ls.nvim
-time([[Config for null-ls.nvim]], true)
- require('plugins.options.null-ls') 
-time([[Config for null-ls.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
- require('plugins.options.treesitter') 
-time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+ require('plugins.options.lspconfig') 
+time([[Config for nvim-lspconfig]], false)
 -- Config for: sidebar.nvim
 time([[Config for sidebar.nvim]], true)
  require('plugins.options.sidebar') 
 time([[Config for sidebar.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
- require('plugins.options.nvim-tree') 
-time([[Config for nvim-tree.lua]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
- require('plugins.options.lualine') 
-time([[Config for lualine.nvim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
- require('plugins.options.indent-blankline') 
-time([[Config for indent-blankline.nvim]], false)
--- Config for: tabline.nvim
-time([[Config for tabline.nvim]], true)
- require('plugins.options.tabline') 
-time([[Config for tabline.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
- require('plugins.options.toggleterm') 
-time([[Config for toggleterm.nvim]], false)
 -- Config for: vim-vsnip
 time([[Config for vim-vsnip]], true)
  require('plugins.options.vim-vsnip') 
 time([[Config for vim-vsnip]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+ require('plugins.options.null-ls') 
+time([[Config for null-ls.nvim]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+ require('plugins.options.indent-blankline') 
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+ require('plugins.options.lualine') 
+time([[Config for lualine.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+ require('plugins.options.toggleterm') 
+time([[Config for toggleterm.nvim]], false)
+-- Config for: tabline.nvim
+time([[Config for tabline.nvim]], true)
+ require('plugins.options.tabline') 
+time([[Config for tabline.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
  require('plugins.options.telescope') 
@@ -360,18 +350,18 @@ time([[Config for shade.nvim]], false)
 time([[Config for nvim-cmp]], true)
  require('plugins.options.nvim-cmp') 
 time([[Config for nvim-cmp]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
- require('plugins.options.lspconfig') 
-time([[Config for nvim-lspconfig]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
- require('plugins.options.nvim-autopairs') 
-time([[Config for nvim-autopairs]], false)
 -- Config for: alpha-nvim
 time([[Config for alpha-nvim]], true)
  require('plugins.options.alpha') 
 time([[Config for alpha-nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+ require('plugins.options.nvim-autopairs') 
+time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+ require('plugins.options.treesitter') 
+time([[Config for nvim-treesitter]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

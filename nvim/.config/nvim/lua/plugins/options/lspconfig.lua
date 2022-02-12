@@ -1,21 +1,21 @@
 local nvim_lsp = require("lspconfig")
 
-local border = {
-	{ "🭽", "FloatBorder" },
-	{ "▔", "FloatBorder" },
-	{ "🭾", "FloatBorder" },
-	{ "▕", "FloatBorder" },
-	{ "🭿", "FloatBorder" },
-	{ "▁", "FloatBorder" },
-	{ "🭼", "FloatBorder" },
-	{ "▏", "FloatBorder" },
-}
+-- border for :LspInfo
+local win = require("lspconfig.ui.windows")
+local _default_opts = win.default_opts
 
--- To instead override globally
+win.default_opts = function(options)
+	local opts = _default_opts(options)
+	opts.border = "single"
+	return opts
+end
+
+-- border for other things like hover info
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	opts = opts or {}
-	opts.border = opts.border or border
+	--opts.border = opts.border or border
+	opts.border = "single"
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
