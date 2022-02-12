@@ -217,6 +217,11 @@ return require("packer").startup({
 			config = [[ require('plugins.options.shade') ]],
 		})
 
+		use({
+			"anuvyklack/pretty-fold.nvim",
+			config = [[ require('plugins.options.pretty-fold') ]],
+		})
+
 		-- Send commands from vim to a tmux pane
 		--use("jgdavey/tslime.vim")
 
@@ -226,6 +231,7 @@ return require("packer").startup({
 		--	config = [[ require('plugins.options.vim-rspec') ]],
 		--	ft = { "ruby" },
 		--})
+		--
 	end,
 	config = {
 		display = {

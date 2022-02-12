@@ -113,3 +113,5 @@ opt.autoindent = true
 
 -- Honor options in modelines.
 opt.modeline = true
+
+opt.foldmethod = "indent"

@@ -244,6 +244,12 @@ _G.packer_plugins = {
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["pretty-fold.nvim"] = {
+    config = { " require('plugins.options.pretty-fold') " },
+    loaded = true,
+    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/pretty-fold.nvim",
+    url = "https://github.com/anuvyklack/pretty-fold.nvim"
+  },
   ["shade.nvim"] = {
     config = { " require('plugins.options.shade') " },
     loaded = true,
@@ -316,10 +322,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: null-ls.nvim
-time([[Config for null-ls.nvim]], true)
- require('plugins.options.null-ls') 
-time([[Config for null-ls.nvim]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
  require('plugins.options.lspconfig') 
@@ -328,34 +330,42 @@ time([[Config for nvim-lspconfig]], false)
 time([[Config for sidebar.nvim]], true)
  require('plugins.options.sidebar') 
 time([[Config for sidebar.nvim]], false)
--- Config for: vim-vsnip
-time([[Config for vim-vsnip]], true)
- require('plugins.options.vim-vsnip') 
-time([[Config for vim-vsnip]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
- require('plugins.options.lualine') 
-time([[Config for lualine.nvim]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
  require('plugins.options.indent-blankline') 
 time([[Config for indent-blankline.nvim]], false)
--- Config for: nvim-lightbulb
-time([[Config for nvim-lightbulb]], true)
- require('plugins.options.nvim-lightbulb') 
-time([[Config for nvim-lightbulb]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
- require('plugins.options.toggleterm') 
-time([[Config for toggleterm.nvim]], false)
--- Config for: tabline.nvim
-time([[Config for tabline.nvim]], true)
- require('plugins.options.tabline') 
-time([[Config for tabline.nvim]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+ require('plugins.options.alpha') 
+time([[Config for alpha-nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+ require('plugins.options.lualine') 
+time([[Config for lualine.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+ require('plugins.options.nvim-autopairs') 
+time([[Config for nvim-autopairs]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
  require('plugins.options.telescope') 
 time([[Config for telescope.nvim]], false)
+-- Config for: vim-vsnip
+time([[Config for vim-vsnip]], true)
+ require('plugins.options.vim-vsnip') 
+time([[Config for vim-vsnip]], false)
+-- Config for: pretty-fold.nvim
+time([[Config for pretty-fold.nvim]], true)
+ require('plugins.options.pretty-fold') 
+time([[Config for pretty-fold.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+ require('plugins.options.toggleterm') 
+time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+ require('plugins.options.treesitter') 
+time([[Config for nvim-treesitter]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
  require('plugins.options.gitsigns') 
@@ -368,18 +378,18 @@ time([[Config for shade.nvim]], false)
 time([[Config for nvim-cmp]], true)
  require('plugins.options.nvim-cmp') 
 time([[Config for nvim-cmp]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
- require('plugins.options.alpha') 
-time([[Config for alpha-nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
- require('plugins.options.nvim-autopairs') 
-time([[Config for nvim-autopairs]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
- require('plugins.options.treesitter') 
-time([[Config for nvim-treesitter]], false)
+-- Config for: tabline.nvim
+time([[Config for tabline.nvim]], true)
+ require('plugins.options.tabline') 
+time([[Config for tabline.nvim]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+ require('plugins.options.null-ls') 
+time([[Config for null-ls.nvim]], false)
+-- Config for: nvim-lightbulb
+time([[Config for nvim-lightbulb]], true)
+ require('plugins.options.nvim-lightbulb') 
+time([[Config for nvim-lightbulb]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
