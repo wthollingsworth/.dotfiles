@@ -32,6 +32,7 @@ return require("packer").startup({
 			"hrsh7th/vim-vsnip",
 			config = [[ require('plugins.options.vim-vsnip') ]],
 		})
+		use("hrsh7th/cmp-nvim-lsp-signature-help")
 
 		-- LSP
 		use({
@@ -73,6 +74,10 @@ return require("packer").startup({
 			"p00f/nvim-ts-rainbow", -- rainbow parentheses
 			requires = { "nvim-treesitter/nvim-treesitter" },
 		})
+		use({
+			"RRethy/nvim-treesitter-endwise",
+			requires = { "nvim-treesitter/nvim-treesitter" },
+		})
 
 		-- Statusline
 		use({
@@ -91,11 +96,10 @@ return require("packer").startup({
 			config = [[ require('plugins.options.tabline') ]],
 		})
 
-		-- File Explorer
+		-- Sidebar with file/symbol/git/diagnostic info
 		use({
-			"kyazdani42/nvim-tree.lua",
-			requires = { "kyazdani42/nvim-web-devicons" }, -- for icons
-			config = [[ require('plugins.options.nvim-tree') ]],
+			"sidebar-nvim/sidebar.nvim",
+			config = [[ require('plugins.options.sidebar') ]],
 		})
 
 		-- UI to select things (files, grep results, open buffers...)
@@ -164,6 +168,9 @@ return require("packer").startup({
 			config = [[ require('plugins.options.gitsigns') ]],
 		})
 
+		-- Git conflict highlighting
+		use("rhysd/conflict-marker.vim")
+
 		-- Indentation guides
 		use({
 			"lukas-reineke/indent-blankline.nvim",
@@ -194,6 +201,11 @@ return require("packer").startup({
 			"folke/zen-mode.nvim",
 			config = [[ require('plugins.options.zen-mode') ]],
 			cmd = { "ZenMode" },
+		})
+
+		use({
+			"sunjon/shade.nvim",
+			config = [[ require('plugins.options.shade') ]],
 		})
 
 		-- Send commands from vim to a tmux pane

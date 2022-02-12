@@ -1,5 +1,5 @@
 -- Options for the Neovim completion menu
--- - menu: use a popup menu if thre is more than one match
+-- - menu: use a popup menu if there is more than one match
 -- - menuone: also use the popup menu when there is only one match
 -- - noselect: force the user to select a match themselves
 -- - noinsert: do not insert any text until the user makes a selection
@@ -64,6 +64,7 @@ cmp.setup({
 	-- set completion sources
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp_signature_help" },
 		{ name = "vsnip" },
 	}, {
 		{ name = "buffer" },
@@ -72,6 +73,7 @@ cmp.setup({
 	-- formatting for the completion popup
 	formatting = {
 		format = lspkind.cmp_format({
+			mode = "symbol",
 			with_text = true,
 			menu = {
 				buffer = "[Buffer]",
