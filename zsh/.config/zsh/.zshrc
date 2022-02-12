@@ -152,6 +152,9 @@ alias vi=nvim
 alias vim=nvim
 alias vimdiff="nvim -d"
 export MANPAGER='nvim +Man!'
+function nvs {
+  curl https://nvim.sh/s/${1}
+}
 
 # zsh vi keybindings conflict with the tmux-yank tmux plugin
 # which is more useful to me right now than editing commands
