@@ -12,13 +12,7 @@ require("nvim-tree").setup({
 	},
 })
 
-local wk = require("which-key")
-wk.register({
-	["<C-n>"] = {
-		":NvimTreeToggle<CR>",
-		"Toggle NvimTree pane",
-	},
-})
+vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
 
 --vim.cmd [[highlight NvimTreeNormal guibg=#3B4252]]
 --vim.cmd [[highlight NvimTreeVertSplit guifg=#3B4252 guibg=#3B4252]]

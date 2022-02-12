@@ -18,22 +18,31 @@ return require("packer").startup({
 		-- Packer can manage itself
 		use("wbthomason/packer.nvim")
 
-		-- Keymapping registration and on screen help
+		-- Completion
+		use("hrsh7th/cmp-nvim-lsp")
+		use("hrsh7th/cmp-buffer")
+		use("hrsh7th/cmp-path")
+		use("hrsh7th/cmp-cmdline")
 		use({
-			"folke/which-key.nvim",
-			config = [[ require('plugins.options.which-key') ]],
+			"hrsh7th/nvim-cmp",
+			config = [[ require('plugins.options.nvim-cmp') ]],
+		})
+		use("hrsh7th/cmp-vsnip")
+		use({
+			"hrsh7th/vim-vsnip",
+			config = [[ require('plugins.options.vim-vsnip') ]],
 		})
 
 		-- LSP
 		use({
 			"neovim/nvim-lspconfig",
 			config = [[ require('plugins.options.lspconfig') ]],
-			after = "cmp-nvim-lsp",
 		})
 
+		-- Hook into LSP for things like formatting
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
-			after = "nvim-lspconfig",
+			requires = { "neovim/nvim-lspconfig" },
 			config = [[ require('plugins.options.null-ls') ]],
 		})
 
@@ -43,7 +52,7 @@ return require("packer").startup({
 		-- UI for lsp progress
 		use({
 			"j-hui/fidget.nvim",
-			-- config = [[ require('plugins.options.fidget') ]],
+			--config = [[ require('plugins.options.fidget') ]],
 		})
 
 		-- Highlight, edit, and navigate code using a fast incremental
@@ -127,21 +136,6 @@ return require("packer").startup({
 			config = [[ require('plugins.options.alpha') ]],
 		})
 
-		-- Completion
-		use("hrsh7th/cmp-nvim-lsp")
-		use("hrsh7th/cmp-buffer")
-		use("hrsh7th/cmp-path")
-		use("hrsh7th/cmp-cmdline")
-		use({
-			"hrsh7th/nvim-cmp",
-			config = [[ require('plugins.options.nvim-cmp') ]],
-		})
-		use("hrsh7th/cmp-vsnip")
-		use({
-			"hrsh7th/vim-vsnip",
-			config = [[ require('plugins.options.vim-vsnip') ]],
-		})
-
 		-- Snippet sources
 		use("rafamadriz/friendly-snippets")
 
@@ -203,14 +197,14 @@ return require("packer").startup({
 		})
 
 		-- Send commands from vim to a tmux pane
-		use("jgdavey/tslime.vim")
+		--use("jgdavey/tslime.vim")
 
 		-- Ruby/Rails/Rspec plugins
-		use({
-			"thoughtbot/vim-rspec",
-			config = [[ require('plugins.options.vim-rspec') ]],
-			ft = { "ruby" },
-		})
+		--use({
+		--	"thoughtbot/vim-rspec",
+		--	config = [[ require('plugins.options.vim-rspec') ]],
+		--	ft = { "ruby" },
+		--})
 	end,
 	config = {
 		display = {

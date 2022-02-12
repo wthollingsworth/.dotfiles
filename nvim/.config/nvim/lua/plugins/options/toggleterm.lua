@@ -9,10 +9,4 @@ require("toggleterm").setup({
 	},
 })
 
-local wk = require("which-key")
-wk.register({
-	["gt"] = {
-		":ToggleTerm<CR>",
-		"Toggle terminal window",
-	},
-})
+vim.keymap.set("n", "gt", ":ToggleTerm<CR>")

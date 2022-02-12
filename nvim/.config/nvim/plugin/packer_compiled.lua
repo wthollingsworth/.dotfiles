@@ -149,10 +149,8 @@ _G.packer_plugins = {
   },
   ["null-ls.nvim"] = {
     config = { " require('plugins.options.null-ls') " },
-    load_after = {},
     loaded = true,
-    needs_bufread = false,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/opt/null-ls.nvim",
+    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
@@ -176,12 +174,9 @@ _G.packer_plugins = {
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
-    after = { "null-ls.nvim" },
     config = { " require('plugins.options.lspconfig') " },
-    load_after = {},
     loaded = true,
-    needs_bufread = false,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig",
+    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
@@ -254,11 +249,6 @@ _G.packer_plugins = {
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
-  ["tslime.vim"] = {
-    loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/tslime.vim",
-    url = "https://github.com/jgdavey/tslime.vim"
-  },
   ["twilight.nvim"] = {
     commands = { "Twilight", "TwilightEnable", "TwilightDisable" },
     config = { " require('plugins.options.twilight') " },
@@ -273,25 +263,11 @@ _G.packer_plugins = {
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
-  ["vim-rspec"] = {
-    config = { " require('plugins.options.vim-rspec') " },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/opt/vim-rspec",
-    url = "https://github.com/thoughtbot/vim-rspec"
-  },
   ["vim-vsnip"] = {
     config = { " require('plugins.options.vim-vsnip') " },
     loaded = true,
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
-  },
-  ["which-key.nvim"] = {
-    config = { " require('plugins.options.which-key') " },
-    loaded = true,
-    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/which-key.nvim",
-    url = "https://github.com/folke/which-key.nvim"
   },
   ["zen-mode.nvim"] = {
     commands = { "ZenMode" },
@@ -309,42 +285,46 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-treesitter]], true)
  require('plugins.options.treesitter') 
 time([[Config for nvim-treesitter]], false)
--- Config for: tabline.nvim
-time([[Config for tabline.nvim]], true)
- require('plugins.options.tabline') 
-time([[Config for tabline.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
- require('plugins.options.which-key') 
-time([[Config for which-key.nvim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
- require('plugins.options.indent-blankline') 
-time([[Config for indent-blankline.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
- require('plugins.options.toggleterm') 
-time([[Config for toggleterm.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
- require('plugins.options.lualine') 
-time([[Config for lualine.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
  require('plugins.options.nvim-cmp') 
 time([[Config for nvim-cmp]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+ require('plugins.options.nvim-tree') 
+time([[Config for nvim-tree.lua]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+ require('plugins.options.indent-blankline') 
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: tabline.nvim
+time([[Config for tabline.nvim]], true)
+ require('plugins.options.tabline') 
+time([[Config for tabline.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+ require('plugins.options.toggleterm') 
+time([[Config for toggleterm.nvim]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+ require('plugins.options.null-ls') 
+time([[Config for null-ls.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+ require('plugins.options.lualine') 
+time([[Config for lualine.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
  require('plugins.options.gitsigns') 
 time([[Config for gitsigns.nvim]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
- require('plugins.options.alpha') 
-time([[Config for alpha-nvim]], false)
 -- Config for: vim-vsnip
 time([[Config for vim-vsnip]], true)
  require('plugins.options.vim-vsnip') 
 time([[Config for vim-vsnip]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+ require('plugins.options.alpha') 
+time([[Config for alpha-nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
  require('plugins.options.telescope') 
@@ -353,24 +333,10 @@ time([[Config for telescope.nvim]], false)
 time([[Config for nvim-autopairs]], true)
  require('plugins.options.nvim-autopairs') 
 time([[Config for nvim-autopairs]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
- require('plugins.options.nvim-tree') 
-time([[Config for nvim-tree.lua]], false)
--- Load plugins in order defined by `after`
-time([[Sequenced loading]], true)
-vim.cmd [[ packadd cmp-nvim-lsp ]]
-vim.cmd [[ packadd nvim-lspconfig ]]
-
 -- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
  require('plugins.options.lspconfig') 
-
-vim.cmd [[ packadd null-ls.nvim ]]
-
--- Config for: null-ls.nvim
- require('plugins.options.null-ls') 
-
-time([[Sequenced loading]], false)
+time([[Config for nvim-lspconfig]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -385,9 +351,8 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "html" }, _G.packer_plugins)]]
 vim.cmd [[au FileType css ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "css" }, _G.packer_plugins)]]
-vim.cmd [[au FileType ruby ++once lua require("packer.load")({'vim-rspec'}, { ft = "ruby" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "html" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
@@ -395,5 +360,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end
