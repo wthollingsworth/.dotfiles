@@ -253,6 +253,9 @@ return require("packer").startup({
 			config = [[ require('plugins.options.rust-tools') ]],
 		})
 
+		-- Kitty
+		use("fladson/vim-kitty")
+
 		-- Send commands from vim to a tmux pane
 		--use("jgdavey/tslime.vim")
 
