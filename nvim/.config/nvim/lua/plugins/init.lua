@@ -34,7 +34,9 @@ return require("packer").startup({
 		})
 		use("hrsh7th/cmp-nvim-lsp-signature-help")
 
-		-- LSP
+		-- Language server protocol (LSP)
+		-- For language server installation see:
+		-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 		use({
 			"neovim/nvim-lspconfig",
 			config = [[ require('plugins.options.lspconfig') ]],
@@ -63,6 +65,24 @@ return require("packer").startup({
 		use({
 			"j-hui/fidget.nvim",
 			--config = [[ require('plugins.options.fidget') ]],
+		})
+
+		-- Debug adapter protocol (DAP)
+		-- For language adapters see:
+		-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+		use({
+			"rcarriga/nvim-dap-ui",
+			requires = { "mfussenegger/nvim-dap" },
+			config = [[ require('plugins.options.dap') ]],
+		})
+
+		use({
+			"theHamsta/nvim-dap-virtual-text",
+			requires = {
+				"mfussenegger/nvim-dap",
+				"nvim-treesitter/nvim-treesitter",
+			},
+			config = [[ require('plugins.options.dap-virtual-text') ]],
 		})
 
 		-- Highlight, edit, and navigate code using a fast incremental
@@ -222,6 +242,17 @@ return require("packer").startup({
 			config = [[ require('plugins.options.pretty-fold') ]],
 		})
 
+		-- Rust
+		use({
+			"simrat39/rust-tools.nvim",
+			requires = {
+				"neovim/nvim-lspconfig",
+				"nvim-lua/plenary.nvim",
+				"mfussenegger/nvim-dap",
+			},
+			config = [[ require('plugins.options.rust-tools') ]],
+		})
+
 		-- Send commands from vim to a tmux pane
 		--use("jgdavey/tslime.vim")
 
@@ -231,7 +262,6 @@ return require("packer").startup({
 		--	config = [[ require('plugins.options.vim-rspec') ]],
 		--	ft = { "ruby" },
 		--})
-		--
 	end,
 	config = {
 		display = {
