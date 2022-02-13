@@ -108,6 +108,11 @@ return require("packer").startup({
 			requires = { "nvim-treesitter/nvim-treesitter" },
 		})
 
+		use({
+			"yamatsum/nvim-nonicons",
+			requires = { "kyazdani42/nvim-web-devicons" },
+		})
+
 		-- Statusline
 		use({
 			"nvim-lualine/lualine.nvim",

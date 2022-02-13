@@ -171,9 +171,14 @@ fi
 eval "$(zoxide init zsh)"
 #neofetch
 
+HEADLINE_HOST_TO_PATH=' : '
+HEADLINE_USER_PREFIX=' '
+HEADLINE_HOST_PREFIX=' '
+HEADLINE_PATH_PREFIX=' '
+HEADLINE_BRANCH_PREFIX=' '
+HEADLINE_USER_TO_HOST=' @ '
+#HEADLINE_PAD_TO_BRANCH=' on '
 HEADLINE_STYLE_DEFAULT=$black_back
-HEADLINE_HOST_TO_PATH=' in '
-HEADLINE_PAD_TO_BRANCH=' on '
-HEADLINE_LINE_MODE='on'
+HEADLINE_LINE_MODE='auto'
 
 alias luamake=/Users/whollingsworth/scratch/lua-language-server/3rd/luamake/luamake

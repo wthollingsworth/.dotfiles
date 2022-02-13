@@ -220,6 +220,11 @@ _G.packer_plugins = {
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-nonicons"] = {
+    loaded = true,
+    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/nvim-nonicons",
+    url = "https://github.com/yamatsum/nvim-nonicons"
+  },
   ["nvim-treesitter"] = {
     config = { " require('plugins.options.treesitter') " },
     loaded = true,
@@ -350,10 +355,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-lightbulb
-time([[Config for nvim-lightbulb]], true)
- require('plugins.options.nvim-lightbulb') 
-time([[Config for nvim-lightbulb]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+ require('plugins.options.lspconfig') 
+time([[Config for nvim-lspconfig]], false)
 -- Config for: sidebar.nvim
 time([[Config for sidebar.nvim]], true)
  require('plugins.options.sidebar') 
@@ -414,10 +419,10 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for shade.nvim]], true)
  require('plugins.options.shade') 
 time([[Config for shade.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
- require('plugins.options.lspconfig') 
-time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+ require('plugins.options.treesitter') 
+time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
  require('plugins.options.nvim-cmp') 
@@ -426,10 +431,10 @@ time([[Config for nvim-cmp]], false)
 time([[Config for null-ls.nvim]], true)
  require('plugins.options.null-ls') 
 time([[Config for null-ls.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
- require('plugins.options.treesitter') 
-time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-lightbulb
+time([[Config for nvim-lightbulb]], true)
+ require('plugins.options.nvim-lightbulb') 
+time([[Config for nvim-lightbulb]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
