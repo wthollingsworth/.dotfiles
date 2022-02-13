@@ -327,6 +327,11 @@ _G.packer_plugins = {
     path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
+  ["vim-kitty"] = {
+    loaded = true,
+    path = "/home/drwhattheheck/.local/share/nvim/site/pack/packer/start/vim-kitty",
+    url = "https://github.com/fladson/vim-kitty"
+  },
   ["vim-vsnip"] = {
     config = { " require('plugins.options.vim-vsnip') " },
     loaded = true,
@@ -373,10 +378,10 @@ time([[Config for nvim-dap-virtual-text]], false)
 time([[Config for nvim-autopairs]], true)
  require('plugins.options.nvim-autopairs') 
 time([[Config for nvim-autopairs]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
- require('plugins.options.telescope') 
-time([[Config for telescope.nvim]], false)
+-- Config for: nvim-dap-ui
+time([[Config for nvim-dap-ui]], true)
+ require('plugins.options.dap') 
+time([[Config for nvim-dap-ui]], false)
 -- Config for: vim-vsnip
 time([[Config for vim-vsnip]], true)
  require('plugins.options.vim-vsnip') 
@@ -397,10 +402,10 @@ time([[Config for toggleterm.nvim]], false)
 time([[Config for rust-tools.nvim]], true)
  require('plugins.options.rust-tools') 
 time([[Config for rust-tools.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
- require('plugins.options.lspconfig') 
-time([[Config for nvim-lspconfig]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+ require('plugins.options.telescope') 
+time([[Config for telescope.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
  require('plugins.options.gitsigns') 
@@ -409,14 +414,14 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for shade.nvim]], true)
  require('plugins.options.shade') 
 time([[Config for shade.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+ require('plugins.options.lspconfig') 
+time([[Config for nvim-lspconfig]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
  require('plugins.options.nvim-cmp') 
 time([[Config for nvim-cmp]], false)
--- Config for: nvim-dap-ui
-time([[Config for nvim-dap-ui]], true)
- require('plugins.options.dap') 
-time([[Config for nvim-dap-ui]], false)
 -- Config for: null-ls.nvim
 time([[Config for null-ls.nvim]], true)
  require('plugins.options.null-ls') 

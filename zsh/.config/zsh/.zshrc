@@ -8,6 +8,7 @@ export PATH="${HOME}/.local/bin/lua-language-server/bin:${PATH}"
 export PATH="${HOME}/bin:${PATH}"
 export PATH="/usr/local/bin:${PATH}"
 export PATH="${HOME}/.cargo/bin:${PATH}"
+export PATH="${HOME}/.local/kitty.app/bin:${PATH}"
 
 # Path to your oh-my-zsh installation.
 export ZSH="${XDG_CONFIG_HOME}/zsh/.oh-my-zsh"
@@ -16,7 +17,7 @@ export ZSH="${XDG_CONFIG_HOME}/zsh/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="headline"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -166,8 +167,13 @@ then
   source "${XDG_CONFIG_HOME}/zsh/.zshrc.local"
 fi
 
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-neofetch
+#neofetch
+
+HEADLINE_STYLE_DEFAULT=$black_back
+HEADLINE_HOST_TO_PATH=' in '
+HEADLINE_PAD_TO_BRANCH=' on '
+HEADLINE_LINE_MODE='on'
 
 alias luamake=/Users/whollingsworth/scratch/lua-language-server/3rd/luamake/luamake
