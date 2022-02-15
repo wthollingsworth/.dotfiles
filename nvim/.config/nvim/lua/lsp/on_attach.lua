@@ -1,8 +1,9 @@
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 return function(client, bufnr)
-	--client.resolved_capabilities.document_formatting = false
-	--client.resolved_capabilities.document_range_formatting = false
+	client.resolved_capabilities.document_formatting = false
+	client.resolved_capabilities.document_range_formatting = false
+
 	-- Enable completion triggered by <c-x><c-o>
 	--vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
