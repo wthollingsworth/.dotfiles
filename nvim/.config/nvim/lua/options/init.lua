@@ -114,4 +114,8 @@ opt.autoindent = true
 -- Honor options in modelines.
 opt.modeline = true
 
+-- Fold code based on indentation.
 opt.foldmethod = "indent"
+
+-- List of columns to highlight with hl-ColorColumn.
+opt.colorcolumn = { 80 }
