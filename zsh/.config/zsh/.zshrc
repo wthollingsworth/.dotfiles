@@ -3,11 +3,13 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+
 export PATH="${HOME}/.local/bin/:${PATH}"
 export PATH="${HOME}/.local/bin/lua-language-server/bin:${PATH}"
 export PATH="${HOME}/bin:${PATH}"
 export PATH="/usr/local/bin:${PATH}"
-export PATH="${HOME}/.cargo/bin:${PATH}"
+export PATH="${CARGO_HOME}/bin:${PATH}"
 export PATH="${HOME}/.local/kitty.app/bin:${PATH}"
 
 # Path to your oh-my-zsh installation.
