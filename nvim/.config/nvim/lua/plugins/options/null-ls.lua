@@ -24,6 +24,7 @@ null_ls.setup({
 		formatting.codespell, -- pip install codespell
 		formatting.rubocop, -- gem install rubocop
 		formatting.stylua, -- cargo install stylua
+		formatting.rustfmt,
 		-- hover.dictionary,
 	},
 	on_attach = function(client)
