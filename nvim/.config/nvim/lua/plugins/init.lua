@@ -42,10 +42,10 @@ return require("packer").startup({
 			config = [[ require('plugins.options.lspconfig') ]],
 		})
 
-		use({
-			"kosayoda/nvim-lightbulb",
-			config = [[ require('plugins.options.nvim-lightbulb') ]],
-		})
+		-- use({
+		-- 	"kosayoda/nvim-lightbulb",
+		-- 	config = [[ require('plugins.options.nvim-lightbulb') ]],
+		-- })
 		use({
 			"weilbith/nvim-code-action-menu",
 			cmd = "CodeActionMenu",
