@@ -12,3 +12,6 @@ end
 
 vim.g.nord_italic = false
 vim.cmd([[ colorscheme nord ]])
+
+-- Get nice lines between splits.  Set this here to override the colorschem.
+vim.cmd([[ highlight WinSeparator guibg=None ]])

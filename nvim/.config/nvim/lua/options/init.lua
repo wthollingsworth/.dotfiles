@@ -119,3 +119,6 @@ opt.foldmethod = "indent"
 
 -- List of columns to highlight with hl-ColorColumn.
 opt.colorcolumn = { 80 }
+
+-- Enable global statusline
+opt.laststatus = 3
