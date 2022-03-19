@@ -34,11 +34,11 @@ local nord_theme = {
 		c = { fg = colors.nord4_gui, bg = colors.nord1_gui },
 	},
 }
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
 		theme = nord_theme,
-		--component_separators = { left = "", right = "" },
 		component_separators = "|",
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "NvimTree" },
@@ -61,14 +61,36 @@ require("lualine").setup({
 	},
 	tabline = {
 		lualine_a = {
-			{ "buffers", mode = 2 },
+			{
+				"buffers", -- new "windows" option for just current tab forthcoming
+				mode = 2,
+				-- For the ends of the whole component.
+				separator = { left = "", right = "" },
+				-- Disable the separator for the "sections" within the component.
+				section_separators = { left = "", right = "" },
+				buffers_color = {
+					active = { fg = colors.nord0_gui, bg = colors.nord9_gui, gui = "bold" },
+					inactive = { fg = colors.nord5_gui, bg = colors.nord1_gui },
+				},
+			},
 		},
 		lualine_b = {},
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {
-			{ "tabs", mode = 2 },
+			{
+				"tabs",
+				mode = 2,
+				-- For the ends of the whole component.
+				separator = { left = "", right = "" },
+				-- Disable the separator for the "sections" within the component.
+				section_separators = { left = "", right = "" },
+				tabs_color = {
+					active = { fg = colors.nord0_gui, bg = colors.nord9_gui, gui = "bold" },
+					inactive = { fg = colors.nord5_gui, bg = colors.nord1_gui },
+				},
+			},
 		},
 	},
 })
