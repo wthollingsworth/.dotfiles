@@ -49,11 +49,19 @@ require("lualine").setup({
 			{ "mode", separator = { left = "" }, right_padding = 2 },
 		},
 		lualine_b = { { "branch", icon = "" }, "diff", "diagnostics" },
-		lualine_c = { "filename" },
+		lualine_c = {},
 		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = {
 			{ "location", separator = { right = "" }, left_padding = 2 },
 		},
+	},
+	tabline = {
+		lualine_a = { "buffers" },
+		lualine_b = {},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = { "tabs" },
 	},
 })
