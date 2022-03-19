@@ -113,6 +113,13 @@ return require("packer").startup({
 			requires = { "kyazdani42/nvim-web-devicons" },
 		})
 
+		-- Statusline component to show context of cursor position
+		use({
+			"SmiteshP/nvim-gps",
+			requires = "nvim-treesitter/nvim-treesitter",
+			config = [[ require('plugins.options.nvim-gps') ]],
+		})
+
 		-- Statusline
 		use({
 			"nvim-lualine/lualine.nvim",
