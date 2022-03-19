@@ -120,16 +120,6 @@ return require("packer").startup({
 			config = [[ require('plugins.options.lualine') ]],
 		})
 
-		-- Tabline
-		use({
-			"kdheepak/tabline.nvim",
-			requires = {
-				{ "hoob3rt/lualine.nvim", opt = true },
-				{ "kyazdani42/nvim-web-devicons", opt = true },
-			},
-			config = [[ require('plugins.options.tabline') ]],
-		})
-
 		-- Sidebar with file/symbol/git/diagnostic info
 		use({
 			"sidebar-nvim/sidebar.nvim",
