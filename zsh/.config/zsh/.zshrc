@@ -11,6 +11,7 @@ export PATH="${HOME}/bin:${PATH}"
 export PATH="/usr/local/bin:${PATH}"
 export PATH="${CARGO_HOME}/bin:${PATH}"
 export PATH="${HOME}/.local/kitty.app/bin:${PATH}"
+export PATH="${XDG_CONFIG_HOME}/zsh/functions:${PATH}"
 
 # Path to your oh-my-zsh installation.
 export ZSH="${XDG_CONFIG_HOME}/zsh/.oh-my-zsh"
@@ -132,9 +133,6 @@ function find {
 function grep {
   echo "use rg instead"
 }
-function ls {
-  echo "use exa instead"
-}
 function cd {
   echo "use z instead"
 }
@@ -155,6 +153,7 @@ alias vi=nvim
 alias vim=nvim
 alias vimdiff="nvim -d"
 export MANPAGER='nvim +Man!'
+export EDITOR="nvim"
 function nvs {
   curl https://nvim.sh/s/${1}
 }
@@ -169,9 +168,13 @@ then
   source "${XDG_CONFIG_HOME}/zsh/.zshrc.local"
 fi
 
-#eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-#neofetch
+eval "$(dircolors --bourne-shell ${XDG_CONFIG_HOME}/dircolors)"
+
+# Enable hyperlinks for kitty
+alias ls="ls --hyperlink=auto --color=auto"
+# Tell zsh to use ripgreps completions for kitty's hyperlinked grep
+compdef _rg hg
 
 HEADLINE_HOST_TO_PATH=' : '
 HEADLINE_USER_PREFIX=' '
