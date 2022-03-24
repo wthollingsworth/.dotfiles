@@ -20,7 +20,7 @@ null_ls.setup({
 		diagnostics.proselint.with({
 			filetypes = { "markdown" },
 		}), -- pip install proselint
-		diagnostics.rubocop, -- gem install rubocop
+		--diagnostics.rubocop, -- gem install rubocop
 		formatting.codespell, -- pip install codespell
 		formatting.rubocop, -- gem install rubocop
 		formatting.stylua, -- cargo install stylua
