@@ -169,12 +169,11 @@ then
 fi
 
 eval "$(zoxide init zsh)"
-eval "$(dircolors --bourne-shell ${XDG_CONFIG_HOME}/dircolors)"
 
-# Enable hyperlinks for kitty
-alias ls="ls --hyperlink=auto --color=auto"
-# Tell zsh to use ripgreps completions for kitty's hyperlinked grep
+# Tell zsh to use ripgrep's completions for kitty's hyperlinked grep
 compdef _rg hg
+# Tell zsh to use gls's completions for ls
+compdef _gls ls
 
 HEADLINE_HOST_TO_PATH=' : '
 HEADLINE_USER_PREFIX=' '

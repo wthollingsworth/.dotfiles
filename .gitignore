@@ -3,3 +3,4 @@ nvim/.config/nvim/plugin/packer_compiled.lua
 zsh/.config/zsh/.oh-my-zsh
 zsh/.config/zsh/.zshrc.local
 zsh/.config/zsh/.zcompdump*
+*/.DS_Store
