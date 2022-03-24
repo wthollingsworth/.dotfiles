@@ -2,20 +2,18 @@
 PLATFORM=$(uname)
 
 LS="/usr/bin/ls"
+DIRCOLORS="/usr/bin/dircolors"
 
 # The BSD version of ls doesn't handle colors the same way and doesn't seem
-# to have any support for hyperlinks.
+# to have any support for hyperlinks.  It doesn't have dircolors at all.
 if [ ${PLATFORM} = "Darwin" ]; then
   LS="/usr/local/bin/gls"
+  DIRCOLORS="/usr/local/bin/gdircolors"
 fi
 
 # If standard out is open, we're working interactively and want dircolors
 if [ -t 1 ]; then
-  if [ ${PLATFORM} = "Darwin" ]; then
-    eval "$(gdircolors --bourne-shell ${XDG_CONFIG_HOME}/dircolors)"
-  else
-    eval "$(dircolors --bourne-shell ${XDG_CONFIG_HOME}/dircolors)"
-  fi
+  eval "$(${DIRCOLORS} --bourne-shell ${XDG_CONFIG_HOME}/dircolors)"
 fi 
 
 exec $LS --color=auto --hyperlink=auto "$@"
