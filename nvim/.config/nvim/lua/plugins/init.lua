@@ -42,10 +42,6 @@ return require("packer").startup({
 			config = [[ require('plugins.options.lspconfig') ]],
 		})
 
-		-- use({
-		-- 	"kosayoda/nvim-lightbulb",
-		-- 	config = [[ require('plugins.options.nvim-lightbulb') ]],
-		-- })
 		use({
 			"weilbith/nvim-code-action-menu",
 			cmd = "CodeActionMenu",
@@ -60,12 +56,6 @@ return require("packer").startup({
 
 		-- Adds pictocgrams to lsp completion menus
 		use("onsails/lspkind-nvim")
-
-		-- UI for lsp progress
-		use({
-			"j-hui/fidget.nvim",
-			--config = [[ require('plugins.options.fidget') ]],
-		})
 
 		-- Debug adapter protocol (DAP)
 		-- For language adapters see:
@@ -83,6 +73,12 @@ return require("packer").startup({
 				"nvim-treesitter/nvim-treesitter",
 			},
 			config = [[ require('plugins.options.dap-virtual-text') ]],
+		})
+
+		-- Notification system
+		use({
+			"rcarriga/nvim-notify",
+			config = [[ require('plugins.options.nvim-notify') ]],
 		})
 
 		-- Highlight, edit, and navigate code using a fast incremental
