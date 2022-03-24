@@ -168,12 +168,11 @@ then
   source "${XDG_CONFIG_HOME}/zsh/.zshrc.local"
 fi
 
+# Hook zoxide into prompts to keep track of directories.
 eval "$(zoxide init zsh)"
 
 # Tell zsh to use ripgrep's completions for kitty's hyperlinked grep
 compdef _rg hg
-# Tell zsh to use gls's completions for ls
-compdef _gls ls
 
 HEADLINE_HOST_TO_PATH=' : '
 HEADLINE_USER_PREFIX=' '
