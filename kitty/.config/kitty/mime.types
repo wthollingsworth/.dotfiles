@@ -7,4 +7,5 @@
 
 # mime-type   # file extension
 text/x-lua    lua
+text/x-ruby   rb
 text/rust     rs
