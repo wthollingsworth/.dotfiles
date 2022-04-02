@@ -114,8 +114,11 @@ opt.autoindent = true
 -- Honor options in modelines.
 opt.modeline = true
 
--- Fold code based on indentation.
-opt.foldmethod = "indent"
+-- Fold code using treesitter
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevel = 4
+opt.foldminlines = 4
 
 -- List of columns to highlight with hl-ColorColumn.
 opt.colorcolumn = { 80 }
