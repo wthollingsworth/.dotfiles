@@ -1,8 +1,8 @@
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 return function(client, bufnr)
-	client.resolved_capabilities.document_formatting = false
-	client.resolved_capabilities.document_range_formatting = false
+	client.server_capabilities.document_formatting = false
+	client.server_capabilities.document_range_formatting = false
 
 	-- Enable completion triggered by <c-x><c-o>
 	--vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -22,7 +22,7 @@ return function(client, bufnr)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
 	vim.keymap.set("n", "<space>p", vim.lsp.buf.formatting, { buffer = 0 })
 
-	if client.resolved_capabilities.document_highlight then
+	if client.server_capabilities.document_highlight then
 		vim.cmd([[
     augroup document_highlight
     autocmd! * <buffer>

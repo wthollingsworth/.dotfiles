@@ -238,6 +238,7 @@ return require("packer").startup({
 		use({
 			"anuvyklack/pretty-fold.nvim",
 			config = [[ require('plugins.options.pretty-fold') ]],
+      requires = { "anuvyklack/nvim-keymap-amend" },
 		})
 
 		-- Rust
