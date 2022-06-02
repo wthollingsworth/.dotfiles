@@ -9,6 +9,7 @@ require("nvim-treesitter.configs").setup({
 		"json",
 		"json5",
 		"lua",
+    "markdown",
 		"ruby",
 		"rust",
 		"scss",
