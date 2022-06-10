@@ -60,20 +60,21 @@ require("lualine").setup({
 		},
 	},
 	tabline = {
-		lualine_a = {
-			{
-				"buffers", -- new "windows" option for just current tab forthcoming
-				mode = 2,
-				-- For the ends of the whole component.
-				separator = { left = "", right = "" },
-				-- Disable the separator for the "sections" within the component.
-				section_separators = { left = "", right = "" },
-				buffers_color = {
-					active = { fg = colors.nord0_gui, bg = colors.nord9_gui, gui = "bold" },
-					inactive = { fg = colors.nord5_gui, bg = colors.nord1_gui },
-				},
-			},
-		},
+		-- lualine_a = {
+		-- 	{
+		-- 		"buffers", -- new "windows" option for just current tab forthcoming
+		-- 		mode = 2,
+		-- 		-- For the ends of the whole component.
+		-- 		separator = { left = "", right = "" },
+		-- 		-- Disable the separator for the "sections" within the component.
+		-- 		section_separators = { left = "", right = "" },
+		-- 		buffers_color = {
+		-- 			active = { fg = colors.nord0_gui, bg = colors.nord9_gui, gui = "bold" },
+		-- 			inactive = { fg = colors.nord5_gui, bg = colors.nord1_gui },
+		-- 		},
+		-- 	},
+		-- },
+		lualine_a = {},
 		lualine_b = {},
 		lualine_c = {},
 		lualine_x = {},

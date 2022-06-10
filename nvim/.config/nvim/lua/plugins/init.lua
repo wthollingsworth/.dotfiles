@@ -123,6 +123,35 @@ return require("packer").startup({
 			config = [[ require('plugins.options.lualine') ]],
 		})
 
+		-- Winbar
+		use({
+			"fgheng/winbar.nvim",
+			requires = {
+				{ "kyazdani42/nvim-web-devicons" },
+				{ "SmiteshP/nvim-gps" },
+			},
+			config = [[ require('plugins.options.winbar') ]],
+		})
+
+		-- Command line replacement
+		-- border not showing up in search box
+		-- shows up in lualine tabline
+		-- no integration with nvim-cmp
+		-- use({
+		-- 	"VonHeikemen/fine-cmdline.nvim",
+		-- 	requires = {
+		-- 		{ "MunifTanjim/nui.nvim" },
+		-- 	},
+		-- 	config = [[ require('plugins.options.fine-cmdline' )]],
+		-- })
+		-- use({
+		-- 	"VonHeikemen/searchbox.nvim",
+		-- 	requires = {
+		-- 		{ "MunifTanjim/nui.nvim" },
+		-- 	},
+		-- 	config = [[ require('plugins.options.searchbox' )]],
+		-- })
+
 		-- Sidebar with file/symbol/git/diagnostic info
 		use({
 			"sidebar-nvim/sidebar.nvim",
@@ -238,19 +267,19 @@ return require("packer").startup({
 		use({
 			"anuvyklack/pretty-fold.nvim",
 			config = [[ require('plugins.options.pretty-fold') ]],
-      requires = { "anuvyklack/nvim-keymap-amend" },
+			requires = { "anuvyklack/nvim-keymap-amend" },
 		})
 
 		-- Rust
-		use({
-			"simrat39/rust-tools.nvim",
-			requires = {
-				"neovim/nvim-lspconfig",
-				"nvim-lua/plenary.nvim",
-				"mfussenegger/nvim-dap",
-			},
-			config = [[ require('plugins.options.rust-tools') ]],
-		})
+		-- use({
+		-- 	"simrat39/rust-tools.nvim",
+		-- 	requires = {
+		-- 		"neovim/nvim-lspconfig",
+		-- 		"nvim-lua/plenary.nvim",
+		-- 		"mfussenegger/nvim-dap",
+		-- 	},
+		-- 	config = [[ require('plugins.options.rust-tools') ]],
+		-- })
 
 		-- Kitty
 		use("fladson/vim-kitty")
