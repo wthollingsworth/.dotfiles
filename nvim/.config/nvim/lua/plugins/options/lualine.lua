@@ -1,8 +1,9 @@
 local gps = require("nvim-gps")
 local nordbones = require("lualine.themes.nordbones")
+local palette = require("nordbones.palette")
 
 -- make sections c and x blend in with the buffer
-nordbones.normal.c.bg = "#2E3440"
+nordbones.normal.c.bg = palette.nord0
 
 -- make the tabline look more like the statusline
 nordbones.inactive.a = {
