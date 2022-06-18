@@ -10,8 +10,7 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-vim.g.nord_italic = false
-vim.cmd([[ colorscheme nord ]])
-
+vim.cmd([[ colorscheme nordbones ]])
+vim.g.nordbones_solid_float_border = true
 -- Get nice lines between splits.  Set this here to override the colorschem.
-vim.cmd([[ highlight WinSeparator guibg=None ]])
+--vim.cmd([[ highlight WinSeparator guibg=None ]])

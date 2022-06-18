@@ -41,7 +41,7 @@ opt.pumwidth = 20
 opt.fileencoding = "utf-8"
 
 -- Sets the height of the command line.
-opt.cmdheight = 1
+opt.cmdheight = 0
 
 -- Open splits in a more intuitive direction.
 opt.splitbelow = true -- :sp[lit] opens below instead of above
@@ -93,9 +93,6 @@ opt.wrap = true
 
 -- Display line numbers.
 opt.number = true
-
--- Highlight the current line.
---opt.cursorline = true
 
 -- Draw version control signs in the number column.
 opt.signcolumn = "yes"

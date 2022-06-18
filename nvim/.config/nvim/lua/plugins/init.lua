@@ -2,7 +2,14 @@
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	vim.fn.execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+	packer_bootstrap = fn.system({
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
 end
 
 vim.cmd([[
@@ -17,6 +24,14 @@ return require("packer").startup({
 	function()
 		-- Packer can manage itself
 		use("wbthomason/packer.nvim")
+
+		-- Colorscheme
+		use("shaunsingh/nord.nvim")
+		use({
+			"mcchrish/zenbones.nvim",
+			-- more configuration options
+			requires = "rktjmp/lush.nvim",
+		})
 
 		-- Completion
 		use("hrsh7th/cmp-nvim-lsp")
@@ -40,11 +55,6 @@ return require("packer").startup({
 		use({
 			"neovim/nvim-lspconfig",
 			config = [[ require('plugins.options.lspconfig') ]],
-		})
-
-		use({
-			"weilbith/nvim-code-action-menu",
-			cmd = "CodeActionMenu",
 		})
 
 		-- Hook into LSP for things like formatting
@@ -123,16 +133,6 @@ return require("packer").startup({
 			config = [[ require('plugins.options.lualine') ]],
 		})
 
-		-- Winbar
-		use({
-			"fgheng/winbar.nvim",
-			requires = {
-				{ "kyazdani42/nvim-web-devicons" },
-				{ "SmiteshP/nvim-gps" },
-			},
-			config = [[ require('plugins.options.winbar') ]],
-		})
-
 		-- Command line replacement
 		-- border not showing up in search box
 		-- shows up in lualine tabline
@@ -176,26 +176,6 @@ return require("packer").startup({
 			requires = { "nvim-telescope/telescope.nvim" },
 		})
 
-		-- Wrapper for :mksession
-		use({
-			"Shatur/neovim-session-manager",
-			requires = {
-				"nvim-telescope/telescope.nvim",
-				requires = {
-					"nvim-lua/plenary.nvim",
-				},
-			},
-			config = [[ require('plugins.options.neovim-session-manager') ]],
-			cmd = { "SessionManager" },
-		})
-
-		-- Greeter/Dashboard for opening neovim without a file
-		use({
-			"goolord/alpha-nvim",
-			requires = { "kyazdani42/nvim-web-devicons" },
-			config = [[ require('plugins.options.alpha') ]],
-		})
-
 		-- Snippet sources
 		use("rafamadriz/friendly-snippets")
 
@@ -204,9 +184,6 @@ return require("packer").startup({
 			"windwp/nvim-autopairs",
 			config = [[ require('plugins.options.nvim-autopairs') ]],
 		})
-
-		-- Colorscheme
-		use("shaunsingh/nord.nvim")
 
 		-- HTML/CSS color visualization
 		use({
@@ -223,9 +200,6 @@ return require("packer").startup({
 			},
 			config = [[ require('plugins.options.gitsigns') ]],
 		})
-
-		-- Git conflict highlighting
-		use("rhysd/conflict-marker.vim")
 
 		-- Indentation guides
 		use({
@@ -260,7 +234,7 @@ return require("packer").startup({
 		})
 
 		use({
-			"sunjon/shade.nvim",
+			"andreadev-it/shade.nvim",
 			config = [[ require('plugins.options.shade') ]],
 		})
 
@@ -271,28 +245,23 @@ return require("packer").startup({
 		})
 
 		-- Rust
-		-- use({
-		-- 	"simrat39/rust-tools.nvim",
-		-- 	requires = {
-		-- 		"neovim/nvim-lspconfig",
-		-- 		"nvim-lua/plenary.nvim",
-		-- 		"mfussenegger/nvim-dap",
-		-- 	},
-		-- 	config = [[ require('plugins.options.rust-tools') ]],
-		-- })
+		use({
+			"simrat39/rust-tools.nvim",
+			requires = {
+				"neovim/nvim-lspconfig",
+				"nvim-lua/plenary.nvim",
+				"mfussenegger/nvim-dap",
+			},
+			config = [[ require('plugins.options.rust-tools') ]],
+		})
 
 		-- Kitty
 		use("fladson/vim-kitty")
 
-		-- Send commands from vim to a tmux pane
-		--use("jgdavey/tslime.vim")
-
-		-- Ruby/Rails/Rspec plugins
-		--use({
-		--	"thoughtbot/vim-rspec",
-		--	config = [[ require('plugins.options.vim-rspec') ]],
-		--	ft = { "ruby" },
-		--})
+		-- Automatically sync if packer was installed
+		if packer_bootstrap then
+			require("packer").sync()
+		end
 	end,
 	config = {
 		display = {

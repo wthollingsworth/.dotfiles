@@ -22,15 +22,26 @@ return function(client, bufnr)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
 	vim.keymap.set("n", "<space>p", vim.lsp.buf.formatting, { buffer = 0 })
 
-	if client.server_capabilities.document_highlight then
-		vim.cmd([[
-    augroup document_highlight
-    autocmd! * <buffer>
-    autocmd CursorHold <buffer> lua
-    \ vim.lsp.buf.document_highlight()
-    autocmd CursorMoved <buffer> lua
-    \ vim.lsp.buf.clear_references()
-    augroup END
-    ]])
+	if client.server_capabilities.documentHighlightProvider then
+		vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = true })
+		vim.api.nvim_clear_autocmds({ buffer = bufnr, group = "LspDocumentHighlight" })
+		vim.api.nvim_create_autocmd("CursorHold", {
+			callback = vim.lsp.buf.document_highlight,
+			buffer = bufnr,
+			group = "LspDocumentHighlight",
+			desc = "Document Highlight",
+		})
+		vim.api.nvim_create_autocmd("CursorHoldI", {
+			callback = vim.lsp.buf.document_highlight,
+			buffer = bufnr,
+			group = "LspDocumentHighlight",
+			desc = "Document Highlight",
+		})
+		vim.api.nvim_create_autocmd("CursorMoved", {
+			callback = vim.lsp.buf.clear_references,
+			buffer = bufnr,
+			group = "LspDocumentHighlight",
+			desc = "Clear All the References",
+		})
 	end
 end

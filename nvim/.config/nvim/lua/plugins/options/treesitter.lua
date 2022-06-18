@@ -9,7 +9,7 @@ require("nvim-treesitter.configs").setup({
 		"json",
 		"json5",
 		"lua",
-    "markdown",
+		"markdown",
 		"ruby",
 		"rust",
 		"scss",
@@ -49,9 +49,9 @@ require("nvim-treesitter.configs").setup({
 	},
 
 	-- use rainbow parentheses
-	rainbow = {
-		enable = true,
-	},
+	-- rainbow = {
+	-- 	enable = true,
+	-- },
 
 	-- wisely add end keyword in languages like ruby and lua
 	endwise = {
