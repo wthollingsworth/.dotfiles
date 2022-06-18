@@ -113,6 +113,10 @@ return require("packer").startup({
 			"RRethy/nvim-treesitter-endwise",
 			requires = { "nvim-treesitter/nvim-treesitter" },
 		})
+		use({
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			requires = { "nvim-treesitter/nvim-treesitter" },
+		})
 
 		use({
 			"yamatsum/nvim-nonicons",
@@ -214,6 +218,15 @@ return require("packer").startup({
 			requires = { "nvim-treesitter/nvim-treesitter" },
 		})
 
+		-- Readline editing for command mode
+		use("ryvnf/readline.vim")
+
+		-- Smooth scrolling
+		use({
+			"declancm/cinnamon.nvim",
+			config = [[ require('plugins.options.cinnamon') ]],
+		})
+
 		-- Floating terminal
 		use({
 			"akinsho/toggleterm.nvim",
@@ -263,11 +276,5 @@ return require("packer").startup({
 			require("packer").sync()
 		end
 	end,
-	config = {
-		display = {
-			open_fn = function()
-				return require("packer.util").float({ border = "single" })
-			end,
-		},
-	},
+	autoremove = true,
 })
