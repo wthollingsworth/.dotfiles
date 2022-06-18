@@ -2,8 +2,7 @@ require("options")
 require("mappings")
 require("plugins")
 
--- use symbols int he sign column to show information from lsp
--- diagnostics
+-- use symbols in the sign column to show information from lsp diagnostics
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
@@ -11,6 +10,6 @@ for type, icon in pairs(signs) do
 end
 
 vim.cmd([[ colorscheme nordbones ]])
-vim.g.nordbones_solid_float_border = true
+vim.g.nordbones = { colorize_diagnostic_underline_text = true }
 -- Get nice lines between splits.  Set this here to override the colorschem.
 --vim.cmd([[ highlight WinSeparator guibg=None ]])

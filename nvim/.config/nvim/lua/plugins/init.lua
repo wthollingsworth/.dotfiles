@@ -67,6 +67,13 @@ return require("packer").startup({
 		-- Adds pictocgrams to lsp completion menus
 		use("onsails/lspkind-nvim")
 
+		-- Diagnostics list
+		use({
+			"folke/trouble.nvim",
+			requires = "kyazdani42/nvim-web-devicons",
+			config = [[ require('plugins.options.trouble') ]],
+		})
+
 		-- Debug adapter protocol (DAP)
 		-- For language adapters see:
 		-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
@@ -276,5 +283,7 @@ return require("packer").startup({
 			require("packer").sync()
 		end
 	end,
-	autoremove = true,
+	config = {
+		autoremove = true,
+	},
 })

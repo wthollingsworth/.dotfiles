@@ -112,10 +112,13 @@ opt.autoindent = true
 opt.modeline = true
 
 -- Fold code using treesitter
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
-opt.foldlevel = 4
-opt.foldminlines = 4
+-- opt.foldmethod = "expr"
+-- opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- opt.foldlevel = 4
+-- opt.foldminlines = 4
+opt.foldcolumn = "1"
+opt.foldlevel = 99
+opt.foldenable = true
 
 -- List of columns to highlight with hl-ColorColumn.
 opt.colorcolumn = { 80 }

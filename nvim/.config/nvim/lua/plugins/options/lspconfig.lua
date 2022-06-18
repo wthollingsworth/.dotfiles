@@ -1,24 +1,5 @@
 local nvim_lsp = require("lspconfig")
 
--- border for :LspInfo
-local win = require("lspconfig.ui.windows")
-local _default_opts = win.default_opts
-
-win.default_opts = function(options)
-	local opts = _default_opts(options)
-	opts.border = "single"
-	return opts
-end
-
--- border for other things like hover info
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-	opts = opts or {}
-	--opts.border = opts.border or border
-	opts.border = "single"
-	return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
