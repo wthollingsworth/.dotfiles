@@ -1,4 +1,7 @@
+local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
+
+local lsp_defaults = lspconfig.util.default_config
 
 local code_actions = null_ls.builtins.code_actions
 local completion = null_ls.builtins.completion
@@ -9,15 +12,15 @@ local formatting = null_ls.builtins.formatting
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local lsp_formatting = function(bufnr)
 	vim.lsp.buf.format({
-    filter = function(client)
-      return client.name == "null-ls"
-    end,
+		filter = function(client)
+			return client.name == "null-ls"
+		end,
 		bufnr = bufnr,
 		timeout_ms = 2000,
 	})
 end
 
-null_ls.setup({
+local config = {
 	sources = {
 		code_actions.gitsigns,
 		code_actions.proselint.with({
@@ -42,6 +45,7 @@ null_ls.setup({
 	},
 	-- you can reuse a shared lspconfig on_attach callback here
 	on_attach = function(client, bufnr)
+		lsp_defaults.on_attach(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 			vim.api.nvim_create_autocmd("BufWritePre", {
@@ -53,4 +57,6 @@ null_ls.setup({
 			})
 		end
 	end,
-})
+}
+
+return config

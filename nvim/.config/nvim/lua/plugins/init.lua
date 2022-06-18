@@ -52,16 +52,12 @@ return require("packer").startup({
 		-- Language server protocol (LSP)
 		-- For language server installation see:
 		-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-		use({
-			"neovim/nvim-lspconfig",
-			config = [[ require('plugins.options.lspconfig') ]],
-		})
+		use("neovim/nvim-lspconfig")
 
 		-- Hook into LSP for things like formatting
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
 			requires = { "neovim/nvim-lspconfig" },
-			config = [[ require('plugins.options.null-ls') ]],
 		})
 
 		-- Adds pictocgrams to lsp completion menus
@@ -272,7 +268,6 @@ return require("packer").startup({
 				"nvim-lua/plenary.nvim",
 				"mfussenegger/nvim-dap",
 			},
-			config = [[ require('plugins.options.rust-tools') ]],
 		})
 
 		-- Kitty

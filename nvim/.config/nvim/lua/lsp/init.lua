@@ -1,6 +1,21 @@
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local lspconfig = require("lspconfig")
+local null_ls = require("null-ls")
+local rust_tools = require("rust-tools")
+
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
+
+local lsp_defaults = lspconfig.util.default_config
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+lsp_defaults.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-return function(client, bufnr)
+lsp_defaults.on_attach = function(client, bufnr)
 	client.server_capabilities.document_formatting = false
 	client.server_capabilities.document_range_formatting = false
 
@@ -45,3 +60,9 @@ return function(client, bufnr)
 		})
 	end
 end
+
+lspconfig.solargraph.setup(require("lsp.solargraph"))
+lspconfig.sumneko_lua.setup(require("lsp.sumneko_lua"))
+
+null_ls.setup(require("lsp.null-ls"))
+rust_tools.setup(require("lsp.rust_analyzer"))

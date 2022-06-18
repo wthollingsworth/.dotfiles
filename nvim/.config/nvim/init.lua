@@ -1,6 +1,7 @@
 require("options")
 require("mappings")
 require("plugins")
+require("lsp")
 
 -- use symbols in the sign column to show information from lsp diagnostics
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
