@@ -236,6 +236,14 @@ return require("packer").startup({
 			config = [[ require('plugins.options.toggleterm') ]],
 		})
 
+		-- Git commands in Vim
+		use("tpope/vim-fugitive")
+		-- GitHub integration for vim-fugitive's :GBrowse command
+		use({
+			"tpope/vim-rhubarb",
+			requires = "tpope/vim-fugitive",
+		})
+
 		-- Focus mode
 		use({
 			"folke/twilight.nvim",
