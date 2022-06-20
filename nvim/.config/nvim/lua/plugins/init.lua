@@ -70,24 +70,6 @@ return require("packer").startup({
 			config = [[ require('plugins.options.trouble') ]],
 		})
 
-		-- Debug adapter protocol (DAP)
-		-- For language adapters see:
-		-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
-		use({
-			"rcarriga/nvim-dap-ui",
-			requires = { "mfussenegger/nvim-dap" },
-			config = [[ require('plugins.options.dap') ]],
-		})
-
-		use({
-			"theHamsta/nvim-dap-virtual-text",
-			requires = {
-				"mfussenegger/nvim-dap",
-				"nvim-treesitter/nvim-treesitter",
-			},
-			config = [[ require('plugins.options.dap-virtual-text') ]],
-		})
-
 		-- Notification system
 		use({
 			"rcarriga/nvim-notify",
@@ -139,25 +121,6 @@ return require("packer").startup({
 			requires = { "kyazdani42/nvim-web-devicons", opt = true },
 			config = [[ require('plugins.options.lualine') ]],
 		})
-
-		-- Command line replacement
-		-- border not showing up in search box
-		-- shows up in lualine tabline
-		-- no integration with nvim-cmp
-		-- use({
-		-- 	"VonHeikemen/fine-cmdline.nvim",
-		-- 	requires = {
-		-- 		{ "MunifTanjim/nui.nvim" },
-		-- 	},
-		-- 	config = [[ require('plugins.options.fine-cmdline' )]],
-		-- })
-		-- use({
-		-- 	"VonHeikemen/searchbox.nvim",
-		-- 	requires = {
-		-- 		{ "MunifTanjim/nui.nvim" },
-		-- 	},
-		-- 	config = [[ require('plugins.options.searchbox' )]],
-		-- })
 
 		-- Sidebar with file/symbol/git/diagnostic info
 		use({
@@ -242,19 +205,6 @@ return require("packer").startup({
 		use({
 			"tpope/vim-rhubarb",
 			requires = "tpope/vim-fugitive",
-		})
-
-		-- Focus mode
-		use({
-			"folke/twilight.nvim",
-			config = [[ require('plugins.options.twilight') ]],
-			cmd = { "Twilight", "TwilightEnable", "TwilightDisable" },
-		})
-
-		use({
-			"folke/zen-mode.nvim",
-			config = [[ require('plugins.options.zen-mode') ]],
-			cmd = { "ZenMode" },
 		})
 
 		use({
