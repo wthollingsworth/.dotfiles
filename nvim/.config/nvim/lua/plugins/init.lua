@@ -231,6 +231,10 @@ return require("packer").startup({
 		-- Kitty
 		use("fladson/vim-kitty")
 
+		-- Ruby and Rails
+		use("tpope/vim-bundler")
+		use("tpope/vim-rails")
+
 		-- Automatically sync if packer was installed
 		if packer_bootstrap then
 			require("packer").sync()

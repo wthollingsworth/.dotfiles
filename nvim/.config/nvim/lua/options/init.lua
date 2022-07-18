@@ -93,6 +93,7 @@ opt.wrap = true
 
 -- Display line numbers.
 opt.number = true
+opt.relativenumber = true
 
 -- Draw version control signs in the number column.
 opt.signcolumn = "yes"

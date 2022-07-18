@@ -63,6 +63,7 @@ end
 
 lspconfig.solargraph.setup(require("lsp.solargraph"))
 lspconfig.sumneko_lua.setup(require("lsp.sumneko_lua"))
+lspconfig.vuels.setup({})
 
 null_ls.setup(require("lsp.null-ls"))
 rust_tools.setup(require("lsp.rust_analyzer"))

@@ -19,7 +19,7 @@ require("lualine").setup({
 		component_separators = "|",
 		--section_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "SidebarNvim" },
+		disabled_filetypes = { "SidebarNvim", "toggleterm" },
 		always_divide_middle = true,
 		globalstatus = true,
 	},
