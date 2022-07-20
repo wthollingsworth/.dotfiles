@@ -1,69 +1,41 @@
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local defaults = require("lsp.defaults")
 local lspconfig = require("lspconfig")
-local null_ls = require("null-ls")
-local rust_tools = require("rust-tools")
 
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
+-- set defaults for all langauge servers
 local lsp_defaults = lspconfig.util.default_config
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+lsp_defaults.capabilities = defaults.capabilities
+lsp_defaults.on_attach = defaults.on_attach
 
-lsp_defaults.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+-- a list of servers to setup
+-- TODO: Replace this with nvim-lsp-installer so you can use
+--       use `require("nvim-lsp-installer").get_installed_servers()`
+--       instead of maintaining a list manually (that's shared across
+--       systems).
+--
+--       Solargraph is still clunky, but you can work with it by setting
+--       ${GEM_HOME} and ${GEM_PATH} as documented in
+--       https://github.com/williamboman/nvim-lsp-installer/issues/187
+--       for a `bundle install` so solargraph can find the gems in it's
+--       apartment of the nvim-lsp-installer complex.
+local servers = { "solargraph", "sumneko_lua", "rust_analyzer", "vuels" }
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-lsp_defaults.on_attach = function(client, bufnr)
-	client.server_capabilities.document_formatting = false
-	client.server_capabilities.document_range_formatting = false
+for _, server in ipairs(servers) do
+	-- load any overrides if they can be found
+	-- this is useful for:
+	-- - plugins that manage the lsp configuration themselves
+	--   (e.g., rust-tools.nvim)
+	-- - setting more options than the defaults
+	--   (e.g., so sumneko_lua knows about the `vim` namespace)
+	local configuration = "lsp.overrides." .. server
+	local present, _ = pcall(require, configuration)
 
-	-- Enable completion triggered by <c-x><c-o>
-	--vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
-	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { buffer = 0 })
-	vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, { buffer = 0 })
-	vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, { buffer = 0 })
-	vim.keymap.set("n", "<space>wr", function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, { buffer = 0 })
-	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, { buffer = 0 })
-	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { buffer = 0 })
-	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { buffer = 0 })
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
-	vim.keymap.set("n", "<space>p", vim.lsp.buf.formatting, { buffer = 0 })
-
-	if client.server_capabilities.documentHighlightProvider then
-		vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = true })
-		vim.api.nvim_clear_autocmds({ buffer = bufnr, group = "LspDocumentHighlight" })
-		vim.api.nvim_create_autocmd("CursorHold", {
-			callback = vim.lsp.buf.document_highlight,
-			buffer = bufnr,
-			group = "LspDocumentHighlight",
-			desc = "Document Highlight",
-		})
-		vim.api.nvim_create_autocmd("CursorHoldI", {
-			callback = vim.lsp.buf.document_highlight,
-			buffer = bufnr,
-			group = "LspDocumentHighlight",
-			desc = "Document Highlight",
-		})
-		vim.api.nvim_create_autocmd("CursorMoved", {
-			callback = vim.lsp.buf.clear_references,
-			buffer = bufnr,
-			group = "LspDocumentHighlight",
-			desc = "Clear All the References",
-		})
+	-- otherwise, just use the default options for the server
+	if not present then
+		lspconfig[server].setup({})
 	end
 end
-
-lspconfig.solargraph.setup(require("lsp.solargraph"))
-lspconfig.sumneko_lua.setup(require("lsp.sumneko_lua"))
-lspconfig.vuels.setup({})
-
-null_ls.setup(require("lsp.null-ls"))
-rust_tools.setup(require("lsp.rust_analyzer"))

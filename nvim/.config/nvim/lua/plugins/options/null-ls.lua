@@ -1,7 +1,5 @@
-local lspconfig = require("lspconfig")
+local defaults = require("lsp.defaults")
 local null_ls = require("null-ls")
-
-local lsp_defaults = lspconfig.util.default_config
 
 local code_actions = null_ls.builtins.code_actions
 local completion = null_ls.builtins.completion
@@ -20,7 +18,7 @@ local lsp_formatting = function(bufnr)
 	})
 end
 
-local config = {
+null_ls.setup({
 	sources = {
 		code_actions.gitsigns,
 		code_actions.proselint.with({
@@ -43,9 +41,9 @@ local config = {
 		formatting.rustfmt,
 		-- hover.dictionary,
 	},
-	-- you can reuse a shared lspconfig on_attach callback here
+
 	on_attach = function(client, bufnr)
-		lsp_defaults.on_attach(client, bufnr)
+		defaults.on_attach(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 			vim.api.nvim_create_autocmd("BufWritePre", {
@@ -57,6 +55,4 @@ local config = {
 			})
 		end
 	end,
-}
-
-return config
+})

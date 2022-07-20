@@ -57,7 +57,7 @@ return require("packer").startup({
 		-- Hook into LSP for things like formatting
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
-			requires = { "neovim/nvim-lspconfig" },
+			config = [[ require('plugins.options.null-ls') ]],
 		})
 
 		-- Adds pictocgrams to lsp completion menus
