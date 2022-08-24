@@ -199,6 +199,6 @@ macos_option_as_alt left
 # COLORS #
 ##########
 # BEGIN_KITTY_THEME
-# zenbones_light
+# Nord
 include current-theme.conf
 # END_KITTY_THEME

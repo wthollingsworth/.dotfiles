@@ -1,24 +1,6 @@
 require("nvim-treesitter.configs").setup({
-	-- one of "all", "maintained" (parsers with maintainers), or a list
-	-- of languages
-	ensure_installed = {
-		"bash",
-		"css",
-		"dockerfile",
-		"html",
-		"json",
-		"json5",
-		"lua",
-		"markdown",
-		"ruby",
-		"rust",
-		"scss",
-		"vim",
-		"vue",
-	},
-
-	-- install languages synchronously (only applied to `ensure_installed`)
-	sync_install = false,
+	-- Automatically install missing parsers when entering buffer
+	auto_install = true,
 
 	-- list of parsers to ignore installing
 	--ignore_install = { "javascript" },

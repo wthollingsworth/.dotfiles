@@ -22,7 +22,7 @@ lsp_defaults.on_attach = defaults.on_attach
 --       https://github.com/williamboman/nvim-lsp-installer/issues/187
 --       for a `bundle install` so solargraph can find the gems in it's
 --       apartment of the nvim-lsp-installer complex.
-local servers = { "solargraph", "sumneko_lua", "rust_analyzer", "vuels" }
+local servers = require("mason-lspconfig").get_installed_servers()
 
 for _, server in ipairs(servers) do
 	-- load any overrides if they can be found

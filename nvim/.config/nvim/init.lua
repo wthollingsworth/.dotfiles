@@ -10,11 +10,14 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-vim.g.nordbones = {
+vim.g.zenbones = {
 	solid_line_nr = true,
+  solid_float_border = true,
 	darken_line_nr = 80,
+  darken_noncurrent_window = true,
 	colorize_diagnostic_underline_text = true,
 }
-vim.cmd([[ colorscheme nordbones ]])
+vim.cmd [[ set background=light ]]
+vim.cmd([[ colorscheme zenbones ]])
 -- Get nice lines between splits.  Set this here to override the colorschem.
 --vim.cmd([[ highlight WinSeparator guibg=None ]])

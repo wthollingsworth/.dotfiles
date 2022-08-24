@@ -52,7 +52,19 @@ return require("packer").startup({
 		-- Language server protocol (LSP)
 		-- For language server installation see:
 		-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-		use("neovim/nvim-lspconfig")
+		use({
+			"williamboman/mason.nvim",
+			config = [[ require('plugins.options.mason') ]],
+		})
+		use({
+			"williamboman/mason-lspconfig.nvim",
+			requires = "williamboman/mason.nvim",
+			config = [[ require('plugins.options.mason-lspconfig') ]],
+		})
+		use({
+			"neovim/nvim-lspconfig",
+			reqiures = "williamboman/mason-lspconfig.nvim",
+		})
 
 		-- Hook into LSP for things like formatting
 		use({
@@ -205,17 +217,6 @@ return require("packer").startup({
 		use({
 			"tpope/vim-rhubarb",
 			requires = "tpope/vim-fugitive",
-		})
-
-		use({
-			"andreadev-it/shade.nvim",
-			config = [[ require('plugins.options.shade') ]],
-		})
-
-		use({
-			"anuvyklack/pretty-fold.nvim",
-			config = [[ require('plugins.options.pretty-fold') ]],
-			requires = { "anuvyklack/nvim-keymap-amend" },
 		})
 
 		-- Rust

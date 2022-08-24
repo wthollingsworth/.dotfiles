@@ -28,13 +28,13 @@ null_ls.setup({
 			filetypes = { "markdown" },
 		}),
 		completion.vsnip,
-		diagnostics.codespell, -- pip install codespell
+		--diagnostics.codespell, -- pip install codespell
 		diagnostics.erb_lint, -- gem install erb_lint
-		diagnostics.proselint.with({
-			filetypes = { "markdown" },
-		}), -- pip install proselint
+		-- diagnostics.proselint.with({
+		-- 	filetypes = { "markdown" },
+		-- }), -- pip install proselint
 		diagnostics.rubocop, -- gem install rubocop
-		formatting.codespell, -- pip install codespell
+		--formatting.codespell, -- pip install codespell
 		formatting.erb_lint, -- gem install erb_lint
 		formatting.rubocop, -- gem install rubocop
 		formatting.stylua, -- cargo install stylua

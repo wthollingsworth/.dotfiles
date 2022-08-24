@@ -1,21 +1,24 @@
 local gps = require("nvim-gps")
-local nordbones = require("lualine.themes.nordbones")
-local palette = require("nordbones.palette")
+local zenbones = require("lualine.themes.zenbones")
+local palette = require("zenbones.palette")
 
 -- make sections c and x blend in with the buffer
-nordbones.normal.c.bg = palette.nord0
+--nordbones.normal.c.bg = palette.nord0
+zenbones.normal.c.bg = palette.bg
 
 -- make the tabline look more like the statusline
-nordbones.inactive.a = {
-	fg = "#A8B1C5",
-	bg = "#4C566A",
+zenbones.inactive.a = {
+	--fg = "#A8B1C5",
+	fg = "#564E4A",
+	--bg = "#4C566A",
+	bg = "#C4B6AF",
 	gui = "", -- no bold
 }
 
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = nordbones,
+		theme = zenbones,
 		component_separators = "|",
 		--section_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
