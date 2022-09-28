@@ -26,7 +26,9 @@ return require("packer").startup({
 		use("wbthomason/packer.nvim")
 
     local plugins = require('plugins.plugins')
-    plugins(use)
+    for _, plugin in ipairs(plugins) do
+      use(plugin)
+    end
 
 		-- Automatically sync if packer was installed
 		if packer_bootstrap then
