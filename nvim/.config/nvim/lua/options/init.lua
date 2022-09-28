@@ -41,7 +41,7 @@ opt.pumwidth = 20
 opt.fileencoding = "utf-8"
 
 -- Sets the height of the command line.
-opt.cmdheight = 0
+-- opt.cmdheight = 0
 
 -- Open splits in a more intuitive direction.
 opt.splitbelow = true -- :sp[lit] opens below instead of above

@@ -9,7 +9,8 @@ local formatting = null_ls.builtins.formatting
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local lsp_formatting = function(bufnr)
-	vim.lsp.buf.format({
+  -- this will change to vim.lsp.buf.format in neovim 0.8
+	vim.lsp.buf.formatting_sync({
 		filter = function(client)
 			return client.name == "null-ls"
 		end,
@@ -44,15 +45,15 @@ null_ls.setup({
 
 	on_attach = function(client, bufnr)
 		defaults.on_attach(client, bufnr)
-		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					lsp_formatting(bufnr)
-				end,
-			})
-		end
+		-- if client.supports_method("textDocument/formatting") then
+		-- 	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		-- 	vim.api.nvim_create_autocmd("BufWritePre", {
+		-- 		group = augroup,
+		-- 		buffer = bufnr,
+		-- 		callback = function()
+		-- 			lsp_formatting(bufnr)
+		-- 		end,
+		-- 	})
+		-- end
 	end,
 })

@@ -1,16 +1,10 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 
-telescope.setup({
-	extensions = {
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown({}),
-		},
-	},
-})
+telescope.setup()
 
+-- use fzf as a backend
 telescope.load_extension("fzf")
-telescope.load_extension("ui-select")
 
 -- Check the documentation for more pickers, or use tab completion on
 -- the arguments to :Telescope.  Or just run :Telescope to search for

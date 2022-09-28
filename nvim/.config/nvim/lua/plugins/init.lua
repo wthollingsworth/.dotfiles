@@ -50,8 +50,6 @@ return require("packer").startup({
 		use("hrsh7th/cmp-nvim-lsp-signature-help")
 
 		-- Language server protocol (LSP)
-		-- For language server installation see:
-		-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 		use({
 			"williamboman/mason.nvim",
 			config = [[ require('plugins.options.mason') ]],
@@ -64,6 +62,15 @@ return require("packer").startup({
 		use({
 			"neovim/nvim-lspconfig",
 			reqiures = "williamboman/mason-lspconfig.nvim",
+		})
+
+		-- Testing
+		use({
+			"nvim-neotest/neotest",
+			requires = {
+				"~/Development/neotest-rspec",
+			},
+			config = [[ require('plugins.options.neotest') ]],
 		})
 
 		-- Hook into LSP for things like formatting
@@ -83,10 +90,10 @@ return require("packer").startup({
 		})
 
 		-- Notification system
-		use({
-			"rcarriga/nvim-notify",
-			config = [[ require('plugins.options.nvim-notify') ]],
-		})
+		-- use({
+		-- 	"rcarriga/nvim-notify",
+		-- 	config = [[ require('plugins.options.nvim-notify') ]],
+		-- })
 
 		-- Highlight, edit, and navigate code using a fast incremental
 		-- parsing library
@@ -152,10 +159,10 @@ return require("packer").startup({
 			config = [[ require('plugins.options.telescope') ]],
 		})
 
-		-- Tells vim.ui.select to use Telescope
+		-- UI replacments for vim.input and vim.select
 		use({
-			"nvim-telescope/telescope-ui-select.nvim",
-			requires = { "nvim-telescope/telescope.nvim" },
+			"stevearc/dressing.nvim",
+      config = [[ require('dressing').setup()]]
 		})
 
 		-- Snippet sources
@@ -171,7 +178,6 @@ return require("packer").startup({
 		use({
 			"norcalli/nvim-colorizer.lua",
 			config = [[ require('plugins.options.nvim-colorizer') ]],
-			ft = { "html", "css" },
 		})
 
 		-- Display information from git in signcolumn and virtual text
@@ -195,6 +201,9 @@ return require("packer").startup({
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			requires = { "nvim-treesitter/nvim-treesitter" },
 		})
+
+    -- Mappings to add/change/delete things that come in pairs
+    use("tpope/vim-surround")
 
 		-- Readline editing for command mode
 		use("ryvnf/readline.vim")

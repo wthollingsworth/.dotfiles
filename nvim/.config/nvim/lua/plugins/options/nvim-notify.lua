@@ -83,37 +83,15 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 	end
 end
 
-local dap = require("dap")
-dap.listeners.before["event_progressStart"]["progress-notifications"] = function(session, body)
-	local notif_data = get_notif_data("dap", body.progressId)
-
-	local message = format_message(body.message, body.percentage)
-	notif_data.notification = vim.notify(message, "info", {
-		title = format_title(body.title, session.config.type),
-		icon = spinner_frames[1],
-		timeout = false,
-		hide_form_history = false,
-	})
-
-	notif_data.notification.spinner = 1, update_spinner("dap", body.progressId)
-end
-
-dap.listeners.before["event_progressUpdate"]["progress-notifications"] = function(session, body)
-	local notif_data = get_notif_data("dap", body.progressId)
-	notif_data.notification = vim.notify(format_message(body.message, body.percentage), "info", {
-		replace = notif_data.notification,
-		hide_form_history = false,
-	})
-end
-
-dap.listeners.before["event_progressEnd"]["progress-notifications"] = function(session, body)
-	local notif_data = client_notifs["dap"][body.progressId]
-	notif_data.notification = vim.notify(body.message and format_message(body.message) or "Complete", "info", {
-		icon = "",
-		replace = notif_data.notification,
-		timeout = 3000,
-	})
-	notif_data.spinner = nil
-end
-
 vim.keymap.set("n", "<leader>tn", require("telescope").extensions.notify.notify)
+
+-- don't notify me of null-ls progress
+local original_handler = vim.lsp.handlers["$/progress"]
+vim.lsp.handlers["$progress"] = function(_, result, ctx)
+	local client = vim.lsp.get_client_by_id(ctx.client_id)
+	if client and client.name == "null-ls" then
+		-- this will filter out all messages
+		return
+	end
+	return original_handler(nil, result, ctx)
+end

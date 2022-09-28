@@ -12,16 +12,6 @@ lsp_defaults.capabilities = defaults.capabilities
 lsp_defaults.on_attach = defaults.on_attach
 
 -- a list of servers to setup
--- TODO: Replace this with nvim-lsp-installer so you can use
---       use `require("nvim-lsp-installer").get_installed_servers()`
---       instead of maintaining a list manually (that's shared across
---       systems).
---
---       Solargraph is still clunky, but you can work with it by setting
---       ${GEM_HOME} and ${GEM_PATH} as documented in
---       https://github.com/williamboman/nvim-lsp-installer/issues/187
---       for a `bundle install` so solargraph can find the gems in it's
---       apartment of the nvim-lsp-installer complex.
 local servers = require("mason-lspconfig").get_installed_servers()
 
 for _, server in ipairs(servers) do
