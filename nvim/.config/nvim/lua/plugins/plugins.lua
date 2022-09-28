@@ -218,6 +218,9 @@ local plugins = function(use)
   -- Ruby and Rails
   use("tpope/vim-bundler")
   use("tpope/vim-rails")
+
+  -- Allow the . operator to work on plugin mappings and not just native ones
+  use("tpope/vim-repeat")
 end
 
 return plugins
