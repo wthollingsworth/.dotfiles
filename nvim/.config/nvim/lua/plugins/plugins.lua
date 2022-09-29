@@ -1,227 +1,304 @@
+local Specification = require("plugins.util.specification")
 local plugins = {
   -- Colorscheme
-  "shaunsingh/nord.nvim",
-  {
-    "mcchrish/zenbones.nvim",
-    -- more configuration options
-    requires = "rktjmp/lush.nvim",
-  },
+  Specification
+    .for_plugin("shaunsingh/nord.nvim")
+    .spec(),
+
+  Specification
+    .for_plugin("mcchrish/zenbones.nvim")
+    .with({
+      -- more configuration options
+      requires = "rktjmp/lush.nvim",
+    })
+    .spec(),
 
   -- Completion
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-cmdline",
-  {
-    "hrsh7th/nvim-cmp",
-    config = [[ require('plugins.options.nvim-cmp') ]],
-  },
-  "hrsh7th/cmp-vsnip",
-  {
-    "hrsh7th/vim-vsnip",
-    config = [[ require('plugins.options.vim-vsnip') ]],
-  },
-  "hrsh7th/cmp-nvim-lsp-signature-help",
+  Specification
+    .for_plugin("hrsh7th/cmp-nvim-lsp")
+    .spec(),
+  Specification
+    .for_plugin("hrsh7th/cmp-buffer")
+    .spec(),
+  Specification
+    .for_plugin("hrsh7th/cmp-path")
+    .spec(),
+  Specification
+    .for_plugin("hrsh7th/cmp-cmdline")
+    .spec(),
+  Specification
+    .for_plugin("hrsh7th/nvim-cmp")
+    .with({
+      config = [[ require('plugins.options.nvim-cmp') ]],
+    })
+    .spec(),
+  Specification
+    .for_plugin("hrsh7th/cmp-vsnip")
+    .spec(),
+  Specification
+    .for_plugin("hrsh7th/vim-vsnip")
+    .with({
+      config = [[ require('plugins.options.vim-vsnip') ]],
+    })
+    .spec(),
+  Specification
+    .for_plugin("hrsh7th/cmp-nvim-lsp-signature-help")
+    .spec(),
 
   -- Language server protocol (LSP)
-  {
-    "williamboman/mason.nvim",
-    config = [[ require('plugins.options.mason') ]],
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    requires = "williamboman/mason.nvim",
-    config = [[ require('plugins.options.mason-lspconfig') ]],
-  },
-  {
-    "neovim/nvim-lspconfig",
-    reqiures = "williamboman/mason-lspconfig.nvim",
-  },
-
-  -- Testing
-  {
-    "nvim-neotest/neotest",
-    requires = {
-      "~/Development/neotest-rspec",
-    },
-    config = [[ require('plugins.options.neotest') ]],
-  },
+  Specification
+    .for_plugin("williamboman/mason.nvim")
+    .with({
+      config = [[ require('plugins.options.mason') ]],
+    })
+    .spec(),
+  Specification
+    .for_plugin("williamboman/mason-lspconfig.nvim")
+    .with({
+      requires = "williamboman/mason.nvim",
+      config = [[ require('plugins.options.mason-lspconfig') ]],
+    })
+    .spec(),
+  Specification
+    .for_plugin("neovim/nvim-lspconfig")
+    .with({
+      reqiures = "williamboman/mason-lspconfig.nvim",
+    })
+    .spec(),
 
   -- Hook into LSP for things like formatting
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    config = [[ require('plugins.options.null-ls') ]],
-  },
+  Specification
+    .for_plugin("jose-elias-alvarez/null-ls.nvim")
+    .with({
+      config = [[ require('plugins.options.null-ls') ]],
+    })
+    .spec(),
 
   -- Adds pictocgrams to lsp completion menus
-  "onsails/lspkind-nvim",
+  Specification
+    .for_plugin("onsails/lspkind-nvim")
+    .spec(),
 
   -- Diagnostics list
-  {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = [[ require('plugins.options.trouble') ]],
-  },
-
-  -- Notification system
-  -- ({
-    -- 	"rcarriga/nvim-notify",
-    -- 	config = [[ require('plugins.options.nvim-notify') ]],
-    -- })
+  Specification
+    .for_plugin("folke/trouble.nvim")
+    .with({
+      requires = "kyazdani42/nvim-web-devicons",
+      config = [[ require('plugins.options.trouble') ]],
+    })
+    .spec(),
 
   -- Highlight, edit, and navigate code using a fast incremental
   -- parsing library
-  {
-    "nvim-treesitter/nvim-treesitter",
-    -- Update the language parsers when updating Treesitter
-    run = ":TSUpdate",
-    config = [[ require('plugins.options.treesitter') ]],
-  },
+  Specification
+    .for_plugin("nvim-treesitter/nvim-treesitter")
+    .with({
+      -- Update the language parsers when updating Treesitter
+      run = ":TSUpdate",
+      config = [[ require('plugins.options.treesitter') ]],
+    })
+    .spec(),
 
   -- Treesitter plugins
-  {
-    "windwp/nvim-ts-autotag", -- autoclose and rename HTML tags
-    requires = { "nvim-treesitter/nvim-treesitter" },
-  },
-  {
-    "p00f/nvim-ts-rainbow", -- rainbow parentheses
-    requires = { "nvim-treesitter/nvim-treesitter" },
-  },
-  {
-    "RRethy/nvim-treesitter-endwise",
-    requires = { "nvim-treesitter/nvim-treesitter" },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    requires = { "nvim-treesitter/nvim-treesitter" },
-  },
+  Specification -- autoclose and rename HTML tags
+    .for_plugin("windwp/nvim-ts-autotag")
+    .with({
+      requires = { "nvim-treesitter/nvim-treesitter" },
+    })
+    .spec(),
+  Specification -- rainbow parentheses
+    .for_plugin("p00f/nvim-ts-rainbow")
+    .with({
+      requires = { "nvim-treesitter/nvim-treesitter" },
+    })
+    .spec(),
+  Specification
+    .for_plugin("RRethy/nvim-treesitter-endwise")
+    .with({
+      requires = { "nvim-treesitter/nvim-treesitter" },
+    })
+    .spec(),
+  Specification
+    .for_plugin("nvim-treesitter/nvim-treesitter-textobjects")
+    .with({
+      requires = { "nvim-treesitter/nvim-treesitter" },
+    })
+    .spec(),
 
-  {
-    "yamatsum/nvim-nonicons",
-    requires = { "kyazdani42/nvim-web-devicons" },
-  },
+  Specification
+    .for_plugin("yamatsum/nvim-nonicons")
+    .with({
+      requires = { "kyazdani42/nvim-web-devicons" },
+    })
+    .spec(),
 
   -- Statusline component to show context of cursor position
-  {
-    "SmiteshP/nvim-gps",
-    requires = "nvim-treesitter/nvim-treesitter",
-    config = [[ require('plugins.options.nvim-gps') ]],
-  },
+  Specification
+    .for_plugin("SmiteshP/nvim-gps")
+    .with({
+      requires = "nvim-treesitter/nvim-treesitter",
+      config = [[ require('plugins.options.nvim-gps') ]],
+    })
+    .spec(),
 
   -- Statusline
-  {
-    "nvim-lualine/lualine.nvim",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    config = [[ require('plugins.options.lualine') ]],
-  },
+  Specification
+    .for_plugin("nvim-lualine/lualine.nvim")
+    .with({
+      requires = { "kyazdani42/nvim-web-devicons", opt = true },
+      config = [[ require('plugins.options.lualine') ]],
+    })
+    .spec(),
 
   -- Sidebar with file/symbol/git/diagnostic info
-  {
-    "sidebar-nvim/sidebar.nvim",
-    config = [[ require('plugins.options.sidebar') ]],
-  },
+  Specification
+    .for_plugin("sidebar-nvim/sidebar.nvim")
+    .with({
+      config = [[ require('plugins.options.sidebar') ]],
+    })
+    .spec(),
 
   -- UI to select things (files, grep results, open buffers...)
   -- Lots of dependencies here (recommended and optional), run
   -- :checkhealth telescope to see what you might need.
-  {
-    "nvim-telescope/telescope.nvim",
-    requires = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-    },
-    config = [[ require('plugins.options.telescope') ]],
-  },
+  Specification
+    .for_plugin("nvim-telescope/telescope.nvim")
+    .with({
+      requires = {
+        { "nvim-lua/plenary.nvim" },
+        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+      },
+      config = [[ require('plugins.options.telescope') ]],
+    })
+    .spec(),
 
   -- UI replacments for vim.input and vim.select
-  {
-    "stevearc/dressing.nvim",
-    config = [[ require('dressing').setup()]]
-  },
+  Specification
+    .for_plugin("stevearc/dressing.nvim")
+    .with({
+      config = [[ require('dressing').setup()]]
+    })
+    .spec(),
 
   -- Snippet sources
-  "rafamadriz/friendly-snippets",
+  Specification
+    .for_plugin("rafamadriz/friendly-snippets")
+    .spec(),
 
   -- Automatic brace and keyword matching
-  {
-    "windwp/nvim-autopairs",
-    config = [[ require('plugins.options.nvim-autopairs') ]],
-  },
+  Specification
+    .for_plugin("windwp/nvim-autopairs")
+    .with({
+      config = [[ require('plugins.options.nvim-autopairs') ]],
+    })
+    .spec(),
 
   -- HTML/CSS color visualization
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = [[ require('plugins.options.nvim-colorizer') ]],
-  },
+  Specification
+    .for_plugin("norcalli/nvim-colorizer.lua")
+    .with({
+      config = [[ require('plugins.options.nvim-colorizer') ]],
+    })
+    .spec(),
 
   -- Display information from git in signcolumn and virtual text
-  {
-    "lewis6991/gitsigns.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = [[ require('plugins.options.gitsigns') ]],
-  },
+  Specification
+    .for_plugin("lewis6991/gitsigns.nvim")
+    .with({
+      requires = {
+        "nvim-lua/plenary.nvim",
+      },
+      config = [[ require('plugins.options.gitsigns') ]],
+    })
+    .spec(),
 
   -- Indentation guides
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    config = [[ require('plugins.options.indent-blankline') ]],
-  },
+  Specification
+    .for_plugin("lukas-reineke/indent-blankline.nvim")
+    .with({
+      config = [[ require('plugins.options.indent-blankline') ]],
+    })
+    .spec(),
 
   -- Easy commenting
-  "tpope/vim-commentary", -- mappings
-  -- for files with multiple comment types like vue
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    requires = { "nvim-treesitter/nvim-treesitter" },
-  },
+  Specification -- mappings
+   .for_plugin("tpope/vim-commentary")
+   .spec(),
+  Specification -- for files with multiple comment types like vue
+    .for_plugin("JoosepAlviste/nvim-ts-context-commentstring")
+    .with({
+      requires = { "nvim-treesitter/nvim-treesitter" },
+    })
+    .spec(),
 
   -- Mappings to add/change/delete things that come in pairs
-  "tpope/vim-surround",
+  Specification
+    .for_plugin("tpope/vim-surround")
+    .spec(),
 
   -- Readline editing for command mode
-  "ryvnf/readline.vim",
+  Specification
+    .for_plugin("ryvnf/readline.vim")
+    .spec(),
 
   -- Smooth scrolling
-  {
-    "declancm/cinnamon.nvim",
-    config = [[ require('plugins.options.cinnamon') ]],
-  },
+  Specification
+    .for_plugin("declancm/cinnamon.nvim")
+    .with({
+      config = [[ require('plugins.options.cinnamon') ]],
+    })
+    .spec(),
 
   -- Floating terminal
-  {
-    "akinsho/toggleterm.nvim",
-    config = [[ require('plugins.options.toggleterm') ]],
-  },
+  Specification
+    .for_plugin("akinsho/toggleterm.nvim")
+    .with({
+      config = [[ require('plugins.options.toggleterm') ]],
+    })
+    .spec(),
 
   -- Git commands in Vim
-  "tpope/vim-fugitive",
+  Specification
+    .for_plugin("tpope/vim-fugitive")
+    .spec(),
+
   -- GitHub integration for vim-fugitive's :GBrowse command
-  {
-    "tpope/vim-rhubarb",
-    requires = "tpope/vim-fugitive",
-  },
+  Specification
+    .for_plugin("tpope/vim-rhubarb")
+    .with({
+      requires = "tpope/vim-fugitive",
+    })
+    .spec(),
 
   -- Rust
-  {
-    "simrat39/rust-tools.nvim",
-    requires = {
-      "neovim/nvim-lspconfig",
-      "nvim-lua/plenary.nvim",
-      "mfussenegger/nvim-dap",
-    },
-  },
+  Specification
+    .for_plugin("simrat39/rust-tools.nvim")
+    .with({
+      requires = {
+        "neovim/nvim-lspconfig",
+        "nvim-lua/plenary.nvim",
+        "mfussenegger/nvim-dap",
+      },
+    })
+    .spec(),
 
   -- Kitty
-  "fladson/vim-kitty",
+  Specification
+    .for_plugin("fladson/vim-kitty")
+    .spec(),
 
   -- Ruby and Rails
-  "tpope/vim-bundler",
-  "tpope/vim-rails",
+  Specification
+    .for_plugin("tpope/vim-bundler")
+    .spec(),
+  Specification
+    .for_plugin("tpope/vim-rails")
+    .spec(),
 
   -- Allow the . operator to work on plugin mappings and not just native ones
-  "tpope/vim-repeat",
+  Specification
+    .for_plugin("tpope/vim-repeat")
+    .spec(),
 }
 
 return plugins
