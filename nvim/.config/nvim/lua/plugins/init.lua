@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 -- Install packer
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
@@ -25,9 +27,9 @@ return require("packer").startup({
 		-- Packer can manage itself
 		use("wbthomason/packer.nvim")
 
-    local plugins = require('plugins.plugins')
-    for _, plugin in ipairs(plugins) do
-      use(plugin)
+    local specs = utils.glob_require("plugins.specifications")
+    for module, spec in pairs(specs) do
+      use(spec)
     end
 
 		-- Automatically sync if packer was installed

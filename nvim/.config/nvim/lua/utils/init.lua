@@ -43,7 +43,7 @@ function M.globify_package(package)
   local glob = vim.tbl_map(function(path)
     -- convert absolute filename to relative
     -- ~/.config/nvim/lua/<package>/<module>.lua => <package>/foo
-    local relative_path = path:gsub(_base_lua_path .. "/", ""):gsub(".lua", "")
+    local relative_path = path:gsub(_base_lua_path .. "/", ""):gsub("%.lua", "")
     local basename = M.basename(relative_path)
     -- skip `init` and files starting with underscore.
     if (basename ~= 'init' and basename:sub(1, 1) ~= '_') then
