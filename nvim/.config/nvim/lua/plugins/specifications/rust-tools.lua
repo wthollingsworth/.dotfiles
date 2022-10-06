@@ -8,6 +8,5 @@ local spec = Specification
       "nvim-lua/plenary.nvim",
     },
   })
-  .spec()
 
 return spec

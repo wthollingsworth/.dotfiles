@@ -1,3 +1,5 @@
+local use = require("packer").use
+
 local Specification = {}
 
 Specification.new = function(repo)
@@ -25,6 +27,10 @@ Specification.new = function(repo)
 
   function self.spec()
     return spec
+  end
+
+  function self.use()
+    use(spec)
   end
 
   return self

@@ -6,6 +6,5 @@ local spec = Specification
   .with({
     requires = "tpope/vim-fugitive",
   })
-  .spec()
 
 return spec

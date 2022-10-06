@@ -5,6 +5,5 @@ local spec = Specification
   .with({
     config = [[ require('dressing').setup()]]
   })
-  .spec()
 
 return spec

@@ -5,6 +5,5 @@ local spec = Specification
   .with({
     requires = { "kyazdani42/nvim-web-devicons" },
   })
-  .spec()
 
 return spec

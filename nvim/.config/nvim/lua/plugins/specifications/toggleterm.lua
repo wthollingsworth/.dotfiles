@@ -18,6 +18,5 @@ local spec = Specification
       vim.keymap.set("n", "gt", ":ToggleTerm<CR>")
     end
   })
-  .spec()
 
 return spec

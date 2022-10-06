@@ -5,6 +5,5 @@ local spec = Specification
   .with({
     requires = "nvim-treesitter/nvim-treesitter",
   })
-  .spec()
 
 return spec

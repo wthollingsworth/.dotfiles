@@ -29,7 +29,7 @@ return require("packer").startup({
 
     local specs = utils.glob_require("plugins.specifications")
     for module, spec in pairs(specs) do
-      use(spec)
+      spec.use()
     end
 
 		-- Automatically sync if packer was installed

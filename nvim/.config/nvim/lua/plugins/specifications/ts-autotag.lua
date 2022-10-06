@@ -5,6 +5,5 @@ local spec = Specification -- autoclose and rename HTML tags
   .with({
     requires = { "nvim-treesitter/nvim-treesitter" },
   })
-  .spec()
 
 return spec

@@ -5,6 +5,5 @@ local spec = Specification
   .with({
     reqiures = "williamboman/mason-lspconfig.nvim",
   })
-  .spec()
 
 return spec

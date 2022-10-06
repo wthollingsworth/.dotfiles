@@ -11,6 +11,5 @@ local spec = Specification
       })
     end
   })
-  .spec()
 
 return spec

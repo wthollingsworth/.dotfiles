@@ -25,6 +25,5 @@ local spec = Specification
       vim.keymap.set("n", "<leader>th", builtin.help_tags)
     end
   })
-  .spec()
 
 return spec

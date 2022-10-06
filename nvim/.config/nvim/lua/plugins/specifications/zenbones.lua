@@ -6,6 +6,5 @@ local spec = Specification
     -- more configuration options
     requires = "rktjmp/lush.nvim",
   })
-  .spec()
 
 return spec
