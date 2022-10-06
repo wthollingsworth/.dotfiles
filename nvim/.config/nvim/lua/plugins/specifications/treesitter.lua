@@ -2,6 +2,12 @@ local Specification = require("plugins.util.specification")
 
 local spec = Specification
   .new("nvim-treesitter/nvim-treesitter")
+  .dependents({
+    "windwp/nvim-ts-autotag",
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    "RRethy/nvim-treesitter-endwise",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  })
   .with({
     -- Update the language parsers when updating Treesitter
     run = ":TSUpdate",

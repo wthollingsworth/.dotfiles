@@ -2,6 +2,14 @@ local Specification = require("plugins.util.specification")
 
 local spec = Specification
   .new("hrsh7th/nvim-cmp")
+  .dependents({
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-vsnip",
+  })
   .with({
     config = function()
       -- Options for the Neovim completion menu
