@@ -25,10 +25,6 @@ Specification.new = function(repo)
     return self
   end
 
-  function self.spec()
-    return spec
-  end
-
   function self.use()
     use(spec)
   end
