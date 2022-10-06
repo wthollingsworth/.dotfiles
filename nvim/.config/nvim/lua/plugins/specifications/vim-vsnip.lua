@@ -1,7 +1,7 @@
 local Specification = require("plugins.util.specification")
 
 local spec = Specification
-  .for_plugin("hrsh7th/vim-vsnip")
+  .new("hrsh7th/vim-vsnip")
   .with({
     config = function()
       vim.g.vsnip_filetypes = {

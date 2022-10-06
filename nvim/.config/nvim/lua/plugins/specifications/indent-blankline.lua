@@ -1,7 +1,7 @@
 local Specification = require("plugins.util.specification")
 
 local spec = Specification
-  .for_plugin("lukas-reineke/indent-blankline.nvim")
+  .new("lukas-reineke/indent-blankline.nvim")
   .with({
     config = function()
       -- Show virtual characters to repreesent whitespace.

@@ -1,7 +1,7 @@
 local Specification = require("plugins.util.specification")
 
 local spec = Specification
-  .for_plugin("hrsh7th/nvim-cmp")
+  .new("hrsh7th/nvim-cmp")
   .with({
     config = function()
       -- Options for the Neovim completion menu

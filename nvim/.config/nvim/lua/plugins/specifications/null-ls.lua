@@ -1,7 +1,7 @@
 local Specification = require("plugins.util.specification")
 
 local spec = Specification
-  .for_plugin("jose-elias-alvarez/null-ls.nvim")
+  .new("jose-elias-alvarez/null-ls.nvim")
   .with({
     config = function()
       local defaults = require("lsp.defaults")

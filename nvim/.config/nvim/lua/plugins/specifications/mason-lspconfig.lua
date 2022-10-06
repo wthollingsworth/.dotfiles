@@ -1,7 +1,7 @@
 local Specification = require("plugins.util.specification")
 
 local spec = Specification
-  .for_plugin("williamboman/mason-lspconfig.nvim")
+  .new("williamboman/mason-lspconfig.nvim")
   .with({
     requires = "williamboman/mason.nvim",
     config = function()

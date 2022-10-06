@@ -1,6 +1,6 @@
 local Specification = {}
 
-Specification.for_plugin = function(repo)
+Specification.new = function(repo)
   local self = {}
 
   -- Many plugins use the cute extention `.nvim`.

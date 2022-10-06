@@ -1,7 +1,7 @@
 local Specification = require("plugins.util.specification")
 
 local spec = Specification
-  .for_plugin("akinsho/toggleterm.nvim")
+  .new("akinsho/toggleterm.nvim")
   .with({
     config = function()
       require("toggleterm").setup({

@@ -1,7 +1,7 @@
 local Specification = require("plugins.util.specification")
 
 local spec = Specification
-  .for_plugin("neovim/nvim-lspconfig")
+  .new("neovim/nvim-lspconfig")
   .with({
     reqiures = "williamboman/mason-lspconfig.nvim",
   })
