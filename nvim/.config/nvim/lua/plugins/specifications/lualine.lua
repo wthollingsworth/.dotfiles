@@ -6,37 +6,31 @@ local spec = Specification
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = function()
       local gps = require("nvim-gps")
-      local zenbones = require("lualine.themes.zenbones")
-      local palette = require("zenbones.palette")
 
-      -- make sections c and x blend in with the buffer
-      --nordbones.normal.c.bg = palette.nord0
-      zenbones.normal.c.bg = palette.bg
-
-      -- make the tabline look more like the statusline
-      zenbones.inactive.a = {
-        --fg = "#A8B1C5",
-        fg = "#564E4A",
-        --bg = "#4C566A",
-        bg = "#C4B6AF",
-        gui = "", -- no bold
-      }
+      local colors = require("nord.colors")
+      local nord = require("lualine.themes.nord")
+      nord = vim.tbl_deep_extend("force", nord, {
+        normal = {
+          c = { bg = colors.nord0_gui },
+        },
+        inactive = {
+          a = { fg = colors.nord4_gui, bg = colors.nord1_gui },
+        },
+      })
 
       require("lualine").setup({
         options = {
           icons_enabled = true,
-          theme = zenbones,
+          theme = nord,
           component_separators = "|",
-          --section_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "" },
           disabled_filetypes = { "SidebarNvim", "toggleterm" },
           always_divide_middle = true,
           globalstatus = true,
         },
         sections = {
           lualine_a = {
-            --{ "mode", separator = { left = "" } },
-            "mode",
+            { "mode", separator = { left = "" } },
           },
           lualine_b = { { "branch", icon = "" }, "diff", "diagnostics" },
           lualine_c = {
@@ -45,8 +39,7 @@ local spec = Specification
           lualine_x = { "encoding", "fileformat", "filetype" },
           lualine_y = { "progress" },
           lualine_z = {
-            --{ "location", separator = { right = "" } },
-            "location",
+            { "location", separator = { right = "" } },
           },
         },
         tabline = {
@@ -56,7 +49,7 @@ local spec = Specification
               "windows",
               mode = 2,
               -- For the ends of the whole component.
-              --separator = { left = "", right = "" },
+              separator = { left = "", right = "" },
               -- Disable the separator for the "sections" within the component.
               section_separators = { left = "", right = "" },
             },
@@ -71,7 +64,7 @@ local spec = Specification
               "tabs",
               mode = 2,
               -- For the ends of the whole component.
-              --separator = { left = "", right = "" },
+              separator = { left = "", right = "" },
               -- Disable the separator for the "sections" within the component.
               section_separators = { left = "", right = "" },
             },
