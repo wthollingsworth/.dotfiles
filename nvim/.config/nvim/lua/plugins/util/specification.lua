@@ -19,13 +19,25 @@ Specification.new = function(repo)
       end
     end
   }
+  local dependents = {}
 
   function self.with(tbl)
     spec = vim.tbl_deep_extend("force", spec, tbl)
     return self
   end
 
+  function self.dependents(tbl)
+    for _, dependent in ipairs(tbl) do
+      table.insert(dependents, dependent)
+    end
+
+    return self
+  end
+
   function self.use()
+    for _, dependent in ipairs(dependents) do
+      use({ dependent, requires = repo })
+    end
     use(spec)
   end
 
