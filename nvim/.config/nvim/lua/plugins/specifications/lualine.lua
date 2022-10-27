@@ -14,8 +14,8 @@ local spec = Specification
           c = { bg = colors.nord0_gui },
         },
         inactive = {
-          a = { fg = colors.nord4_gui, bg = colors.nord1_gui },
-        },
+          c = { bg = colors.nord0_gui },
+        }
       })
 
       require("lualine").setup({
@@ -42,34 +42,16 @@ local spec = Specification
             { "location", separator = { right = "" } },
           },
         },
-        tabline = {
-          lualine_a = {
-            {
-              -- show buffers for just the current tab
-              "windows",
-              mode = 2,
-              -- For the ends of the whole component.
-              separator = { left = "", right = "" },
-              -- Disable the separator for the "sections" within the component.
-              section_separators = { left = "", right = "" },
-            },
-          },
-          lualine_b = {},
-          lualine_c = {},
-          lualine_x = {},
-          lualine_y = {},
+        winbar = {
           lualine_z = {
-            {
-              -- show all tabs
-              "tabs",
-              mode = 2,
-              -- For the ends of the whole component.
-              separator = { left = "", right = "" },
-              -- Disable the separator for the "sections" within the component.
-              section_separators = { left = "", right = "" },
-            },
+            { "filename", separator = { left = "", right = "" } },
           },
         },
+        inactive_winbar = {
+          lualine_z = {
+            { "filename", separator = { left = "", right = "" } },
+          },
+        }
       })
     end
   })
