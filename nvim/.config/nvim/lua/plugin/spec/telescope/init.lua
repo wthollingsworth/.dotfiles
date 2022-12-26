@@ -1,3 +1,5 @@
+local undo = require("plugin.spec.telescope.undo")
+
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -8,11 +10,13 @@ return {
     config = function()
       local telescope = require("telescope")
       local builtin = require("telescope.builtin")
+      local extensions = telescope.extensions
       local wk = require("which-key")
 
       telescope.setup({})
       telescope.load_extension("fzf")
       telescope.load_extension("noice")
+      telescope.load_extension("undo")
 
       wk.register(
         {
@@ -26,11 +30,13 @@ return {
             m = { builtin.marks, "Search marks" },
             r = { builtin.resume, "Resume previous session" },
             s = { builtin.search_history, "Browse search history" },
-            t = { builtin.treesitter, "Search Treesitter symbols" }
+            t = { builtin.treesitter, "Search Treesitter symbols" },
+            u = { extensions.undo.undo, "Browse change history" }
           }
         },
         { mode = "n", prefix = "<leader>" }
       )
     end
-  }
+  },
+  undo
 }
