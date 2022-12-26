@@ -1,7 +1,7 @@
 {
   "catppuccin": { "branch": "main", "commit": "55f43a952856bc0029e6cef066297c6cfab3451d" },
   "indent-blankline.nvim": { "branch": "master", "commit": "c4c203c3e8a595bc333abaf168fcb10c13ed5fb7" },
-  "lazy.nvim": { "branch": "main", "commit": "c4d924aceea13cfab5cf23d0765c5d206deff341" },
+  "lazy.nvim": { "branch": "main", "commit": "de383740a24cdbb4a8df48e2415ab79770df200c" },
   "lualine.nvim": { "branch": "master", "commit": "fffbcb829288c3ca366f17cdb8d46aefb5c1d6f3" },
   "noice.nvim": { "branch": "main", "commit": "585d24ec6e3fb4288414f864cfe2de7d025e8216" },
   "nui.nvim": { "branch": "main", "commit": "4939282919885e1c83aff68ecb35b3cadf6015a9" },
@@ -17,7 +17,9 @@
   "telescope-undo.nvim": { "branch": "main", "commit": "85b1cac55bbf8ea843f6a64f57d99aacac3ceff3" },
   "telescope.nvim": { "branch": "master", "commit": "e960efa60e97df58e089b00270f09d60f27202c8" },
   "toggleterm.nvim": { "branch": "main", "commit": "b02a1674bd0010d7982b056fd3df4f717ff8a57a" },
+  "twilight.nvim": { "branch": "main", "commit": "1ffa6a4d89fb2fbb784c6674044bf54f1fca936f" },
   "vim-fugitive": { "branch": "master", "commit": "5b0b138483de17a8fd8dfcec0b491782c8fbf102" },
   "vim-rhubarb": { "branch": "master", "commit": "cad60fe382f3f501bbb28e113dfe8c0de6e77c75" },
-  "which-key.nvim": { "branch": "main", "commit": "8682d3003595017cd8ffb4c860a07576647cc6f8" }
+  "which-key.nvim": { "branch": "main", "commit": "8682d3003595017cd8ffb4c860a07576647cc6f8" },
+  "zen-mode.nvim": { "branch": "main", "commit": "6f5702db4fd4a4c9a212f8de3b7b982f3d93b03c" }
 }
