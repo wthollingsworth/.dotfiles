@@ -1,5 +1,6 @@
 local autopairs = require("plugin.spec.treesitter.autopairs")
 local autotag = require("plugin.spec.treesitter.autotag")
+local context_commentstring = require("plugin.spec.treesitter.context-commentstring")
 local endwise = require("plugin.spec.treesitter.endwise")
 local refactor = require("plugin.spec.treesitter.refactor")
 
@@ -22,6 +23,9 @@ return {
         autotag = {
           enable = true
         },
+        context_commentstring = {
+          enable = true
+        },
         endwise = {
           enable = true
         },
@@ -38,6 +42,7 @@ return {
   },
   autopairs,
   autotag,
+  context_commentstring,
   endwise,
   refactor
 }
