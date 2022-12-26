@@ -10,13 +10,14 @@ return {
         options = {
           -- use a global statusline
           globalstatus = true,
-          section_separators = { left = '', right = '' },
-          component_separators = { left = '', right = '' }
+          section_separators = { left = "", right = "" },
+          component_separators = { left = "", right = "" },
+          disabled_filetypes = { "toggleterm" }
         },
 
         sections = {
           lualine_b = { 
-            "branch",
+            { "branch", icon = "" },
             "diff",
             "diagnostics",
             {
@@ -29,7 +30,7 @@ return {
 
         inactive_winbar = {
           lualine_x = { "filename" }
-        },
+        }
       })
     end
   }
