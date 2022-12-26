@@ -8,6 +8,12 @@ return {
         flavour = "frappe",
         dim_inactive = {
           enabled = true,
+        },
+        integrations = {
+          indent_blankline = {
+            enabled = true,
+            colored_indent_levels = true
+          }
         }
       })
       vim.cmd.colorscheme("catppuccin")
