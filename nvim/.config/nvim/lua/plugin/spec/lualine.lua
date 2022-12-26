@@ -5,7 +5,7 @@ return {
       "kyazdani42/nvim-web-devicons"
     },
     config = function()
-      lualine = require("lualine")
+      local lualine = require("lualine")
       lualine.setup({
         options = {
           -- use a global statusline

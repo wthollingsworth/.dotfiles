@@ -3,7 +3,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     config = function()
-      catppuccin = require("catppuccin")
+      local catppuccin = require("catppuccin")
       catppuccin.setup({
         flavour = "frappe",
         dim_inactive = {

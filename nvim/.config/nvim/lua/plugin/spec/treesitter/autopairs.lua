@@ -4,7 +4,7 @@ return {
     "nvim-treesitter/nvim-treesitter"
   },
   config = function()
-    autopairs = require("nvim-autopairs")
+    local autopairs = require("nvim-autopairs")
     autopairs.setup({})
   end
 }
