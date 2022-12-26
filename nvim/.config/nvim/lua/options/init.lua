@@ -58,7 +58,7 @@ opt.updatetime = 250
 opt.undofile = true
 
 -- Time in milliseconds to wait for a mapped sequence to complete.
-opt.timeoutlen = 250
+opt.timeoutlen = 400
 
 -- Integrate with the system clipboard.  That is, allow things like
 -- <C-V> -> p and y -> <C-V>.  This will include the selection clipboard
@@ -126,3 +126,6 @@ opt.colorcolumn = { 80 }
 
 -- Enable global statusline
 opt.laststatus = 3
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "

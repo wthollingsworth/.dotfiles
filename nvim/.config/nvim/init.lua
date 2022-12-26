@@ -1,5 +1,4 @@
 require("options")
-require("keybindings")
 
 local util = require("plugin.util")
 util.bootstrap_plugin_manager()
@@ -21,4 +20,11 @@ require("lazy").setup("plugin.spec", {
       }
     }
   }
+})
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    require("keymaps")
+  end
 })
