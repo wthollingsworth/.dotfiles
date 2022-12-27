@@ -1,6 +1,7 @@
 local buffer = require("plugin.spec.cmp.buffer")
 local cmdline = require("plugin.spec.cmp.cmdline")
 local lsp = require("plugin.spec.cmp.lsp")
+local kind = require("plugin.spec.cmp.lspkind")
 local path = require("plugin.spec.cmp.path")
 
 local has_words_before = function()
@@ -18,6 +19,7 @@ return {
     "hrsh7th/nvim-cmp",
     config = function()
       local cmp = require("cmp")
+      local lspkind = require("lspkind")
 
       cmp.setup({
         mapping = cmp.mapping.preset.insert({
@@ -46,11 +48,25 @@ return {
             end
           end, { "i", "s" }),
         }),
+
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
         }, {
           { name = 'buffer' },
-        })
+        }),
+
+        formatting = {
+          format = lspkind.cmp_format({
+            mode = "symbol_text",
+            maxwidth = 50,
+            ellipsis_char = "...",
+
+            -- override default symbols
+            symbol_map = {
+              Variable = ""
+            }
+          })
+        }
       })
 
       cmp.setup.cmdline({ '/', '?' }, {
@@ -68,5 +84,6 @@ return {
   buffer,
   cmdline,
   lsp,
+  kind,
   path
 }
