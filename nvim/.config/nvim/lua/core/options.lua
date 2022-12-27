@@ -23,12 +23,12 @@ opt.shortmess:append({ c = true })
 -- We use square brackets to append to the table since some of the symbols
 -- can't work as bare keys.
 opt.whichwrap:append({
-	["<"] = true, -- <Left>, Normal/Visual
-	[">"] = true, -- <Right>, Normal/Visual
-	["["] = true, -- <Left>, Insert/Replace
-	["]"] = true, -- <Right>, Insert/Replace
-	["b"] = true, -- <Backspace>
-	["s"] = true, -- <Space>
+  ["<"] = true, -- <Left>, Normal/Visual
+  [">"] = true, -- <Right>, Normal/Visual
+  ["["] = true, -- <Left>, Insert/Replace
+  ["]"] = true, -- <Right>, Insert/Replace
+  ["b"] = true, -- <Backspace>
+  ["s"] = true, -- <Space>
 })
 
 -- Sets the height of the popup menu used for things like command
@@ -65,8 +65,8 @@ opt.timeoutlen = 400
 -- on Linux (i.e., the clipboard used when selecting text but not
 -- explicitly copying it.).
 opt.clipboard:append({
-	"unnamed",
-	"unnamedplus",
+  "unnamed",
+  "unnamedplus",
 })
 
 -- Highlight search matches.

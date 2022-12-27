@@ -17,34 +17,34 @@ return {
 
         -- built-in modules
         highlight = {
-          enable = true
+          enable = true,
         },
 
         -- plugin modules
         autotag = {
-          enable = true
+          enable = true,
         },
         context_commentstring = {
-          enable = true
+          enable = true,
         },
         endwise = {
-          enable = true
+          enable = true,
         },
         refactor = {
           -- highlight definition and usages of the symbole under the
           -- cursor
           highlight_definitions = {
             enable = true,
-            clear_on_cursor_move = true
-          }
-        }
+            clear_on_cursor_move = true,
+          },
+        },
       })
-    end
+    end,
   },
   autopairs,
   autotag,
   context,
   context_commentstring,
   endwise,
-  refactor
+  refactor,
 }

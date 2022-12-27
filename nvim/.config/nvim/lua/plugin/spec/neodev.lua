@@ -4,6 +4,6 @@ return {
     config = function()
       local neodev = require("neodev")
       neodev.setup({})
-    end
-  }
+    end,
+  },
 }

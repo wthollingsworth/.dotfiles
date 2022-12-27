@@ -1,7 +1,7 @@
 return {
   "windwp/nvim-autopairs",
   dependencies = {
-    "nvim-treesitter/nvim-treesitter"
+    "nvim-treesitter/nvim-treesitter",
   },
   config = function()
     local autopairs = require("nvim-autopairs")
@@ -16,5 +16,5 @@ return {
       -- autoindent
       map_cr = true,
     })
-  end
+  end,
 }

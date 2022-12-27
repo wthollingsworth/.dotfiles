@@ -8,13 +8,10 @@ return {
       toggleterm.setup({
         shade_terminals = false,
         winbar = {
-          enabled = false
-        }
+          enabled = false,
+        },
       })
-      wk.register(
-        { ["gt"] = { "<cmd>ToggleTerm<CR>", "Open ToggleTerm" } },
-        { mode = "n" }
-      )
-    end
-  }
+      wk.register({ ["gt"] = { "<cmd>ToggleTerm<CR>", "Open ToggleTerm" } }, { mode = "n" })
+    end,
+  },
 }

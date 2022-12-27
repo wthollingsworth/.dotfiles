@@ -4,7 +4,7 @@ util.bootstrap_plugin_manager()
 local lazy = require("lazy")
 lazy.setup("plugin.spec", {
   install = {
-    colorscheme = { "catppuccin" }
+    colorscheme = { "catppuccin" },
   },
   performance = {
     rtp = {
@@ -16,25 +16,22 @@ lazy.setup("plugin.spec", {
         "tarPlugin",
         "tohtml",
         "tutor",
-        "zipPlugin"
-      }
-    }
-  }
+        "zipPlugin",
+      },
+    },
+  },
 })
 
 local wk = require("which-key")
-wk.register(
-  {
-    l = {
-      name = "lazy",
-      c = { lazy.check, "Check for updates and show the log" },
-      h = { lazy.help, "Show help page" },
-      i = { lazy.install, "Install missing plugins" },
-      l = { lazy.log, "Show recent updates" },
-      r = { lazy.restore, "Update all plugins to the state in the lockfile" },
-      s = { lazy.sync, "Run, install, clean, and update" },
-      u = { lazy.update, "Update plugins and lockfile" }
-    }
+wk.register({
+  l = {
+    name = "lazy",
+    c = { lazy.check, "Check for updates and show the log" },
+    h = { lazy.help, "Show help page" },
+    i = { lazy.install, "Install missing plugins" },
+    l = { lazy.log, "Show recent updates" },
+    r = { lazy.restore, "Update all plugins to the state in the lockfile" },
+    s = { lazy.sync, "Run, install, clean, and update" },
+    u = { lazy.update, "Update plugins and lockfile" },
   },
-  { mode = "n", prefix = "<leader>" }
-)
+}, { mode = "n", prefix = "<leader>" })

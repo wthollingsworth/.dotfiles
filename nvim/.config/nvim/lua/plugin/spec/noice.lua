@@ -4,7 +4,7 @@ return {
     -- You may also need to run `:TSInstall vim` and `:TSInstall lua`
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify"
+      "rcarriga/nvim-notify",
     },
     config = function()
       local noice = require("noice")
@@ -33,11 +33,16 @@ return {
         {
           n = {
             name = "noice",
-            m = { function() noice.cmd("telescope") end, "Review message history" }
-          }
+            m = {
+              function()
+                noice.cmd("telescope")
+              end,
+              "Review message history",
+            },
+          },
         },
-        { mode = "n", prefix = "<leader>" }
+        { mode = "n", prefix = "<leader>" },
       })
-    end
-  }
+    end,
+  },
 }

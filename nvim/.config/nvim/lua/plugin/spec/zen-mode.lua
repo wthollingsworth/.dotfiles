@@ -6,9 +6,9 @@ return {
       zen_mode.setup({
         kitty = {
           enabled = true,
-          font = "+4"
-        }
+          font = "+4",
+        },
       })
-    end
-  }
+    end,
+  },
 }

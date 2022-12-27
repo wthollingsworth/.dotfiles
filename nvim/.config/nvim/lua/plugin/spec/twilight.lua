@@ -4,6 +4,6 @@ return {
     configure = function()
       local twilight = require("twilight")
       twilight.setup({})
-    end
-  }
+    end,
+  },
 }

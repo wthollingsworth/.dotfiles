@@ -1,3 +1,3 @@
 return {
-  "ryvnf/readline.vim"
+  "ryvnf/readline.vim",
 }

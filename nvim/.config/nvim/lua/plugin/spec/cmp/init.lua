@@ -23,10 +23,10 @@ return {
 
       cmp.setup({
         mapping = cmp.mapping.preset.insert({
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.abort(),
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-e>"] = cmp.mapping.abort(),
 
           -- Accept currently selected item. If none selected, `select` first item.
           -- Set `select` to `false` to only confirm explicitly selected items.
@@ -50,9 +50,9 @@ return {
         }),
 
         sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
+          { name = "nvim_lsp" },
         }, {
-          { name = 'buffer' },
+          { name = "buffer" },
         }),
 
         formatting = {
@@ -63,27 +63,27 @@ return {
 
             -- override default symbols
             symbol_map = {
-              Variable = ""
-            }
-          })
-        }
+              Variable = "",
+            },
+          }),
+        },
       })
 
-      cmp.setup.cmdline({ '/', '?' }, {
+      cmp.setup.cmdline({ "/", "?" }, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
-          { name = 'buffer' }
-        }
+          { name = "buffer" },
+        },
       })
 
       -- I don't have command completion here because Noice will do that on
       -- it's own.  It also doesn't try to show LSP kind information, which
       -- is good since that doesn't really make sense.
-    end
+    end,
   },
   buffer,
   cmdline,
   lsp,
   kind,
-  path
+  path,
 }

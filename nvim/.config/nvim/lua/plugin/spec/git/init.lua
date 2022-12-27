@@ -3,5 +3,5 @@ local rhubarb = require("plugin.spec.git.rhubarb")
 
 return {
   fugitive,
-  rhubarb
+  rhubarb,
 }

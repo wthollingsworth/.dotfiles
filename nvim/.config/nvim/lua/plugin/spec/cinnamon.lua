@@ -8,8 +8,8 @@ return {
 
         -- scrolling can get really janky for long lines or files, so do not
         -- include keymaps like `gg` or `0`
-        extra_keymaps = false
+        extra_keymaps = false,
       })
-    end
-  }
+    end,
+  },
 }
