@@ -29,6 +29,13 @@ return {
       highlight(0, "IndentBlanklineChar5", { bg = "#5A7B91", fg = frappe.sapphire, nocombine = true })
       highlight(0, "IndentBlanklineChar6", { bg = "#5E6F9A", fg = frappe.blue, nocombine = true })
       highlight(0, "IndentBlanklineChar7", { bg = "#75779C", fg = frappe.lavender, nocombine = true })
+      highlight(0, "IndentBlanklineContextChar1", { fg = frappe.text, bg = "#8C5B65", nocombine = true })
+      highlight(0, "IndentBlanklineContextChar2", { fg = frappe.text, bg = "#906a5e", nocombine = true })
+      highlight(0, "IndentBlanklineContextChar3", { fg = frappe.text, bg = "#8B7E6B", nocombine = true })
+      highlight(0, "IndentBlanklineContextChar4", { fg = frappe.text, bg = "#6B7268", nocombine = true })
+      highlight(0, "IndentBlanklineContextChar5", { fg = frappe.text, bg = "#5A7B91", nocombine = true })
+      highlight(0, "IndentBlanklineContextChar6", { fg = frappe.text, bg = "#5E6F9A", nocombine = true })
+      highlight(0, "IndentBlanklineContextChar7", { fg = frappe.text, bg = "#75779C", nocombine = true })
 
       indent_blankline.setup({
         use_treesitter = true,
@@ -41,6 +48,7 @@ return {
 
         -- the character used to draw indent lines
         char = "▏",
+        context_char = "▎",
 
         -- how to highlight the indent lines
         char_highlight_list = {
@@ -51,6 +59,17 @@ return {
           "IndentBlanklineChar5",
           "IndentBlanklineChar6",
           "IndentBlanklineChar7",
+        },
+
+        -- how to highlight the indent lines for the current context
+        context_highlight_list = {
+          "IndentBlanklineContextChar1",
+          "IndentBlanklineContextChar2",
+          "IndentBlanklineContextChar3",
+          "IndentBlanklineContextChar4",
+          "IndentBlanklineContextChar5",
+          "IndentBlanklineContextChar6",
+          "IndentBlanklineContextChar7",
         },
 
         -- how to highlight the spaces between indent lines
