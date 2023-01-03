@@ -30,6 +30,8 @@ local _base_lua_path = M.join_paths(vim.fn.stdpath('config'), 'lua')
 --         paths of all lua modules within the given
 --         package
 -----------------------------------------------------------
+local function nvim_basename(path)
+end
 function M.globify_package(package)
   -- a joined path with package-style dot separators replaced
   -- with the forward slash separators that vim.fn.glob expects
@@ -39,16 +41,20 @@ function M.globify_package(package)
     '*.lua'
   )
 
+  -- filter out init files and anything starting with an underscore
+  -- we need to do this step first or else we might get weird list-like
+  -- entries in table returned by vim.tbl_map below
   local paths = vim.split(vim.fn.glob(glob_path), "\n")
-  local glob = vim.tbl_map(function(path)
+  paths = vim.tbl_filter(function(path)
     -- convert absolute filename to relative
     -- ~/.config/nvim/lua/<package>/<module>.lua => <package>/foo
     local relative_path = path:gsub(_base_lua_path .. "/", ""):gsub("%.lua", "")
     local basename = M.basename(relative_path)
-    -- skip `init` and files starting with underscore.
-    if (basename ~= 'init' and basename:sub(1, 1) ~= '_') then
-      return relative_path
-    end
+    return basename ~= "init" and basename:sub(1, 1) ~= "_"
+  end, paths)
+
+  local glob = vim.tbl_map(function(path)
+    return path:gsub(_base_lua_path .. "/", ""):gsub("%.lua", "")
   end, paths)
 
   return glob

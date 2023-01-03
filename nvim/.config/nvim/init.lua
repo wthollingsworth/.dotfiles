@@ -14,3 +14,5 @@ vim.g.nord_borders = true
 vim.g.nord_italic = false
 vim.g.nord_uniform_diff_background = true
 require("nord").set()
+
+-- require("highlights")

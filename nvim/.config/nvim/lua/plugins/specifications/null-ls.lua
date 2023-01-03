@@ -36,7 +36,7 @@ local spec = Specification
           }),
           completion.vsnip,
           diagnostics.erb_lint, -- gem install erb_lint
-          diagnostics.rubocop, -- gem install rubocop
+          -- diagnostics.rubocop, -- gem install rubocop
           formatting.erb_lint, -- gem install erb_lint
           formatting.rubocop, -- gem install rubocop
           formatting.stylua, -- cargo install stylua
