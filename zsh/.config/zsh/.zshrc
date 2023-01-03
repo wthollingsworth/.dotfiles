@@ -16,6 +16,11 @@ export PATH="${XDG_CONFIG_HOME}/zsh/functions:${PATH}"
 # Path to your oh-my-zsh installation.
 export ZSH="${XDG_CONFIG_HOME}/zsh/.oh-my-zsh"
 
+# Load the catppuccin frappe theme for the zsh-syntax-highlighting plugin.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+# for installing as an oh-my-zsh plugin.
+source ${XDG_CONFIG_HOME}/zsh/zsh-syntax-highlighting/catppuccin/frappe.zsh
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -90,6 +95,7 @@ HISTFILE="${XDG_STATE_HOME}/zsh/history"
 plugins=(
     git
     vi-mode
+    zsh-syntax-highlighting
 )
 
 source "${ZSH}/oh-my-zsh.sh"
