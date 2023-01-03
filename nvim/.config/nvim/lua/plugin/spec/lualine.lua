@@ -6,6 +6,7 @@ return {
     },
     config = function()
       local lualine = require("lualine")
+
       lualine.setup({
         options = {
           -- use a global statusline
@@ -16,14 +17,13 @@ return {
         },
 
         sections = {
-          lualine_b = { 
+          lualine_b = {
             { "branch", icon = "" },
             "diff",
             "diagnostics",
             {
-              lazy_status = require("lazy.status")
-              lazy_status.updates,
-              cond = lazy_status.has_updates
+              require("lazy.status").updates,
+              cond = require("lazy.status").has_updates
             }
           }
         },
