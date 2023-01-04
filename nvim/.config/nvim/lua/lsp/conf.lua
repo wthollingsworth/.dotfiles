@@ -1,4 +1,5 @@
 require("lsp.keymaps")
+require("lsp.diagnostic")
 
 -- set defaults for all language servers
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
