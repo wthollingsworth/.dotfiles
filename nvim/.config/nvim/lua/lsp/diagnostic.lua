@@ -30,3 +30,14 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
+-- Use all defaults except do not show virtual text.  The sign column will show 
+-- which lines have diagnostic messages and they will appear in a floating
+-- window per the above configuration.
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
