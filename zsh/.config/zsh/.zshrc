@@ -133,10 +133,10 @@ export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
 
 export SOLARGRAPH_CACHE="${XDG_CACHE_HOME}/solargraph"
 
-export FZF_DEFAULT_OPTS="
---color=bg:#F0EDEC,bg+:#F0EDEC,fg:#2C363C,fg+:#2C363C
---color=prompt:#4F6C31,hl:#88507D,hl+:#7B3B70,header:#3B8992
---color=spinner:#81A1C1,info:#286486,pointer:#944927,marker:#944927
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+--color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+--color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
 --border"
 alias f="fzf --no-info --preview='bat {}'"
 export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS
