@@ -4,9 +4,6 @@ return {
     dependencies = {
       "kyazdani42/nvim-web-devicons",
     },
-    config = function()
-      local trouble = require("trouble")
-      trouble.setup({})
-    end,
+    config = true
   },
 }

@@ -5,9 +5,6 @@ return {
     dependencies = {
       "glepnir/dashboard-nvim",
     },
-    config = function()
-      local drop = require("drop")
-      drop.setup({})
-    end,
+    config = true
   },
 }
