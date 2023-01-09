@@ -1,6 +1,9 @@
 return {
   {
     "akinsho/toggleterm.nvim",
+    tag = "2.3.0",
+    keys = { "gt" },
+    cmd = "ToggleTerm",
     config = function()
       local toggleterm = require("toggleterm")
       local wk = require("which-key")

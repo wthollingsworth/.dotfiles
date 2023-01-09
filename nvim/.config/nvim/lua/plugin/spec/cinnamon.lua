@@ -1,6 +1,8 @@
 return {
   {
     "declancm/cinnamon.nvim",
+    -- The default keymaps below
+    keys = { "<C-B>", "<C-D>", "<C-F>", "<C-U>", "<PageDown>", "<PageUp>" },
     config = function()
       local cinnamon = require("cinnamon")
       cinnamon.setup({
