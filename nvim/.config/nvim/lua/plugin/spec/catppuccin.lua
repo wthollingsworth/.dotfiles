@@ -2,9 +2,11 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    -- This is a colorscheme, so we want to load eagerly.
+    -- This is the primary colorscheme, so we want to load eagerly.
     lazy = false,
     tag = "v0.2.8",
+    -- Make sure the primary colorscheme is loaded first
+    priority = 1000,
     config = function()
       local catppuccin = require("catppuccin")
       catppuccin.setup({
