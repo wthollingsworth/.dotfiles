@@ -12,6 +12,11 @@ return {
         dim_inactive = {
           enabled = true,
         },
+        integrations = {
+          navic = {
+            enabled = true,
+          },
+        },
       })
       vim.cmd.colorscheme("catppuccin")
     end,

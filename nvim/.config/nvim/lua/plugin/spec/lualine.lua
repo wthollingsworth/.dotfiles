@@ -25,7 +25,14 @@ return {
               require("lazy.status").updates,
               cond = require("lazy.status").has_updates
             }
-          }
+          },
+          lualine_c = {
+            'filename',
+            {
+              require("nvim-navic").get_location,
+              cond = require("nvim-navic").is_available
+            },
+          },
         },
 
         inactive_winbar = {
