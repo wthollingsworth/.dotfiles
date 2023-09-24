@@ -147,8 +147,8 @@ export _ZO_DATA_DIR="${XDG_CACHE_HOME}/zoxide"
 alias vi=nvim
 alias vim=nvim
 alias vimdiff="nvim -d"
-export MANPAGER='nvim +Man!'
-export EDITOR="nvim"
+#export MANPAGER='nvim +Man!'
+export EDITOR="hx"
 function nvs {
   curl https://nvim.sh/s/${1}
 }
