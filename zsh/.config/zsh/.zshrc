@@ -89,7 +89,7 @@ export HOMEBREW_PREFIX="$(brew --prefix)"
 #############
 export BAT_CONFIG_PATH="${XDG_CONFIG_HOME}/bat/bat.conf"
 
-eval "$(fzf --zsh)"
+source <(fzf --zsh)
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
 --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
