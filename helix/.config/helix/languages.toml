@@ -1,4 +1,0 @@
-# [[language]]
-# name = "ruby"
-#config = { diagnostics = true, formatting = true, references = true }
-#config = { solargraph = { diagnostics = true, references = true, formatting = true } }

@@ -90,12 +90,8 @@ export HOMEBREW_PREFIX="$(brew --prefix)"
 export BAT_CONFIG_PATH="${XDG_CONFIG_HOME}/bat/bat.conf"
 
 source <(fzf --zsh)
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
---color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
---color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
---border"
-alias f="fzf --no-info --preview='bat {}'"
+export FZF_DEFAULT_OPTS='--color=bg+:#3B4252,bg:#2E3440,spinner:#81A1C1,hl:#616E88,fg:#D8DEE9,header:#616E88,info:#81A1C1,pointer:#81A1C1,marker:#81A1C1,fg+:#D8DEE9,prompt:#81A1C1,hl+:#81A1C1'
+alias fzf="fzf --no-info --preview='bat {}'" --preview-window '~3'
 export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS
 --no-info
 --preview='ls -p {2..}'"
