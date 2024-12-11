@@ -1,0 +1,15 @@
+[core]
+	editor = nvim
+	trustctime = false
+[push]
+	default = simple
+[submodule]
+	recurse = true
+[status]
+	submodulesummary = true
+[alias]
+  co = checkout
+  dog = log --all --decorate --oneline --graph
+  please = push --force-with-lease
+[init]
+	defaultBranch = main
