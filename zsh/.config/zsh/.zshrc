@@ -7,7 +7,42 @@ export PATH="${HOME}/.local/bin/:${PATH}"
 export PATH="/usr/local/bin:${PATH}"
 export PATH="${XDG_CONFIG_HOME}/zsh/functions:${PATH}"
 
-export EDITOR="hx"
+export EDITOR="nvim"
+
+############
+# Homebrew #
+############
+
+# Homebrew prefixes are not consistent across installations.
+# - macOS Intel: `/usr/local`
+# - Linux: `/home/linuxbrew/.linuxbrew`
+#
+# The original use case on macOS was to provide a CLI package
+# manager since macOS doesn't ship with one, and `/usr/local`
+# is the standard place to use when installing software
+# locally, which is why `/usr/local/bin` is in `${PATH}` by
+# default.
+#
+# Apparently the primary use case for Linux is specifically
+# to install newer tools on systems which one doesn't have
+# admin priviliges, and even if one _did_ have root access,
+# Linux distributions _do_ ship with a package manager which
+# will be writing to `/usr/local` and Homebrew shouldn't
+# create conflicts.  So the prefix is set to another
+# location, which of course wouldn't be in `${PATH}`.
+if [ $(uname -s) = "Linux" ]; then
+  HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+else
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
+# Set up Homebrew-related completions and enviroment variables
+eval $("${HOMEBREW_PREFIX}/bin/brew" shellenv)
+
+#######
+# Zsh #
+#######
+bindkey -e # emacs line editing for commands
 
 #############
 # Oh My Zsh #
@@ -32,6 +67,11 @@ plugins=(
 
 source "${ZSH}/oh-my-zsh.sh"
 
+
+##########
+# Prompt #
+##########
+
 # The Headline prompt theme is configured _after_ it is sourced.
 HEADLINE_HOST_TO_PATH=' : '
 HEADLINE_USER_PREFIX=' '
@@ -43,68 +83,31 @@ HEADLINE_USER_TO_HOST=' @ '
 HEADLINE_STYLE_DEFAULT=$black_back
 HEADLINE_LINE_MODE='auto'
 
-#######
-# Zsh #
-#######
-bindkey -e # emacs line editing for commands
-
-# Wait for Oh My Zsh to configure competion
-compdef _rg hg # use kitty's hyperlinked grep completions for ripgrep
-
-############
-# Homebrew #
-############
-
-# Homebrew prefixes are not consistent across installations.
-# - macOS Intel: `/usr/local`
-# - Linux: `/home/linuxbrew/.linuxbrew`
-#
-# The original use case on macOS was to provide a CLI package
-# manager since macOS doesn't ship with one, and `/usr/local`
-# is the standard place to use when installing software
-# locally, which is why `/usr/local/bin` is in `${PATH}` by
-# default.
-#
-# Apparently the primary use case for Linux is specifically
-# to install newer tools on systems which one doesn't have
-# admin priviliges, and even if one _did_ have root access,
-# Linux distributions _do_ ship with a package manager which
-# will be writing to `/usr/local` and Homebrew shouldn't
-# create conflicts.  So the prefix is set to another
-# location, which of course wouldn't be in `${PATH}`.
-if [ $(uname -s) = "Linux" ]; then
-  export PATH="${PATH}:/home/linuxbrew/.linuxbrew/bin"
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  # Currently I'm only using a Brewfile on Linux since I have Casks
-  # (pre-built binaries) installed on macOS and there's no equivalent
-  # feature for Linuxbrew.
-  export HOMEBREW_BUNDLE_FILE="${HOME}/System Restore/snapshots/Brewfile"
-fi
-
-export HOMEBREW_PREFIX="$(brew --prefix)"
-
 #############
 # CLI Tools #
 #############
+
+# Bat
 export BAT_CONFIG_PATH="${XDG_CONFIG_HOME}/bat/bat.conf"
 
+# FZF
 source <(fzf --zsh)
-export FZF_DEFAULT_OPTS='--color=bg+:#3B4252,bg:#2E3440,spinner:#81A1C1,hl:#616E88,fg:#D8DEE9,header:#616E88,info:#81A1C1,pointer:#81A1C1,marker:#81A1C1,fg+:#D8DEE9,prompt:#81A1C1,hl+:#81A1C1'
+export FZF_DEFAULT_OPTS=${FZF_DEFAULT_OPTS}'
+  --color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
+  --color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
+'
 alias fzf="fzf --no-info --preview='bat {}'" --preview-window '~3'
-export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS
---no-info
---preview='ls -p {2..}'"
+
+# Zoxide
 export _ZO_DATA_DIR="${XDG_CACHE_HOME}/zoxide"
+export _ZO_FZF_OPTS=${FZF_DEFAULT_OPTS}"
+  --no-info
+  --preview='ls -p {2..}'"
+eval "$(zoxide init zsh)" # Hook zoxide into prompts to keep track of directories.
 
-# Load the catppuccin frappe theme for the zsh-syntax-highlighting plugin.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
-# for installing as an oh-my-zsh plugin.
-source ${XDG_CONFIG_HOME}/zsh/zsh-syntax-highlighting/catppuccin/frappe.zsh
-
-if [[ -e "${XDG_CONFIG_HOME}/zsh/.zshrc.local" ]]
-then
+#######################
+# Local Configuration #
+#######################
+if [[ -e "${XDG_CONFIG_HOME}/zsh/.zshrc.local" ]]; then
   source "${XDG_CONFIG_HOME}/zsh/.zshrc.local"
 fi
-# Hook zoxide into prompts to keep track of directories.
-eval "$(zoxide init zsh)"
