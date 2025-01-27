@@ -7,6 +7,8 @@ export PATH="${HOME}/.local/bin/:${PATH}"
 export PATH="/usr/local/bin:${PATH}"
 export PATH="${XDG_CONFIG_HOME}/zsh/functions:${PATH}"
 
+export CDPATH=".:${HOME}:${CDPATH}"
+
 export EDITOR="nvim"
 
 ############
