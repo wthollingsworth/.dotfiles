@@ -4,3 +4,13 @@ zsh/.config/zsh/.oh-my-zsh
 zsh/.config/zsh/.zshrc.local
 zsh/.config/zsh/.zcompdump*
 **/.DS_Store
+
+# Fish plugins managed by reef
+fish/.config/fish/corals
+
+# Machine-local fish configuration
+fish/.config/fish.local.config
+fish/.config/fish/conf.d/reef.fish
+
+# Persisted fish variables, which can include machine-specific paths
+fis/.config/fish/fish_variables

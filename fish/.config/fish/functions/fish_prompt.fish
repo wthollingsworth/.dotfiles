@@ -1,0 +1,1 @@
+../corals/IlanCosman/tide/functions/fish_prompt.fish
