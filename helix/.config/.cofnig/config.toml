@@ -1,0 +1,42 @@
+theme = "nord"
+
+[editor]
+line-number = "relative"
+color-modes = true
+bufferline = "multiple"
+popup-border = "all"
+end-of-line-diagnostics = "hint"
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+left = ["mode", "file-base-name", "read-only-indicator", "file-modification-indicator", "version-control"]
+center = ["spinner", "diagnostics"]
+right = ["selections", "position", "file-encoding", "file-type"]
+
+[editor.lsp]
+display-inlay-hints = true
+
+[editor.cursor-shape]
+insert = "underline"
+normal = "bar"
+select = "block"
+
+[editor.whitespace]
+render = "all"
+
+[editor.indent-guides]
+render = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+
+[keys.select]
+esc = ["normal_mode", "collapse_selection", "keep_primary_selection"]

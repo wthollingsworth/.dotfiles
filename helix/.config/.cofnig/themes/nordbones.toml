@@ -1,0 +1,67 @@
+name = "nordbones"
+
+[palette]
+nord0 = "#2E3440"
+nord1 = "#3B4252"
+nord2 = "#434C5E"
+nord3 = "#4C566A"
+nord4 = "#D8DEE9"
+nord5 = "#E5E9F0"
+nord6 = "#ECEFF4"
+nord7 = "#8FBCBB"
+nord8 = "#88C0D0"
+nord9 = "#81A1C1"
+nord10 = "#5E81AC"
+nord11 = "#BF616A"
+nord12 = "#D08770"
+nord13 = "#EBCB8B"
+nord14 = "#A3BE8C"
+nord15 = "#B48EAD"
+
+[ui]
+background = "nord0"
+foreground = "nord4"
+cursor = "nord4"
+selection = "nord3"
+selection_text = "nord6"
+statusline = "nord2"
+statusline_normal = "nord7"
+statusline_insert = "nord10"
+statusline_select = "nord15"
+statusline_inactive = "nord1"
+popup = "nord1"
+popup_info = "nord2"
+menu = "nord1"
+menu_selected = "nord2"
+menu_scroll = "nord3"
+gutter = "nord1"
+gutter_selected = "nord3"
+highlight = "nord2"
+
+[editor]
+foreground = "nord4"
+background = "nord0"
+selection = { bg = "nord2" }
+cursor_line = { bg = "nord1" }
+line_number = { fg = "nord3" }
+line_number_selected = { fg = "nord5", modifiers = ["bold"] }
+inlay_hint = { fg = "nord3", modifiers = ["italic"] }
+
+[syntax]
+comment = { fg = "nord3", modifiers = ["italic"] }
+keyword = { fg = "nord9", modifiers = ["bold"] }
+function = { fg = "nord8", modifiers = ["bold"] }
+type = { fg = "nord7" }
+variable = { fg = "nord4" }
+string = { fg = "nord14" }
+constant = { fg = "nord12" }
+number = { fg = "nord12" }
+attribute = { fg = "nord15", modifiers = ["italic"] }
+namespace = { fg = "nord7" }
+diagnostic = { fg = "nord11", modifiers = ["italic"] }
+
+[diagnostic]
+error = { underline = "nord11" }
+warning = { underline = "nord13" }
+info = { underline = "nord8" }
+hint = { underline = "nord10" }
