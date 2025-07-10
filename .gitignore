@@ -13,4 +13,4 @@ fish/.config/fish.local.config
 fish/.config/fish/conf.d/reef.fish
 
 # Persisted fish variables, which can include machine-specific paths
-fis/.config/fish/fish_variables
+fish/.config/fish/fish_variables

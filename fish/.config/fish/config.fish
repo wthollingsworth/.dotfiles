@@ -38,11 +38,11 @@ switch (uname)
 end
 
 if status is-interactive
-  set -gx CDPATH . $HOME $CDPATH
-  set -gx EDITOR nvim
+    set -gx CDPATH . $HOME $CDPATH
+    set -gx EDITOR hx
 
-  # Set up Homebrew-related completions and enviroment variables
-  eval ($HOMEBREW_PREFIX/bin/brew shellenv)
+    # Set up Homebrew-related completions and enviroment variables
+    eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 end
 
 #############
@@ -54,14 +54,14 @@ set -gx BAT_CONFIG_PATH "$XDG_CONFIG_HOME/bat/bat.conf"
 
 # FZF
 if type -q fzf
-  fzf --fish | source
+    fzf --fish | source
 
-  set -gx FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS'
+    set -gx FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS'
     --color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
     --color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
   '
 
-  alias fzf="fzf --no-info --preview='bat {}' --preview-window='~3'"
+    alias fzf="fzf --no-info --preview='bat {}' --preview-window='~3'"
 end
 
 #########################
@@ -71,4 +71,3 @@ set -l local_config "$XDG_CONFIG_HOME/fish/config.local.fish"
 if test -e $local_config
     source $local_config
 end
-
