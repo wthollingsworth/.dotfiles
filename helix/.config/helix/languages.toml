@@ -1,0 +1,31 @@
+[[language]]
+name = "bash"
+shebangs = [ "sh", "bash", "dash", "zsh" ]
+language-servers = [ "bash-language-server" ]
+# efm runs successfully and sends diagnostics but they aren't shown inline or
+# the in the gutter
+# language-servers = [
+#   { name = "bash-language-server", except-features = [ "format", "diagnostics" ] },
+#   { name = "efm", only-features = [ "format", "diagnostics" ] }
+# ]
+
+# brew install efm-langserver
+# [language-server.efm]
+# command = "efm-langserver"
+# [language-server.efm.config]
+# documentFormatting = true
+# documentRangeFormatting = true
+# hover = true
+# documentSymbol = true
+# codeAction = true
+# completion = true
+
+# brew install bash-language-server
+[language-server.bash-language-server]
+command = "bash-language-server"
+args = [ "start" ]
+[language-server.bash-language-server.config.shfmt]
+languageDialect = "posix"
+caseIndent = true
+binaryNextLine = true
+simplifyCode = true
